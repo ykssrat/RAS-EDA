@@ -1,0 +1,488 @@
+# vsim -c -pli "clibrary/pli.dll" -do "run.tcl" s27_tb 
+# Start time: 15:30:55 on Dec 14,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 10.7c win64 Aug 18 2018
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# do run.tcl
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_0.NOTIFIER_0, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_0.NOTIFIER_1, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_0.NOTIFIER_2, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_0.NOTIFIER_3, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_0.NOTIFIER_4, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_0.NOTIFIER_5, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_0.NOTIFIER_6, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_0.NOTIFIER_7, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_0.NOTIFIER_8, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_1.NOTIFIER_0, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_1.NOTIFIER_1, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_1.NOTIFIER_2, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_1.NOTIFIER_3, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_1.NOTIFIER_4, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_1.NOTIFIER_5, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_1.NOTIFIER_6, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_1.NOTIFIER_7, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_1.NOTIFIER_8, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_2.NOTIFIER_0, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_2.NOTIFIER_1, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_2.NOTIFIER_2, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_2.NOTIFIER_3, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_2.NOTIFIER_4, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_2.NOTIFIER_5, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_2.NOTIFIER_6, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_2.NOTIFIER_7, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.s27_tb(fast)
+# Loading work.s27(fast)
+# Loading work.DFF_X1(fast)
+# Loading work.INV_X1(fast)
+# Loading work.AND2_X1(fast)
+# Loading work.OR2_X1(fast)
+# Loading work.NAND2_X1(fast)
+# Loading work.NOR2_X1(fast)
+# Loading ./clibrary/pli.dll
+# config.json size=281
+# s27_tb.s27_inst.DFF_0.NOTIFIER
+# s27_tb.s27_inst.DFF_1.NOTIFIER
+# s27_tb.s27_inst.DFF_2.NOTIFIER
+# s27_tb.G17
+# [PLI] fault_call start. clk=CK, fault=s27_tb.s27_inst.DFF_2.NOTIFIER_8, fault_file=./output/fault.json
+# [PLI] fault_call done. regs=3, ports=1
+# End time: 15:31:00 on Dec 14,2025, Elapsed time: 0:00:05
+# Errors: 0, Warnings: 0

@@ -1,0 +1,10 @@
+{
+    "clk_name": "CK",
+    "clk_period": 10,
+    "end_time": 132,
+    "circuit_info_file": "./output/circuit_info.json",
+    "golden_file": "./output/golden.json",
+    "fault_file": "./output/fault.json",
+    "path" : "/home/host/Documents/Python_FDR/",
+    "tcl_file": "./run.tcl"
+}

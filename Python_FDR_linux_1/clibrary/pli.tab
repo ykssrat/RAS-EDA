@@ -1,0 +1,2 @@
+$rungolden call=reg_call acc+=rw:*
+$runfault call=fault_call acc+=rw:*

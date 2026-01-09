@@ -1,0 +1,1915 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="node" attr.name="partition" attr.type="string" />
+  <key id="d1" for="node" attr.name="type" attr.type="string" />
+  <key id="d2" for="node" attr.name="connections" attr.type="string" />
+  <key id="d3" for="graph" attr.name="circuit_info" attr.type="string" />
+  <graph id="G" edgedefault="undirected">
+    <data key="d3">{"modules": {"dff": {"ports": ["CK", "Q", "D"], "inputs": ["CK", "D", "CLR", "TEST", "FM"], "outputs": ["GRN2", "Q", "GRN1", "YLW2", "RED2", "YLW1", "RED1"], "wires": [], "instances": [], "cut_signals": [], "cut_signal_directions": {}}, "s382": {"ports": ["CK", "CLR", "FM", "GRN1", "GRN2", "RED1", "RED2", "TEST", "YLW1", "YLW2"], "inputs": ["CK", "D", "CLR", "TEST", "FM"], "outputs": ["GRN2", "Q", "GRN1", "YLW2", "RED2", "YLW1", "RED1"], "wires": ["TESTL", "TESTLVIINLATCHVCDAD", "FML", "FMLVIINLATCHVCDAD", "OLATCH_Y2L", "TCOMB_YA2", "OLATCHVUC_6", "Y1C", "OLATCHVUC_5", "R2C", "OLATCH_R1L", "TCOMB_RA1", "OLATCH_G2L", "TCOMB_GA2", "OLATCH_G1L", "TCOMB_GA1", "OLATCH_FEL", "TCOMB_FE_BF", "C3_Q3", "C3_Q3VD", "C3_Q2", "C3_Q2VD", "C3_Q1", "C3_Q1VD", "C3_Q0", "C3_Q0VD", "UC_16", "UC_16VD", "UC_17", "UC_17VD", "UC_18", "UC_18VD", "UC_19", "UC_19VD", "UC_8", "UC_8VD", "UC_9", "UC_9VD", "UC_10", "UC_10VD", "UC_11", "UC_11VD", "TESTLVIINLATCHN", "FMLVIINLATCHN", "OLATCH_Y1L", "OLATCH_R2L", "UC_23", "UC_24", "UC_25", "UC_26", "UC_20", "C2_QN2", "UC_21", "UC_22", "UC_12", "UC_13", "UC_14", "UC_15", "FMBVIIR1", "CLRBVIIR1", "TCOMBVNFM", "TESTBVIIR1", "TCOMBVNQA", "TCOMBVNQB", "TCOMBVNQC", "TCOMBVNQD", "UC_11VUC_0", "OUTBUFVBUFG1VIIR1", "OUTBUFVBUFG2VIIR1", "TCOMBVNFEL", "OUTBUFVBUFR1VIIR1", "OUTBUFVBUFY2VIIR1", "FMB", "CLRB", "TESTB", "UC_11VZ", "C1VCO0", "OUTBUFVBUFR2VIIR1", "OUTBUFVBUFY1VIIR1", "FMLVIINMUXVIIR1", "TESTLVIINLATCHVCDN", "FMLVIINLATCHVCDN", "TCOMBVNCLR", "TESTLVIINMUXVIIR1", "C2VIINHN", "CTST", "UC_8VZ", "UC_8VZVOR1NF", "CO2", "C2_CO", "FMLVIINMUX", "FMLVIINMUXVND1", "TESTLVIINMUX", "TESTLVIINMUXVND1", "II84", "TCOMB_FE", "FEN", "UC_16VZ", "UC_16VZVOR1NF", "C3VIINHN", "C3_Q3VZ", "C3_Q3VZVOR1NF", "TCOMB_GA1VAD1NF", "TCOMBVNODE6", "TCOMB_GA2VAD4NF", "TCOMB_GA2VAD3NF", "TCOMB_GA2VAD2NF", "TCOMB_GA2VAD1NF", "R2CVAD1NF", "Y1CVAD1NF", "TCOMB_YA1", "Y1CVAD2NF", "R2CVAD2NF", "TCOMB_RA2", "TCOMB_RA1VOR2NF", "TCOMBVNODE8VOR1NF", "TCOMB_RA1VOR1NF", "TCOMBVNODE8VOR2NF", "FMLVIINMUXVOR1NF", "TCOMB_RA2VOR3NF", "TCOMB_RA2VOR1NF", "TCOMBVNODE4VOR2NF", "TCOMBVNODE4VOR1NF", "TESTLVIINMUXVOR1NF", "TCOMBVNODE16VOR1NF", "TCOMBVNODE18", "C1VCO2", "UC_9VZVOR1NF", "C1VCO1", "UC_10VZVOR1NF", "FMLVIINMUXVOR2NF", "TESTLVIINMUXVOR2NF", "C2VCO2", "UC_17VZVOR1NF", "C2VCO1", "UC_18VZVOR1NF", "C2VCO0", "UC_19VZVOR1NF", "C3VCO2", "C3_Q2VZVOR1NF", "C3VCO1", "C3_Q1VZVOR1NF", "C3VCO0", "C3_Q0VZVOR1NF", "UC_9VUC_0", "UC_10VUC_0", "TCOMBVNODE4", "TCOMBVNODE14", "TCOMBVNODE15", "TCOMBVNODE12", "TCOMBVNODE8", "TCOMBVNODE16", "TCOMBVNODE19", "UC_9VZ", "UC_10VZ", "TCOMBVNODE3", "UC_17VUC_0", "UC_18VUC_0", "UC_19VUC_0", "UC_17VZ", "UC_18VZ", "UC_19VZ", "C3_Q2VUC_0", "C3_Q1VUC_0", "C3_Q0VUC_0", "C3_Q2VZ", "C3_Q1VZ", "C3_Q0VZ", "C3VCIIA", "C1VCIIA", "C2VCIIA", "C1_CO", "UC_27"], "instances": [["dff", "DFF_0", "CK,TESTL,TESTLVIINLATCHVCDAD"], ["dff", "DFF_1", "CK,FML,FMLVIINLATCHVCDAD"], ["dff", "DFF_2", "CK,OLATCH_Y2L,TCOMB_YA2"], ["dff", "DFF_3", "CK,OLATCHVUC_6,Y1C"], ["dff", "DFF_4", "CK,OLATCHVUC_5,R2C"], ["dff", "DFF_5", "CK,OLATCH_R1L,TCOMB_RA1"], ["dff", "DFF_6", "CK,OLATCH_G2L,TCOMB_GA2"], ["dff", "DFF_7", "CK,OLATCH_G1L,TCOMB_GA1"], ["dff", "DFF_8", "CK,OLATCH_FEL,TCOMB_FE_BF"], ["dff", "DFF_9", "CK,C3_Q3,C3_Q3VD"], ["dff", "DFF_10", "CK,C3_Q2,C3_Q2VD"], ["dff", "DFF_11", "CK,C3_Q1,C3_Q1VD"], ["dff", "DFF_12", "CK,C3_Q0,C3_Q0VD"], ["dff", "DFF_13", "CK,UC_16,UC_16VD"], ["dff", "DFF_14", "CK,UC_17,UC_17VD"], ["dff", "DFF_15", "CK,UC_18,UC_18VD"], ["dff", "DFF_16", "CK,UC_19,UC_19VD"], ["dff", "DFF_17", "CK,UC_8,UC_8VD"], ["dff", "DFF_18", "CK,UC_9,UC_9VD"], ["dff", "DFF_19", "CK,UC_10,UC_10VD"], ["dff", "DFF_20", "CK,UC_11,UC_11VD"], ["not", "NOT_0", "TESTLVIINLATCHN,TESTL"], ["not", "NOT_1", "FMLVIINLATCHN,FML"], ["not", "NOT_2", "OLATCH_Y1L,OLATCHVUC_6"], ["not", "NOT_3", "OLATCH_R2L,OLATCHVUC_5"], ["not", "NOT_4", "UC_23,C3_Q3"], ["not", "NOT_5", "UC_24,C3_Q2"], ["not", "NOT_6", "UC_25,C3_Q1"], ["not", "NOT_7", "UC_26,C3_Q0"], ["not", "NOT_8", "UC_20,UC_16"], ["not", "NOT_9", "C2_QN2,UC_17"], ["not", "NOT_10", "UC_21,UC_18"], ["not", "NOT_11", "UC_22,UC_19"], ["not", "NOT_12", "UC_12,UC_8"], ["not", "NOT_13", "UC_13,UC_9"], ["not", "NOT_14", "UC_14,UC_10"], ["not", "NOT_15", "UC_15,UC_11"], ["not", "NOT_16", "FMBVIIR1,FM"], ["not", "NOT_17", "CLRBVIIR1,CLR"], ["not", "NOT_18", "TCOMBVNFM,FML"], ["not", "NOT_19", "TESTBVIIR1,TEST"], ["not", "NOT_20", "TCOMBVNQA,C3_Q0"], ["not", "NOT_21", "TCOMBVNQB,C3_Q1"], ["not", "NOT_22", "TCOMBVNQC,C3_Q2"], ["not", "NOT_23", "TCOMBVNQD,C3_Q3"], ["not", "NOT_24", "UC_11VUC_0,UC_11"], ["not", "NOT_25", "OUTBUFVBUFG1VIIR1,OLATCH_G1L"], ["not", "NOT_26", "OUTBUFVBUFG2VIIR1,OLATCH_G2L"], ["not", "NOT_27", "TCOMBVNFEL,OLATCH_FEL"], ["not", "NOT_28", "OUTBUFVBUFR1VIIR1,OLATCH_R1L"], ["not", "NOT_29", "OUTBUFVBUFY2VIIR1,OLATCH_Y2L"], ["not", "NOT_30", "FMB,FMBVIIR1"], ["not", "NOT_31", "CLRB,CLRBVIIR1"], ["not", "NOT_32", "TESTB,TESTBVIIR1"], ["not", "NOT_33", "UC_11VZ,UC_11VUC_0"], ["not", "NOT_34", "C1VCO0,UC_15"], ["not", "NOT_35", "GRN1,OUTBUFVBUFG1VIIR1"], ["not", "NOT_36", "GRN2,OUTBUFVBUFG2VIIR1"], ["not", "NOT_37", "RED1,OUTBUFVBUFR1VIIR1"], ["not", "NOT_38", "YLW2,OUTBUFVBUFY2VIIR1"], ["not", "NOT_39", "OUTBUFVBUFR2VIIR1,OLATCH_R2L"], ["not", "NOT_40", "OUTBUFVBUFY1VIIR1,OLATCH_Y1L"], ["not", "NOT_41", "FMLVIINMUXVIIR1,FMB"], ["not", "NOT_42", "TESTLVIINLATCHVCDN,CLRB"], ["not", "NOT_43", "FMLVIINLATCHVCDN,CLRB"], ["not", "NOT_44", "TCOMBVNCLR,CLRB"], ["not", "NOT_45", "TESTLVIINMUXVIIR1,TESTB"], ["not", "NOT_46", "RED2,OUTBUFVBUFR2VIIR1"], ["not", "NOT_47", "YLW1,OUTBUFVBUFY1VIIR1"], ["not", "NOT_48", "C2VIINHN,CTST"], ["not", "NOT_49", "UC_8VZ,UC_8VZVOR1NF"], ["not", "NOT_50", "CO2,C2_CO"], ["not", "NOT_51", "FMLVIINMUX,FMLVIINMUXVND1"], ["not", "NOT_52", "TESTLVIINMUX,TESTLVIINMUXVND1"], ["not", "NOT_53", "II84,TCOMB_FE"], ["not", "NOT_54", "FEN,TCOMB_FE"], ["not", "NOT_55", "UC_16VZ,UC_16VZVOR1NF"], ["not", "NOT_56", "C3VIINHN,CO2"], ["not", "NOT_57", "TCOMB_FE_BF,II84"], ["not", "NOT_58", "C3_Q3VZ,C3_Q3VZVOR1NF"], ["and", "AND2_0", "TCOMB_GA1VAD1NF,TCOMBVNODE6,OLATCH_FEL"], ["and", "AND2_1", "TCOMB_GA2VAD4NF,OLATCH_FEL,TCOMBVNCLR"], ["and", "AND2_2", "TCOMB_GA2VAD3NF,C3_Q2,TCOMBVNCLR"], ["and", "AND3_0", "TCOMB_GA2VAD2NF,C3_Q0,C3_Q1,TCOMBVNCLR"], ["and", "AND3_1", "TCOMB_GA2VAD1NF,TCOMBVNQA,C3_Q3,TCOMBVNCLR"], ["and", "AND2_3", "R2CVAD1NF,TCOMB_FE,C2_QN2"], ["and", "AND2_4", "FMLVIINLATCHVCDAD,FMLVIINLATCHVCDN,FMLVIINMUX"], ["and", "AND2_5", "Y1CVAD1NF,TCOMB_YA1,C2_QN2"], ["and", "AND2_6", "TESTLVIINLATCHVCDAD,TESTLVIINLATCHVCDN,TESTLVIINMUX"], ["and", "AND2_7", "Y1CVAD2NF,FEN,TCOMB_YA1"], ["and", "AND2_8", "R2CVAD2NF,FEN,TCOMB_RA2"], ["or", "OR3_0", "TCOMB_RA1VOR2NF,C3_Q2,C3_Q3,OLATCH_FEL"], ["or", "OR3_1", "TCOMBVNODE8VOR1NF,C3_Q0,C3_Q1,TCOMBVNFM"], ["or", "OR4_0", "TCOMB_RA1VOR1NF,TCOMBVNQA,C3_Q1,C3_Q2,OLATCH_FEL"], ["or", "OR2_0", "TCOMBVNODE8VOR2NF,TCOMBVNQD,TCOMBVNFM"], ["or", "OR2_1", "FMLVIINMUXVOR1NF,FMB,FML"], ["or", "OR2_2", "TCOMB_RA2VOR3NF,TCOMBVNQC,CLRB"], ["or", "OR4_1", "TCOMB_RA2VOR1NF,C3_Q0,C3_Q1,TCOMBVNQD,CLRB"], ["or", "OR3_2", "TCOMBVNODE4VOR2NF,C3_Q2,TCOMBVNQD,CLRB"], ["or", "OR4_2", "TCOMBVNODE4VOR1NF,TCOMBVNQC,C3_Q3,TCOMBVNFM,CLRB"], ["or", "OR2_3", "TESTLVIINMUXVOR1NF,TESTB,TESTL"], ["or", "OR4_3", "TCOMBVNODE16VOR1NF,TCOMBVNODE18,FML,C3_Q3,TCOMBVNQC"], ["or", "OR2_4", "UC_8VZVOR1NF,C1VCO2,UC_8"], ["or", "OR2_5", "UC_9VZVOR1NF,C1VCO1,UC_9"], ["or", "OR2_6", "UC_10VZVOR1NF,C1VCO0,UC_10"], ["or", "OR2_7", "FMLVIINMUXVOR2NF,FMLVIINMUXVIIR1,FMLVIINLATCHN"], ["or", "OR2_8", "TESTLVIINMUXVOR2NF,TESTLVIINMUXVIIR1,TESTLVIINLATCHN"], ["or", "OR2_9", "UC_16VZVOR1NF,C2VCO2,UC_16"], ["or", "OR2_10", "UC_17VZVOR1NF,C2VCO1,UC_17"], ["or", "OR2_11", "UC_18VZVOR1NF,C2VCO0,UC_18"], ["or", "OR2_12", "UC_19VZVOR1NF,C2VIINHN,UC_19"], ["or", "OR2_13", "C3_Q3VZVOR1NF,C3VCO2,C3_Q3"], ["or", "OR2_14", "C3_Q2VZVOR1NF,C3VCO1,C3_Q2"], ["or", "OR2_15", "C3_Q1VZVOR1NF,C3VCO0,C3_Q1"], ["or", "OR2_16", "C3_Q0VZVOR1NF,C3VIINHN,C3_Q0"], ["nand", "NAND2_0", "TCOMBVNODE18,TCOMBVNQB,C3_Q0"], ["nand", "NAND4_0", "TCOMBVNODE6,TCOMBVNFM,TCOMBVNQD,TCOMBVNQB,C3_Q0"], ["nand", "NAND2_1", "UC_9VUC_0,C1VCO1,UC_9"], ["nand", "NAND2_2", "UC_10VUC_0,C1VCO0,UC_10"], ["nand", "NAND2_3", "TCOMB_RA2,TCOMB_RA2VOR3NF,TCOMB_RA2VOR1NF"], ["nand", "NAND2_4", "TCOMBVNODE4,TCOMBVNODE4VOR2NF,TCOMBVNODE4VOR1NF"], ["nand", "NAND2_5", "TCOMBVNODE14,TCOMBVNODE15,TCOMBVNQA"], ["nand", "NAND4_1", "TCOMBVNODE12,TCOMBVNCLR,TCOMBVNFEL,TCOMBVNQC,C3_Q1"], ["nand", "NAND3_0", "TCOMB_RA1,TCOMBVNCLR,TCOMB_RA1VOR2NF,TCOMB_RA1VOR1NF"], ["nand", "NAND2_6", "TCOMBVNODE16,TCOMBVNODE19,TCOMBVNODE16VOR1NF"], ["nand", "NAND2_7", "UC_9VZ,UC_9VZVOR1NF,UC_9VUC_0"], ["nand", "NAND2_8", "UC_10VZ,UC_10VZVOR1NF,UC_10VUC_0"], ["nand", "NAND2_9", "FMLVIINMUXVND1,FMLVIINMUXVOR2NF,FMLVIINMUXVOR1NF"], ["nand", "NAND3_1", "TCOMBVNODE3,TCOMBVNODE4,TCOMBVNQB,TCOMBVNQA"], ["nand", "NAND2_10", "TESTLVIINMUXVND1,TESTLVIINMUXVOR2NF,TESTLVIINMUXVOR1NF"], ["nand", "NAND2_11", "TCOMB_FE,TCOMBVNODE16,TCOMBVNODE14"], ["nand", "NAND2_12", "UC_17VUC_0,C2VCO1,UC_17"], ["nand", "NAND2_13", "UC_18VUC_0,C2VCO0,UC_18"], ["nand", "NAND2_14", "UC_19VUC_0,C2VIINHN,UC_19"], ["nand", "NAND2_15", "TCOMB_YA1,TCOMBVNODE16,TCOMBVNODE3"], ["nand", "NAND2_16", "UC_17VZ,UC_17VZVOR1NF,UC_17VUC_0"], ["nand", "NAND2_17", "UC_18VZ,UC_18VZVOR1NF,UC_18VUC_0"], ["nand", "NAND2_18", "UC_19VZ,UC_19VZVOR1NF,UC_19VUC_0"], ["nand", "NAND2_19", "C3_Q2VUC_0,C3VCO1,C3_Q2"], ["nand", "NAND2_20", "C3_Q1VUC_0,C3VCO0,C3_Q1"], ["nand", "NAND2_21", "C3_Q0VUC_0,C3VIINHN,C3_Q0"], ["nand", "NAND2_22", "C3_Q2VZ,C3_Q2VZVOR1NF,C3_Q2VUC_0"], ["nand", "NAND2_23", "C3_Q1VZ,C3_Q1VZVOR1NF,C3_Q1VUC_0"], ["nand", "NAND2_24", "C3_Q0VZ,C3_Q0VZVOR1NF,C3_Q0VUC_0"], ["nor", "NOR3_0", "C3VCIIA,C3_Q2,C3_Q1,C3_Q0"], ["nor", "NOR3_1", "C1VCIIA,UC_9,UC_10,UC_11"], ["nor", "NOR3_2", "C2VCIIA,UC_17,UC_18,UC_19"], ["nor", "NOR2_0", "C1_CO,C1VCIIA,UC_12"], ["nor", "NOR3_3", "C1VCO2,UC_13,UC_14,UC_15"], ["nor", "NOR2_1", "C1VCO1,UC_14,UC_15"], ["nor", "NOR2_2", "TCOMBVNODE19,CLRB,TCOMBVNFEL"], ["nor", "NOR4_0", "TCOMBVNODE15,CLRB,TCOMBVNFM,TCOMBVNQC,C3_Q1"], ["nor", "NOR2_3", "CTST,C1_CO,TESTL"], ["nor", "NOR3_4", "UC_11VD,CLRB,UC_11VZ,C1_CO"], ["nor", "NOR4_1", "C2VCO2,CTST,C2_QN2,UC_21,UC_22"], ["nor", "NOR3_5", "C2VCO1,CTST,UC_21,UC_22"], ["nor", "NOR3_6", "C2_CO,C2VCIIA,CTST,UC_20"], ["nor", "NOR2_4", "C2VCO0,CTST,UC_22"], ["nor", "NOR2_5", "TCOMB_YA2,TCOMBVNODE12,TCOMBVNQA"], ["nor", "NOR2_6", "TCOMB_GA1,TCOMBVNODE8,TCOMB_GA1VAD1NF"], ["nor", "NOR3_7", "UC_8VD,CLRB,UC_8VZ,C1_CO"], ["nor", "NOR3_8", "UC_9VD,CLRB,UC_9VZ,C1_CO"], ["nor", "NOR3_9", "UC_10VD,CLRB,UC_10VZ,C1_CO"], ["nor", "NOR4_3", "C3VCO2,CO2,UC_24,UC_25,UC_26"], ["nor", "NOR3_10", "C3VCO1,CO2,UC_25,UC_26"], ["nor", "NOR3_11", "UC_27,C3VCIIA,CO2,UC_23"], ["nor", "NOR2_7", "C3VCO0,CO2,UC_26"], ["nor", "NOR3_12", "UC_16VD,CLRB,UC_16VZ,C2_CO"], ["nor", "NOR3_13", "UC_17VD,CLRB,UC_17VZ,C2_CO"], ["nor", "NOR3_14", "UC_18VD,CLRB,UC_18VZ,C2_CO"], ["nor", "NOR3_15", "UC_19VD,CLRB,UC_19VZ,C2_CO"], ["nor", "NOR2_8", "Y1C,Y1CVAD2NF,Y1CVAD1NF"], ["nor", "NOR2_9", "R2C,R2CVAD2NF,R2CVAD1NF"], ["nor", "NOR3_16", "C3_Q3VD,CLRB,C3_Q3VZ,UC_27"], ["nor", "NOR3_17", "C3_Q2VD,CLRB,C3_Q2VZ,UC_27"], ["nor", "NOR3_18", "C3_Q1VD,CLRB,C3_Q1VZ,UC_27"], ["nor", "NOR3_19", "C3_Q0VD,CLRB,C3_Q0VZ,UC_27"]], "cut_signals": ["TCOMBVNODE19", "UC_9", "C3VIINHN", "C2_CO", "UC_10VUC_0", "FML", "UC_25", "C3VCO1", "C3_Q1VD", "UC_21", "TESTLVIINLATCHN", "UC_27", "C3_Q0VZVOR1NF", "UC_8", "FMLVIINMUXVND1", "FMB", "R2C", "UC_18VD", "UC_17VUC_0", "TCOMB_FE", "UC_16VZ", "C3_Q3VZVOR1NF", "C3_Q0VD", "OUTBUFVBUFY2VIIR1", "TCOMB_RA1VOR1NF", "Y1CVAD1NF", "UC_8VD", "UC_17VZVOR1NF", "C3_Q3", "TESTLVIINLATCHVCDAD", "UC_23", "TCOMBVNODE4VOR1NF", "TCOMBVNFM", "TCOMB_RA2VOR3NF", "UC_22", "C2_QN2", "TCOMBVNODE16", "TCOMB_GA1", "C3_Q2VD", "OUTBUFVBUFY1VIIR1", "CTST", "C2VCO1", "TESTB", "TESTLVIINLATCHVCDN", "TCOMBVNCLR", "FMLVIINLATCHVCDAD", "FMLVIINMUXVIIR1", "C3_Q0VUC_0", "TCOMB_FE_BF", "R2CVAD1NF", "UC_24", "TCOMB_YA1", "TCOMB_GA1VAD1NF", "C3_Q3VZ", "C1VCO1", "UC_15", "UC_19", "OLATCH_Y1L", "OLATCH_Y2L", "CO2", "FMLVIINMUXVOR2NF", "UC_17", "UC_18", "UC_9VZ", "UC_19VZVOR1NF", "C3_Q2VUC_0", "UC_10", "CLRBVIIR1", "R2CVAD2NF", "C3VCO2", "TCOMB_YA2", "TCOMBVNQC", "TCOMBVNODE16VOR1NF", "C3_Q1", "UC_11", "FMLVIINLATCHN", "UC_16", "CLRB", "Y1C", "FMLVIINLATCHVCDN", "C3_Q2", "TESTL", "UC_9VD", "C2VCO2", "UC_20", "C2VIINHN", "TCOMBVNODE12", "OLATCH_FEL", "C3_Q0", "TCOMB_RA2VOR1NF", "UC_14", "TESTBVIIR1", "UC_12", "FEN", "C3VCIIA", "UC_10VZ", "C2VCIIA", "TCOMBVNQD", "C1_CO", "C1VCO2", "II84", "UC_18VZVOR1NF", "TCOMBVNFEL", "OUTBUFVBUFR1VIIR1", "C2VCO0", "TCOMBVNODE4VOR2NF", "UC_17VZ", "UC_26", "OLATCH_R2L", "OUTBUFVBUFR2VIIR1", "C1VCO0", "TCOMBVNQA", "TCOMB_RA2"], "cut_signal_directions": {"TCOMBVNODE19": {"from_partition_a": true, "from_partition_b": false}, "UC_9": {"from_partition_a": true, "from_partition_b": false}, "C3VIINHN": {"from_partition_a": true, "from_partition_b": false}, "C2_CO": {"from_partition_a": true, "from_partition_b": false}, "UC_10VUC_0": {"from_partition_a": true, "from_partition_b": false}, "FML": {"from_partition_a": true, "from_partition_b": false}, "UC_25": {"from_partition_a": true, "from_partition_b": false}, "C3VCO1": {"from_partition_a": true, "from_partition_b": false}, "C3_Q1VD": {"from_partition_a": true, "from_partition_b": false}, "UC_21": {"from_partition_a": true, "from_partition_b": false}, "TESTLVIINLATCHN": {"from_partition_a": true, "from_partition_b": false}, "UC_27": {"from_partition_a": true, "from_partition_b": false}, "C3_Q0VZVOR1NF": {"from_partition_a": true, "from_partition_b": false}, "UC_8": {"from_partition_a": true, "from_partition_b": false}, "FMLVIINMUXVND1": {"from_partition_a": true, "from_partition_b": false}, "FMB": {"from_partition_a": true, "from_partition_b": false}, "R2C": {"from_partition_a": true, "from_partition_b": false}, "UC_18VD": {"from_partition_a": true, "from_partition_b": false}, "UC_17VUC_0": {"from_partition_a": true, "from_partition_b": false}, "TCOMB_FE": {"from_partition_a": true, "from_partition_b": false}, "UC_16VZ": {"from_partition_a": true, "from_partition_b": false}, "C3_Q3VZVOR1NF": {"from_partition_a": true, "from_partition_b": false}, "C3_Q0VD": {"from_partition_a": true, "from_partition_b": false}, "OUTBUFVBUFY2VIIR1": {"from_partition_a": true, "from_partition_b": false}, "TCOMB_RA1VOR1NF": {"from_partition_a": true, "from_partition_b": false}, "Y1CVAD1NF": {"from_partition_a": true, "from_partition_b": false}, "UC_8VD": {"from_partition_a": true, "from_partition_b": false}, "UC_17VZVOR1NF": {"from_partition_a": true, "from_partition_b": false}, "C3_Q3": {"from_partition_a": true, "from_partition_b": false}, "TESTLVIINLATCHVCDAD": {"from_partition_a": true, "from_partition_b": false}, "UC_23": {"from_partition_a": true, "from_partition_b": false}, "TCOMBVNODE4VOR1NF": {"from_partition_a": true, "from_partition_b": false}, "TCOMBVNFM": {"from_partition_a": true, "from_partition_b": false}, "TCOMB_RA2VOR3NF": {"from_partition_a": true, "from_partition_b": false}, "UC_22": {"from_partition_a": true, "from_partition_b": false}, "C2_QN2": {"from_partition_a": true, "from_partition_b": false}, "TCOMBVNODE16": {"from_partition_a": true, "from_partition_b": false}, "TCOMB_GA1": {"from_partition_a": true, "from_partition_b": false}, "C3_Q2VD": {"from_partition_a": true, "from_partition_b": false}, "OUTBUFVBUFY1VIIR1": {"from_partition_a": true, "from_partition_b": false}, "CTST": {"from_partition_a": true, "from_partition_b": false}, "C2VCO1": {"from_partition_a": true, "from_partition_b": false}, "TESTB": {"from_partition_a": true, "from_partition_b": false}, "TESTLVIINLATCHVCDN": {"from_partition_a": true, "from_partition_b": false}, "TCOMBVNCLR": {"from_partition_a": true, "from_partition_b": false}, "FMLVIINLATCHVCDAD": {"from_partition_a": true, "from_partition_b": false}, "FMLVIINMUXVIIR1": {"from_partition_a": true, "from_partition_b": false}, "C3_Q0VUC_0": {"from_partition_a": true, "from_partition_b": false}, "TCOMB_FE_BF": {"from_partition_a": true, "from_partition_b": false}, "R2CVAD1NF": {"from_partition_a": true, "from_partition_b": false}, "UC_24": {"from_partition_a": true, "from_partition_b": false}, "TCOMB_YA1": {"from_partition_a": true, "from_partition_b": false}, "TCOMB_GA1VAD1NF": {"from_partition_a": true, "from_partition_b": false}, "C3_Q3VZ": {"from_partition_a": true, "from_partition_b": false}, "C1VCO1": {"from_partition_a": true, "from_partition_b": false}, "UC_15": {"from_partition_a": true, "from_partition_b": false}, "UC_19": {"from_partition_a": true, "from_partition_b": false}, "OLATCH_Y1L": {"from_partition_a": true, "from_partition_b": false}, "OLATCH_Y2L": {"from_partition_a": true, "from_partition_b": false}, "CO2": {"from_partition_a": true, "from_partition_b": false}, "FMLVIINMUXVOR2NF": {"from_partition_a": true, "from_partition_b": false}, "UC_17": {"from_partition_a": true, "from_partition_b": false}, "UC_18": {"from_partition_a": true, "from_partition_b": false}, "UC_9VZ": {"from_partition_a": true, "from_partition_b": false}, "UC_19VZVOR1NF": {"from_partition_a": true, "from_partition_b": false}, "C3_Q2VUC_0": {"from_partition_a": true, "from_partition_b": false}, "UC_10": {"from_partition_a": true, "from_partition_b": false}, "CLRBVIIR1": {"from_partition_a": true, "from_partition_b": false}, "R2CVAD2NF": {"from_partition_a": true, "from_partition_b": false}, "C3VCO2": {"from_partition_a": true, "from_partition_b": false}, "TCOMB_YA2": {"from_partition_a": true, "from_partition_b": false}, "TCOMBVNQC": {"from_partition_a": true, "from_partition_b": false}, "TCOMBVNODE16VOR1NF": {"from_partition_a": true, "from_partition_b": false}, "C3_Q1": {"from_partition_a": true, "from_partition_b": false}, "UC_11": {"from_partition_a": true, "from_partition_b": false}, "FMLVIINLATCHN": {"from_partition_a": true, "from_partition_b": false}, "UC_16": {"from_partition_a": true, "from_partition_b": false}, "CLRB": {"from_partition_a": true, "from_partition_b": false}, "Y1C": {"from_partition_a": true, "from_partition_b": false}, "FMLVIINLATCHVCDN": {"from_partition_a": true, "from_partition_b": false}, "C3_Q2": {"from_partition_a": true, "from_partition_b": false}, "TESTL": {"from_partition_a": true, "from_partition_b": false}, "UC_9VD": {"from_partition_a": true, "from_partition_b": false}, "C2VCO2": {"from_partition_a": true, "from_partition_b": false}, "UC_20": {"from_partition_a": true, "from_partition_b": false}, "C2VIINHN": {"from_partition_a": true, "from_partition_b": false}, "TCOMBVNODE12": {"from_partition_a": true, "from_partition_b": false}, "OLATCH_FEL": {"from_partition_a": true, "from_partition_b": false}, "C3_Q0": {"from_partition_a": true, "from_partition_b": false}, "TCOMB_RA2VOR1NF": {"from_partition_a": true, "from_partition_b": false}, "UC_14": {"from_partition_a": true, "from_partition_b": false}, "TESTBVIIR1": {"from_partition_a": true, "from_partition_b": false}, "UC_12": {"from_partition_a": true, "from_partition_b": false}, "FEN": {"from_partition_a": true, "from_partition_b": false}, "C3VCIIA": {"from_partition_a": true, "from_partition_b": false}, "UC_10VZ": {"from_partition_a": true, "from_partition_b": false}, "C2VCIIA": {"from_partition_a": true, "from_partition_b": false}, "TCOMBVNQD": {"from_partition_a": true, "from_partition_b": false}, "C1_CO": {"from_partition_a": true, "from_partition_b": false}, "C1VCO2": {"from_partition_a": true, "from_partition_b": false}, "II84": {"from_partition_a": true, "from_partition_b": false}, "UC_18VZVOR1NF": {"from_partition_a": true, "from_partition_b": false}, "TCOMBVNFEL": {"from_partition_a": true, "from_partition_b": false}, "OUTBUFVBUFR1VIIR1": {"from_partition_a": true, "from_partition_b": false}, "C2VCO0": {"from_partition_a": true, "from_partition_b": false}, "TCOMBVNODE4VOR2NF": {"from_partition_a": true, "from_partition_b": false}, "UC_17VZ": {"from_partition_a": true, "from_partition_b": false}, "UC_26": {"from_partition_a": true, "from_partition_b": false}, "OLATCH_R2L": {"from_partition_a": true, "from_partition_b": false}, "OUTBUFVBUFR2VIIR1": {"from_partition_a": true, "from_partition_b": false}, "C1VCO0": {"from_partition_a": true, "from_partition_b": false}, "TCOMBVNQA": {"from_partition_a": true, "from_partition_b": false}, "TCOMB_RA2": {"from_partition_a": true, "from_partition_b": false}}}}, "connections": {"DFF_0": ["DFF_5", "OR2_3", "DFF_10", "DFF_4", "DFF_17", "DFF_13", "DFF_19", "DFF_9", "DFF_11", "DFF_7", "DFF_6", "DFF_15", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "NOT_0", "DFF_3", "DFF_20", "AND2_6", "DFF_14", "DFF_18", "NOR2_3"], "DFF_1": ["DFF_5", "DFF_10", "DFF_4", "OR2_1", "DFF_17", "NOT_1", "DFF_13", "DFF_19", "DFF_9", "DFF_11", "DFF_7", "NOT_18", "DFF_6", "OR4_3", "DFF_15", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "AND2_4", "DFF_3", "DFF_20", "DFF_14", "DFF_18"], "DFF_2": ["DFF_5", "DFF_10", "NOR2_5", "DFF_4", "DFF_17", "DFF_13", "DFF_19", "DFF_9", "DFF_11", "DFF_7", "DFF_6", "DFF_15", "DFF_0", "DFF_8", "DFF_16", "DFF_12", "DFF_1", "NOT_29", "DFF_3", "DFF_20", "DFF_14", "DFF_18"], "DFF_3": ["DFF_5", "NOT_2", "DFF_10", "DFF_4", "DFF_17", "DFF_13", "DFF_19", "DFF_9", "DFF_11", "DFF_7", "DFF_6", "DFF_15", "NOR2_8", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "DFF_20", "DFF_14", "DFF_18"], "DFF_4": ["DFF_5", "DFF_10", "NOT_3", "DFF_17", "DFF_13", "DFF_19", "NOR2_9", "DFF_9", "DFF_11", "DFF_7", "DFF_6", "DFF_15", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "DFF_3", "DFF_20", "DFF_14", "DFF_18"], "DFF_5": ["DFF_10", "NOT_28", "DFF_4", "DFF_17", "DFF_13", "DFF_19", "DFF_9", "DFF_11", "DFF_7", "DFF_6", "DFF_15", "NAND3_0", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "DFF_3", "DFF_20", "DFF_14", "DFF_18"], "DFF_6": ["DFF_5", "DFF_10", "DFF_4", "DFF_17", "DFF_13", "NOT_26", "DFF_19", "DFF_9", "DFF_11", "DFF_7", "DFF_15", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "DFF_3", "DFF_20", "DFF_14", "DFF_18"], "DFF_7": ["DFF_5", "NOT_25", "DFF_10", "DFF_4", "DFF_17", "DFF_13", "DFF_19", "DFF_9", "DFF_11", "DFF_6", "NOR2_6", "DFF_15", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "DFF_3", "DFF_20", "DFF_14", "DFF_18"], "DFF_8": ["DFF_5", "OR3_0", "DFF_10", "NOT_27", "DFF_4", "DFF_17", "AND2_0", "DFF_13", "DFF_19", "DFF_9", "DFF_11", "OR4_0", "DFF_7", "DFF_6", "AND2_1", "DFF_15", "DFF_0", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "NOT_57", "DFF_3", "DFF_20", "DFF_14", "DFF_18"], "DFF_9": ["DFF_5", "OR3_0", "DFF_10", "DFF_4", "OR4_2", "DFF_17", "DFF_13", "DFF_19", "DFF_11", "OR2_13", "DFF_7", "AND3_1", "DFF_6", "OR4_3", "NOR3_16", "DFF_15", "NOT_4", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "DFF_3", "DFF_20", "DFF_14", "NOT_23", "DFF_18"], "DFF_10": ["DFF_5", "OR3_0", "DFF_4", "NAND2_19", "DFF_17", "OR2_14", "DFF_13", "DFF_19", "NOT_22", "DFF_9", "DFF_11", "OR3_2", "DFF_7", "OR4_0", "DFF_6", "AND2_2", "DFF_15", "NOR3_0", "NOT_5", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "NOR3_17", "DFF_3", "DFF_20", "DFF_14", "DFF_18"], "DFF_11": ["OR3_1", "DFF_5", "NAND4_1", "DFF_10", "OR2_15", "DFF_4", "AND3_0", "OR4_1", "DFF_17", "NOR4_0", "DFF_13", "DFF_19", "NOT_6", "DFF_9", "OR4_0", "DFF_7", "NOR3_18", "NAND2_20", "DFF_6", "DFF_15", "NOR3_0", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "DFF_3", "DFF_20", "DFF_14", "NOT_21", "DFF_18"], "DFF_12": ["OR3_1", "DFF_5", "DFF_10", "DFF_4", "AND3_0", "OR4_1", "NOR3_19", "DFF_17", "NOT_20", "NAND2_21", "DFF_13", "DFF_19", "DFF_9", "DFF_11", "NAND4_0", "DFF_7", "DFF_6", "DFF_15", "NOR3_0", "NAND2_0", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_1", "NOT_7", "OR2_16", "DFF_3", "DFF_20", "DFF_14", "DFF_18"], "DFF_13": ["DFF_5", "DFF_10", "DFF_4", "NOT_8", "DFF_17", "NOR3_12", "DFF_19", "DFF_9", "DFF_11", "DFF_7", "DFF_6", "OR2_9", "DFF_15", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "DFF_3", "DFF_20", "DFF_14", "DFF_18"], "DFF_14": ["DFF_5", "NOR3_13", "DFF_10", "NAND2_12", "DFF_4", "OR2_10", "DFF_17", "DFF_13", "DFF_19", "DFF_9", "DFF_11", "DFF_7", "DFF_6", "NOR3_2", "NOT_9", "DFF_15", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "DFF_3", "DFF_20", "DFF_18"], "DFF_15": ["DFF_5", "DFF_10", "DFF_4", "OR2_11", "NAND2_13", "DFF_17", "NOT_10", "DFF_13", "DFF_19", "DFF_9", "DFF_11", "DFF_7", "DFF_6", "NOR3_2", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "DFF_3", "DFF_20", "DFF_14", "NOR3_14", "DFF_18"], "DFF_16": ["DFF_5", "DFF_10", "DFF_4", "DFF_17", "DFF_13", "DFF_19", "DFF_9", "DFF_11", "DFF_7", "DFF_6", "NOR3_15", "NOR3_2", "DFF_15", "DFF_0", "DFF_8", "DFF_2", "DFF_12", "DFF_1", "OR2_12", "NAND2_14", "DFF_3", "NOT_11", "DFF_20", "DFF_14", "DFF_18"], "DFF_17": ["DFF_5", "DFF_10", "DFF_4", "OR2_4", "DFF_13", "DFF_19", "DFF_9", "DFF_11", "DFF_7", "NOT_12", "DFF_6", "DFF_15", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "DFF_3", "DFF_20", "NOR3_7", "DFF_14", "DFF_18"], "DFF_18": ["DFF_5", "DFF_10", "OR2_5", "DFF_4", "NOR3_1", "DFF_17", "NOT_13", "DFF_13", "DFF_19", "DFF_9", "DFF_11", "DFF_7", "NOR3_8", "DFF_6", "DFF_15", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "NAND2_1", "DFF_1", "DFF_3", "DFF_20", "DFF_14"], "DFF_19": ["DFF_5", "DFF_10", "DFF_4", "NOR3_1", "DFF_17", "DFF_13", "DFF_9", "DFF_11", "DFF_7", "DFF_6", "NOT_14", "NOR3_9", "DFF_15", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "DFF_3", "NAND2_2", "DFF_20", "DFF_14", "OR2_6", "DFF_18"], "DFF_20": ["DFF_5", "NOT_24", "DFF_10", "DFF_4", "NOR3_1", "DFF_17", "NOT_15", "DFF_13", "DFF_19", "DFF_9", "DFF_11", "DFF_7", "DFF_6", "DFF_15", "DFF_0", "DFF_8", "DFF_2", "DFF_16", "DFF_12", "DFF_1", "NOR3_4", "DFF_3", "DFF_14", "DFF_18"], "NOT_0": ["DFF_0", "OR2_8", "OR2_3", "NOR2_3"], "NOT_1": ["OR2_7", "OR2_1", "NOT_18", "DFF_1", "OR4_3"], "NOT_2": ["NOT_40", "DFF_3"], "NOT_3": ["DFF_4", "NOT_39"], "NOT_4": ["OR3_0", "NOR3_11", "DFF_9", "OR2_13", "AND3_1", "OR4_2", "NOT_23", "OR4_3"], "NOT_5": ["OR2_14", "OR3_0", "NOR3_0", "DFF_10", "NOT_22", "OR3_2", "OR4_0", "AND2_2", "NAND2_19", "NOR4_3"], "NOT_6": ["OR3_1", "NAND4_1", "NOR3_0", "NOT_21", "OR2_15", "NOR3_10", "DFF_11", "OR4_0", "AND3_0", "OR4_1", "NAND2_20", "NOR4_3", "NOR4_0"], "NOT_7": ["OR3_1", "NAND2_21", "NOR3_0", "OR2_16", "NOR2_7", "NAND2_0", "NOR3_10", "NAND4_0", "AND3_0", "OR4_1", "DFF_12", "NOR4_3", "NOT_20"], "NOT_8": ["OR2_9", "DFF_13", "NOR3_6"], "NOT_9": ["NOR3_2", "AND2_3", "AND2_5", "NAND2_12", "NOR4_1", "DFF_14", "OR2_10"], "NOT_10": ["NOR3_2", "DFF_15", "NOR4_1", "OR2_11", "NAND2_13", "NOR3_5"], "NOT_11": ["OR2_12", "NOR3_2", "NAND2_14", "NOR2_4", "NOR4_1", "DFF_16", "NOR3_5"], "NOT_12": ["OR2_4", "DFF_17", "NOR2_0"], "NOT_13": ["NOR3_3", "OR2_5", "NOR3_1", "NAND2_1", "DFF_18"], "NOT_14": ["NOR2_1", "DFF_19", "NOR3_3", "NAND2_2", "NOR3_1", "OR2_6"], "NOT_15": ["NOR2_1", "NOT_34", "NOT_24", "NOR3_3", "DFF_20", "NOR3_1"], "NOT_16": ["NOT_30"], "NOT_17": ["NOT_31"], "NOT_18": ["NOT_1", "OR3_1", "OR2_0", "NOR4_0", "NAND4_0", "OR2_1", "OR4_2", "DFF_1", "OR4_3"], "NOT_19": ["NOT_32"], "NOT_20": ["OR3_1", "NAND2_21", "NOT_7", "NOR3_0", "OR2_16", "NAND2_0", "NOR2_5", "NAND2_5", "NAND3_1", "NAND4_0", "AND3_0", "OR4_1", "OR4_0", "AND3_1", "DFF_12"], "NOT_21": ["OR3_1", "NAND4_1", "NOR3_0", "NOT_6", "OR2_15", "NAND2_0", "DFF_11", "NAND3_1", "OR4_0", "AND3_0", "OR4_1", "NAND4_0", "NAND2_20", "NOR4_0"], "NOT_22": ["OR2_2", "NAND4_1", "OR2_14", "OR3_0", "OR4_2", "NOR3_0", "NOT_5", "DFF_10", "OR3_2", "OR4_0", "AND2_2", "NAND2_19", "NOR4_0", "OR4_3"], "NOT_23": ["OR3_0", "OR2_0", "NOT_4", "DFF_9", "OR2_13", "OR3_2", "AND3_1", "NAND4_0", "OR4_1", "OR4_2", "OR4_3"], "NOT_24": ["NOT_33", "NOT_15", "NOR3_1", "DFF_20"], "NOT_25": ["DFF_7", "NOT_35"], "NOT_26": ["DFF_6", "NOT_36"], "NOT_27": ["NAND4_1", "OR3_0", "DFF_8", "OR4_0", "NOR2_2", "AND2_0", "AND2_1"], "NOT_28": ["NOT_37", "DFF_5"], "NOT_29": ["DFF_2", "NOT_38"], "NOT_30": ["NOT_16", "OR2_1", "NOT_41"], "NOT_31": ["NOR3_13", "OR4_1", "OR4_2", "NOR3_19", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "OR3_2", "NOR3_8", "NOR3_18", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "NOT_44", "NOR3_4", "NOR3_17", "NOR3_7", "NOT_17", "NOR3_14"], "NOT_32": ["OR2_3", "NOT_45", "NOT_19"], "NOT_33": ["NOT_24", "NOR3_4"], "NOT_34": ["NOR2_1", "NOR3_3", "NAND2_2", "OR2_6", "NOT_15"], "NOT_35": ["NOT_25"], "NOT_36": ["NOT_26"], "NOT_37": ["NOT_28"], "NOT_38": ["NOT_29"], "NOT_39": ["NOT_46", "NOT_3"], "NOT_40": ["NOT_47", "NOT_2"], "NOT_41": ["NOT_30", "OR2_1", "OR2_7"], "NOT_42": ["NOR3_13", "OR4_1", "NOR3_19", "OR4_2", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "OR3_2", "NOR3_8", "NOR3_18", "NOR3_15", "NOR3_16", "NOR3_9", "OR2_2", "NOT_44", "NOT_31", "NOR3_4", "NOR3_17", "AND2_6", "NOR3_7", "NOR3_14"], "NOT_43": ["NOR3_13", "OR4_1", "NOR3_19", "OR4_2", "NOR2_2", "NOR4_0", "NOR3_12", "OR3_2", "NOR3_8", "NOR3_18", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "NOT_44", "NOT_31", "NOR3_4", "NOR3_17", "AND2_4", "NOR3_7", "NOR3_14"], "NOT_44": ["NAND4_1", "NOR3_13", "OR4_1", "AND3_0", "NOR3_19", "OR4_2", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "OR3_2", "NOR3_8", "NOR3_18", "AND3_1", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "AND2_1", "NAND3_0", "NOT_31", "NOR3_4", "NOR3_17", "NOR3_7", "AND2_2", "NOR3_14"], "NOT_45": ["OR2_8", "OR2_3", "NOT_32"], "NOT_46": ["NOT_39"], "NOT_47": ["NOT_40"], "NOT_48": ["OR2_12", "NAND2_14", "NOR2_4", "NOR4_1", "NOR3_5", "NOR2_3", "NOR3_6"], "NOT_49": ["OR2_4", "NOR3_7"], "NOT_50": ["NOT_56", "NOR3_11", "NOR3_12", "NOR3_13", "NOR2_7", "NOR3_10", "NOR3_14", "NOR3_15", "NOR4_3", "NOR3_6"], "NOT_51": ["NAND2_9", "AND2_4"], "NOT_52": ["NAND2_10", "AND2_6"], "NOT_53": ["NAND2_11", "NOT_54", "NOT_57", "AND2_3"], "NOT_54": ["AND2_8", "AND2_3", "NAND2_11", "AND2_7", "NOT_53"], "NOT_55": ["NOR3_12", "OR2_9"], "NOT_56": ["NAND2_21", "NOR3_11", "NOT_50", "OR2_16", "NOR3_10", "NOR2_7", "NOR4_3"], "NOT_57": ["DFF_8", "NOT_53"], "NOT_58": ["OR2_13", "NOR3_16"], "AND2_0": ["OR3_0", "NOT_27", "DFF_8", "OR4_0", "NAND4_0", "NOR2_6", "AND2_1"], "AND2_1": ["NAND4_1", "OR3_0", "NAND3_0", "NOT_27", "NOT_44", "DFF_8", "OR4_0", "AND3_0", "AND3_1", "AND2_2", "AND2_0"], "AND2_2": ["NAND4_1", "OR2_14", "OR3_0", "NOR3_0", "NOT_5", "DFF_10", "NOT_22", "NAND3_0", "NOT_44", "OR3_2", "OR4_0", "AND3_0", "AND3_1", "NAND2_19", "AND2_1"], "AND3_0": ["OR3_1", "NAND4_1", "OR2_15", "OR4_1", "NOT_20", "NOR4_0", "NAND2_21", "NOT_6", "DFF_11", "OR4_0", "NAND4_0", "AND3_1", "NAND2_20", "AND2_1", "NOR3_0", "NAND3_0", "NOT_44", "NAND2_0", "DFF_12", "NOT_7", "OR2_16", "AND2_2", "NOT_21"], "AND3_1": ["NAND4_1", "OR3_0", "NOT_4", "NAND3_0", "NOT_44", "NOR2_5", "NAND2_5", "DFF_9", "OR2_13", "NAND3_1", "OR4_0", "AND3_0", "AND2_2", "OR4_2", "NOT_23", "NOT_20", "OR4_3", "AND2_1"], "AND2_3": ["NOT_9", "NOT_54", "AND2_5", "NAND2_11", "NOR2_9", "NOR4_1", "NOT_53"], "AND2_4": ["NOT_51", "DFF_1", "NOT_43"], "AND2_5": ["NOT_9", "NOR2_8", "AND2_3", "NOR4_1", "NAND2_15", "AND2_7"], "AND2_6": ["DFF_0", "NOT_52", "NOT_42"], "AND2_7": ["NOT_54", "AND2_8", "NOR2_8", "AND2_5", "NAND2_15"], "AND2_8": ["NOR2_9", "AND2_7", "NOT_54", "NAND2_3"], "OR3_0": ["DFF_10", "NOT_27", "OR4_2", "NAND2_19", "AND2_0", "OR2_14", "NOT_22", "DFF_9", "OR2_13", "OR4_0", "AND3_1", "OR3_2", "OR4_3", "AND2_1", "NOT_4", "NOR3_0", "NOT_5", "NAND3_0", "DFF_8", "AND2_2", "NOT_23"], "OR3_1": ["NAND4_1", "OR2_0", "OR2_15", "AND3_0", "OR4_1", "OR4_2", "NOT_20", "NOR4_0", "NAND2_21", "NOT_6", "DFF_11", "OR4_0", "NAND4_0", "NOT_18", "NAND2_20", "NOR3_0", "NAND2_0", "DFF_12", "NOT_7", "OR2_16", "NOT_21"], "OR4_0": ["OR3_1", "NAND4_1", "OR3_0", "DFF_10", "NOT_27", "OR2_15", "NOR2_5", "NAND3_1", "AND3_0", "OR4_1", "NAND2_19", "NOT_20", "AND2_0", "NOR4_0", "OR2_14", "NOT_22", "NOT_6", "OR3_2", "DFF_11", "AND3_1", "NAND2_20", "AND2_1", "NOR3_0", "NOT_5", "NAND3_0", "NAND2_5", "DFF_8", "AND2_2", "NOT_21"], "OR2_0": ["OR3_1", "OR3_2", "NAND4_0", "OR4_1", "NOT_18", "OR4_2", "NOT_23", "NOR4_0"], "OR2_1": ["NOT_1", "NOT_30", "NAND2_9", "NOT_18", "NOT_41", "DFF_1", "OR4_3"], "OR2_2": ["NAND4_1", "NOR3_13", "OR4_1", "NOR3_19", "OR4_2", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "NOT_22", "OR3_2", "NOR3_8", "NOR3_18", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR4_3", "NOT_44", "NOT_31", "NOR3_4", "NOR3_17", "NAND2_3", "NOR3_7", "NOR3_14"], "OR4_1": ["OR3_1", "NAND4_1", "OR2_0", "NOR3_13", "OR2_15", "NOR3_14", "AND3_0", "OR4_2", "NOR3_19", "NOT_20", "NOR4_0", "NOR2_2", "NOT_43", "NAND2_21", "NOR3_12", "NOT_6", "DFF_11", "OR3_2", "OR4_0", "NAND4_0", "NOR3_8", "NOR3_18", "NAND2_20", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "NOR3_0", "NOT_44", "NAND2_0", "DFF_12", "NOT_31", "NOR3_4", "NOT_7", "NOR3_17", "NAND2_3", "OR2_16", "NOR3_7", "NOT_21", "NOT_23"], "OR3_2": ["OR3_0", "OR2_0", "NOR3_13", "DFF_10", "NOR3_14", "OR4_1", "OR4_2", "NOR3_19", "NAND2_19", "NOR2_2", "NOR4_0", "NOT_43", "OR2_14", "NOR3_12", "NOT_22", "OR4_0", "NAND4_0", "NOR3_8", "NOR3_18", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "NOR3_0", "NOT_5", "NOT_44", "NOT_31", "NOR3_4", "NOR3_17", "NOR3_7", "AND2_2", "NAND2_4", "NOT_23"], "OR4_2": ["OR3_1", "NAND4_1", "OR3_0", "OR2_0", "NOR3_13", "NOR3_14", "OR4_1", "NOR3_19", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "NOT_22", "DFF_9", "OR2_13", "NAND4_0", "AND3_1", "OR3_2", "NOT_18", "NOR3_8", "NOR3_18", "NOR3_15", "NOT_42", "OR4_3", "NOR3_16", "OR2_2", "NOR3_9", "NOT_4", "NOT_44", "NOT_31", "NOR3_4", "NOR3_17", "NOR3_7", "NAND2_4", "NOT_23"], "OR2_3": ["NAND2_10", "NOT_0", "NOR2_3", "DFF_0", "NOT_45", "NOT_32"], "OR4_3": ["NOT_1", "OR2_2", "NAND4_1", "OR3_0", "NOT_4", "NOT_22", "NAND2_0", "NOR4_0", "DFF_9", "OR2_13", "OR2_1", "AND3_1", "NOT_18", "OR4_2", "NOT_23", "DFF_1", "NAND2_6"], "OR2_4": ["NOT_49", "DFF_17", "NOR3_3", "NOT_12"], "OR2_5": ["NOR2_1", "NAND2_7", "NOR3_1", "NAND2_1", "NOT_13", "DFF_18"], "OR2_6": ["NOT_34", "NAND2_8", "DFF_19", "NAND2_2", "NOR3_1", "NOT_14"], "OR2_7": ["NOT_1", "NAND2_9", "NOT_41"], "OR2_8": ["NAND2_10", "NOT_0", "NOT_45"], "OR2_9": ["NOT_55", "DFF_13", "NOT_8", "NOR4_1"], "OR2_10": ["NOR3_2", "NOT_9", "NAND2_12", "NOR3_5", "DFF_14", "NAND2_16"], "OR2_11": ["NOR3_2", "DFF_15", "NOR2_4", "NAND2_17", "NAND2_13", "NOT_10"], "OR2_12": ["NOR3_2", "NAND2_14", "NOT_11", "DFF_16", "NOT_48", "NAND2_18"], "OR2_13": ["NOT_58", "OR3_0", "NOT_4", "DFF_9", "NOR4_3", "AND3_1", "OR4_2", "NOT_23", "OR4_3"], "OR2_14": ["OR3_0", "NOR3_0", "NOT_5", "DFF_10", "NOT_22", "NOR3_10", "OR3_2", "OR4_0", "AND2_2", "NAND2_19", "NAND2_22"], "OR2_15": ["OR3_1", "NAND4_1", "NOR3_0", "NOT_21", "NOT_6", "NOR2_7", "DFF_11", "OR4_0", "AND3_0", "OR4_1", "NAND2_23", "NAND2_20", "NOR4_0"], "OR2_16": ["OR3_1", "NAND2_21", "NOT_56", "NOT_7", "NAND2_24", "NOR3_0", "NAND2_0", "NAND4_0", "AND3_0", "OR4_1", "DFF_12", "NOT_20"], "NAND2_0": ["OR3_1", "NAND2_21", "NOT_7", "NOR3_0", "OR2_16", "NAND3_1", "NAND4_0", "AND3_0", "OR4_1", "DFF_12", "NOT_21", "NOT_20", "OR4_3"], "NAND4_0": ["OR3_1", "OR2_0", "NAND3_1", "AND3_0", "OR4_1", "OR4_2", "NOT_20", "AND2_0", "NOR4_0", "NAND2_21", "OR3_2", "NOT_18", "NOR3_0", "NAND2_0", "DFF_12", "NOT_7", "OR2_16", "NOT_21", "NOT_23"], "NAND2_1": ["NOR2_1", "NAND2_7", "OR2_5", "NOR3_1", "NOT_13", "DFF_18"], "NAND2_2": ["NOT_34", "NAND2_8", "DFF_19", "NOR3_1", "OR2_6", "NOT_14"], "NAND2_3": ["OR2_2", "OR4_1", "AND2_8"], "NAND2_4": ["OR4_2", "NAND3_1", "OR3_2"], "NAND2_5": ["NAND2_11", "NOR2_5", "NAND3_1", "OR4_0", "AND3_1", "NOT_20", "NOR4_0"], "NAND4_1": ["OR3_1", "NOT_27", "OR2_15", "NOR2_5", "AND3_0", "OR4_1", "OR4_2", "NOR2_2", "NOR4_0", "NOT_22", "NOT_6", "DFF_11", "OR4_0", "AND3_1", "NAND2_20", "OR4_3", "AND2_1", "OR2_2", "NOR3_0", "NAND3_0", "NOT_44", "AND2_2", "NOT_21"], "NAND3_0": ["DFF_5", "NAND4_1", "OR3_0", "NOT_44", "OR4_0", "AND3_0", "AND3_1", "AND2_2", "AND2_1"], "NAND2_6": ["NAND2_15", "NAND2_11", "NOR2_2", "OR4_3"], "NAND2_7": ["NOR3_8", "NAND2_1", "OR2_5"], "NAND2_8": ["OR2_6", "NAND2_2", "NOR3_9"], "NAND2_9": ["NOT_51", "OR2_1", "OR2_7"], "NAND3_1": ["NAND2_4", "NOR2_5", "NAND2_5", "NAND2_0", "NAND2_15", "OR4_0", "AND3_1", "NAND4_0", "NOT_21", "NOT_20"], "NAND2_10": ["NOT_52", "OR2_8", "OR2_3"], "NAND2_11": ["NOT_54", "AND2_3", "NAND2_5", "NAND2_15", "NOT_53", "NAND2_6"], "NAND2_12": ["NOR3_2", "NOT_9", "NOR3_5", "DFF_14", "NAND2_16", "OR2_10"], "NAND2_13": ["NOR3_2", "DFF_15", "NOR2_4", "NAND2_17", "OR2_11", "NOT_10"], "NAND2_14": ["OR2_12", "NOR3_2", "NOT_11", "DFF_16", "NOT_48", "NAND2_18"], "NAND2_15": ["AND2_5", "NAND2_11", "NAND3_1", "AND2_7", "NAND2_6"], "NAND2_16": ["NOR3_13", "OR2_10", "NAND2_12"], "NAND2_17": ["OR2_11", "NAND2_13", "NOR3_14"], "NAND2_18": ["OR2_12", "NOR3_15", "NAND2_14"], "NAND2_19": ["OR2_14", "OR3_0", "NOR3_0", "NOT_5", "DFF_10", "NOT_22", "NOR3_10", "OR3_2", "OR4_0", "AND2_2", "NAND2_22"], "NAND2_20": ["OR3_1", "NAND4_1", "NOR3_0", "NOT_6", "OR2_15", "NOR2_7", "DFF_11", "OR4_0", "AND3_0", "OR4_1", "NAND2_23", "NOT_21", "NOR4_0"], "NAND2_21": ["OR3_1", "NOT_56", "NOT_7", "NAND2_24", "NOR3_0", "OR2_16", "NAND2_0", "NAND4_0", "AND3_0", "OR4_1", "DFF_12", "NOT_20"], "NAND2_22": ["NAND2_19", "OR2_14", "NOR3_17"], "NAND2_23": ["NAND2_20", "NOR3_18", "OR2_15"], "NAND2_24": ["NOR3_19", "NAND2_21", "OR2_16"], "NOR3_0": ["OR3_1", "NAND4_1", "OR3_0", "DFF_10", "OR2_15", "AND3_0", "OR4_1", "NAND2_19", "NOT_20", "NOR4_0", "NAND2_21", "OR2_14", "NOT_22", "NOT_6", "OR3_2", "DFF_11", "OR4_0", "NAND4_0", "NAND2_20", "NOR3_11", "NOT_5", "NAND2_0", "DFF_12", "NOT_7", "OR2_16", "AND2_2", "NOT_21"], "NOR3_1": ["NOT_24", "DFF_19", "NAND2_2", "DFF_20", "OR2_5", "NOR2_0", "NAND2_1", "OR2_6", "NOT_13", "DFF_18", "NOT_14", "NOT_15"], "NOR3_2": ["OR2_12", "NOT_9", "DFF_15", "NAND2_14", "NOT_11", "NAND2_12", "OR2_11", "DFF_16", "NAND2_13", "DFF_14", "OR2_10", "NOT_10", "NOR3_6"], "NOR2_0": ["NOR3_4", "NOR3_8", "NOR3_7", "NOT_12", "NOR3_1", "NOR2_3", "NOR3_9"], "NOR3_3": ["NOR2_1", "NOT_34", "OR2_4", "NOT_13", "NOT_14", "NOT_15"], "NOR2_1": ["NOT_34", "NOR3_3", "OR2_5", "NAND2_1", "NOT_14", "NOT_15"], "NOR2_2": ["NAND4_1", "NOR3_13", "NOT_27", "OR4_1", "NOR3_19", "OR4_2", "NOR4_0", "NOT_43", "NOR3_12", "OR3_2", "NOR3_8", "NOR3_18", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "NAND2_6", "NOT_44", "NOT_31", "NOR3_4", "NOR3_17", "NOR3_7", "NOR3_14"], "NOR4_0": ["OR3_1", "NAND4_1", "OR2_0", "NOR3_13", "OR2_15", "AND3_0", "OR4_1", "OR4_2", "NOR3_19", "NOR2_2", "NOT_43", "NOR3_12", "NOT_22", "NOT_6", "DFF_11", "OR3_2", "OR4_0", "NAND4_0", "NOR3_8", "NOT_18", "NOR3_18", "NAND2_20", "NOR3_15", "NOT_42", "OR4_3", "NOR3_16", "OR2_2", "NOR3_9", "NOR3_0", "NOT_44", "NAND2_5", "NOT_31", "NOR3_4", "NOR3_17", "NOR3_7", "NOT_21", "NOR3_14"], "NOR2_3": ["NOR3_4", "OR2_3", "NOR2_4", "NOT_0", "NOR2_0", "NOR4_1", "DFF_0", "NOR3_8", "NOR3_5", "NOT_48", "NOR3_7", "NOR3_9", "NOR3_6"], "NOR3_4": ["NOR3_13", "OR4_1", "NOR3_19", "OR4_2", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "OR3_2", "NOR3_8", "NOR3_18", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "NOT_44", "NOT_31", "NOR3_17", "DFF_20", "NOR2_0", "NOR3_7", "NOT_33", "NOR3_14", "NOR2_3"], "NOR4_1": ["OR2_9", "NOT_9", "NOR2_4", "AND2_3", "AND2_5", "NOT_11", "NOR2_3", "NOR3_5", "NOT_48", "NOT_10", "NOR3_6"], "NOR3_5": ["NOR2_4", "NOT_11", "NAND2_12", "NOR2_3", "NOR4_1", "NOT_48", "OR2_10", "NOT_10", "NOR3_6"], "NOR3_6": ["NOR3_2", "NOR2_4", "NOT_50", "NOR3_12", "NOR3_13", "NOR4_1", "NOT_48", "NOR3_5", "NOT_8", "NOR3_15", "NOR3_14", "NOR2_3"], "NOR2_4": ["NOT_11", "NOR4_1", "OR2_11", "NOR3_5", "NOT_48", "NAND2_13", "NOR2_3", "NOR3_6"], "NOR2_5": ["NAND4_1", "NAND2_5", "NAND3_1", "OR4_0", "AND3_1", "DFF_2", "NOT_20"], "NOR2_6": ["DFF_7", "AND2_0"], "NOR3_7": ["NOR3_13", "OR4_1", "NOR3_19", "OR4_2", "DFF_17", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "OR3_2", "NOR3_8", "NOR3_18", "NOT_49", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "NOT_44", "NOT_31", "NOR3_4", "NOR3_17", "NOR2_0", "NOR3_14", "NOR2_3"], "NOR3_8": ["NOR3_13", "NAND2_7", "OR4_1", "NOR3_19", "OR4_2", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "OR3_2", "NOR3_18", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "NOT_44", "NOT_31", "NOR3_4", "NOR3_17", "NOR2_0", "NOR3_7", "NOR3_14", "DFF_18", "NOR2_3"], "NOR3_9": ["NOR3_13", "OR4_1", "NOR3_19", "OR4_2", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "DFF_19", "OR3_2", "NOR3_8", "NOR3_18", "NOR3_15", "NOT_42", "NOR3_16", "OR2_2", "NOT_44", "NOT_31", "NOR3_4", "NAND2_8", "NOR3_17", "NOR2_0", "NOR3_7", "NOR3_14", "NOR2_3"], "NOR4_3": ["NOT_56", "NOR3_11", "NOT_7", "NOT_50", "NOT_5", "NOR2_7", "NOR3_10", "NOT_6", "OR2_13"], "NOR3_10": ["NOT_56", "OR2_14", "NOR3_11", "NOT_7", "NOT_50", "NOR2_7", "NOT_6", "NAND2_19", "NOR4_3"], "NOR3_11": ["NOT_56", "NOT_50", "NOR3_17", "NOT_4", "NOR3_0", "NOR3_10", "NOR2_7", "NOR3_18", "NOR3_19", "NOR4_3", "NOR3_16"], "NOR2_7": ["NOT_56", "NOR3_11", "NOT_7", "NOT_50", "NOR3_10", "OR2_15", "NAND2_20", "NOR4_3"], "NOR3_12": ["NOR3_13", "OR4_1", "NOR3_19", "OR4_2", "NOR2_2", "NOR4_0", "NOT_43", "DFF_13", "OR3_2", "NOR3_8", "NOR3_18", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "NOT_44", "NOT_31", "NOR3_6", "NOT_55", "NOR3_4", "NOT_50", "NOR3_17", "NOR3_7", "NOR3_14"], "NOR3_13": ["OR4_1", "NOR3_19", "OR4_2", "NAND2_16", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "OR3_2", "NOR3_8", "NOR3_18", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "NOT_44", "NOT_31", "NOR3_6", "NOR3_4", "NOT_50", "NOR3_17", "NOR3_7", "DFF_14", "NOR3_14"], "NOR3_14": ["NOR3_13", "NAND2_17", "OR4_1", "NOR3_19", "OR4_2", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "OR3_2", "NOR3_8", "NOR3_18", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "DFF_15", "NOT_44", "NOT_31", "NOR3_6", "NOR3_4", "NOT_50", "NOR3_17", "NOR3_7"], "NOR3_15": ["NOR3_13", "OR4_1", "NOR3_19", "OR4_2", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "OR3_2", "NOR3_8", "NOR3_18", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "NOT_44", "DFF_16", "NAND2_18", "NOT_31", "NOR3_6", "NOR3_4", "NOT_50", "NOR3_17", "NOR3_7", "NOR3_14"], "NOR2_8": ["AND2_5", "AND2_7", "DFF_3"], "NOR2_9": ["DFF_4", "AND2_8", "AND2_3"], "NOR3_16": ["NOT_58", "NOR3_13", "OR4_1", "NOR3_19", "OR4_2", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "DFF_9", "OR3_2", "NOR3_8", "NOR3_18", "NOR3_15", "NOT_42", "NOR3_9", "OR2_2", "NOR3_11", "NOT_44", "NOT_31", "NOR3_4", "NOR3_17", "NOR3_7", "NOR3_14"], "NOR3_17": ["NOR3_13", "DFF_10", "OR4_1", "NOR3_19", "OR4_2", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "OR3_2", "NOR3_8", "NOR3_18", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "NOR3_11", "NOT_44", "NOT_31", "NOR3_4", "NOR3_7", "NOR3_14", "NAND2_22"], "NOR3_18": ["NOR3_13", "OR4_1", "NAND2_23", "NOR3_19", "OR4_2", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "DFF_11", "OR3_2", "NOR3_8", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "NOR3_11", "NOT_44", "NOT_31", "NOR3_4", "NOR3_17", "NOR3_7", "NOR3_14"], "NOR3_19": ["NAND2_24", "NOR3_13", "OR4_1", "OR4_2", "NOR2_2", "NOR4_0", "NOT_43", "NOR3_12", "OR3_2", "NOR3_8", "NOR3_18", "NOR3_15", "NOT_42", "NOR3_16", "NOR3_9", "OR2_2", "NOR3_11", "NOT_44", "DFF_12", "NOT_31", "NOR3_4", "NOR3_17", "NOR3_7", "NOR3_14"]}, "original_file": "D:\\vm_share\\Python_FDR_win_1\\py\\..\\circuit\\s382.v", "partition_ports": {"partition_a": {"inputs": ["CK", "D", "CLR", "TEST", "FM"], "outputs": ["TCOMBVNODE19", "UC_9", "C3VIINHN", "C2_CO", "UC_10VUC_0", "FML", "UC_25", "C3VCO1", "C3_Q1VD", "UC_21", "TESTLVIINLATCHN", "UC_27", "C3_Q0VZVOR1NF", "UC_8", "FMLVIINMUXVND1", "FMB", "R2C", "UC_18VD", "UC_17VUC_0", "TCOMB_FE", "UC_16VZ", "C3_Q3VZVOR1NF", "C3_Q0VD", "OUTBUFVBUFY2VIIR1", "TCOMB_RA1VOR1NF", "Y1CVAD1NF", "UC_8VD", "UC_17VZVOR1NF", "C3_Q3", "TESTLVIINLATCHVCDAD", "UC_23", "TCOMBVNODE4VOR1NF", "TCOMBVNFM", "TCOMB_RA2VOR3NF", "UC_22", "C2_QN2", "TCOMBVNODE16", "TCOMB_GA1", "C3_Q2VD", "OUTBUFVBUFY1VIIR1", "CTST", "C2VCO1", "TESTB", "TESTLVIINLATCHVCDN", "TCOMBVNCLR", "FMLVIINLATCHVCDAD", "FMLVIINMUXVIIR1", "YLW2", "C3_Q0VUC_0", "TCOMB_FE_BF", "R2CVAD1NF", "UC_24", "TCOMB_YA1", "TCOMB_GA1VAD1NF", "C3_Q3VZ", "C1VCO1", "UC_15", "UC_19", "OLATCH_Y1L", "OLATCH_Y2L", "CO2", "FMLVIINMUXVOR2NF", "UC_17", "UC_18", "UC_9VZ", "UC_19VZVOR1NF", "C3_Q2VUC_0", "UC_10", "CLRBVIIR1", "R2CVAD2NF", "C3VCO2", "TCOMB_YA2", "TCOMBVNQC", "TCOMBVNODE16VOR1NF", "C3_Q1", "UC_11", "FMLVIINLATCHN", "UC_16", "CLRB", "Y1C", "FMLVIINLATCHVCDN", "C3_Q2", "TESTL", "UC_9VD", "C2VCO2", "UC_20", "C2VIINHN", "TCOMBVNODE12", "OLATCH_FEL", "C3_Q0", "TCOMB_RA2VOR1NF", "UC_14", "TESTBVIIR1", "UC_12", "FEN", "C3VCIIA", "UC_10VZ", "C2VCIIA", "TCOMBVNQD", "C1_CO", "C1VCO2", "II84", "UC_18VZVOR1NF", "TCOMBVNFEL", "OUTBUFVBUFR1VIIR1", "C2VCO0", "TCOMBVNODE4VOR2NF", "UC_17VZ", "UC_26", "OLATCH_R2L", "OUTBUFVBUFR2VIIR1", "C1VCO0", "TCOMBVNQA", "TCOMB_RA2"]}, "partition_b": {"inputs": ["TCOMBVNODE19", "UC_9", "CK", "C3VIINHN", "C2_CO", "UC_10VUC_0", "FML", "UC_25", "C3VCO1", "C3_Q1VD", "UC_21", "TESTLVIINLATCHN", "UC_27", "C3_Q0VZVOR1NF", "UC_8", "FMLVIINMUXVND1", "FMB", "R2C", "UC_18VD", "UC_17VUC_0", "TCOMB_FE", "UC_16VZ", "C3_Q3VZVOR1NF", "C3_Q0VD", "OUTBUFVBUFY2VIIR1", "TCOMB_RA1VOR1NF", "Y1CVAD1NF", "UC_8VD", "UC_17VZVOR1NF", "C3_Q3", "TESTLVIINLATCHVCDAD", "UC_23", "TCOMBVNODE4VOR1NF", "TCOMBVNFM", "TCOMB_RA2VOR3NF", "UC_22", "C2_QN2", "TCOMBVNODE16", "TCOMB_GA1", "C3_Q2VD", "OUTBUFVBUFY1VIIR1", "CTST", "C2VCO1", "TESTB", "TESTLVIINLATCHVCDN", "TCOMBVNCLR", "FMLVIINLATCHVCDAD", "FMLVIINMUXVIIR1", "C3_Q0VUC_0", "TCOMB_FE_BF", "R2CVAD1NF", "UC_24", "TCOMB_YA1", "TCOMB_GA1VAD1NF", "C3_Q3VZ", "C1VCO1", "UC_15", "UC_19", "OLATCH_Y1L", "OLATCH_Y2L", "CO2", "FMLVIINMUXVOR2NF", "UC_17", "UC_18", "UC_9VZ", "UC_19VZVOR1NF", "C3_Q2VUC_0", "UC_10", "CLRBVIIR1", "R2CVAD2NF", "C3VCO2", "TCOMB_YA2", "TEST", "TCOMBVNQC", "TCOMBVNODE16VOR1NF", "C3_Q1", "UC_11", "FMLVIINLATCHN", "UC_16", "CLRB", "Y1C", "FMLVIINLATCHVCDN", "C3_Q2", "TESTL", "UC_9VD", "C2VCO2", "UC_20", "C2VIINHN", "TCOMBVNODE12", "OLATCH_FEL", "C3_Q0", "TCOMB_RA2VOR1NF", "UC_14", "TESTBVIIR1", "UC_12", "FEN", "C3VCIIA", "UC_10VZ", "C2VCIIA", "TCOMBVNQD", "C1_CO", "C1VCO2", "II84", "UC_18VZVOR1NF", "TCOMBVNFEL", "OUTBUFVBUFR1VIIR1", "C2VCO0", "TCOMBVNODE4VOR2NF", "UC_17VZ", "UC_26", "OLATCH_R2L", "OUTBUFVBUFR2VIIR1", "C1VCO0", "TCOMBVNQA", "TCOMB_RA2"], "outputs": ["GRN2", "GRN1", "RED2", "YLW1", "RED1"]}}}</data>
+    <node id="OR3_1">
+      <data key="d0">a</data>
+      <data key="d1">or</data>
+      <data key="d2">TCOMBVNODE8VOR1NF,C3_Q0,C3_Q1,TCOMBVNFM</data>
+    </node>
+    <node id="NOR3_13">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">UC_17VD,CLRB,UC_17VZ,C2_CO</data>
+    </node>
+    <node id="NOR4_1">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">C2VCO2,CTST,C2_QN2,UC_21,UC_22</data>
+    </node>
+    <node id="OR2_5">
+      <data key="d0">a</data>
+      <data key="d1">or</data>
+      <data key="d2">UC_9VZVOR1NF,C1VCO1,UC_9</data>
+    </node>
+    <node id="NAND2_17">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">UC_18VZ,UC_18VZVOR1NF,UC_18VUC_0</data>
+    </node>
+    <node id="NOT_8">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_20,UC_16</data>
+    </node>
+    <node id="NOT_15">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_15,UC_11</data>
+    </node>
+    <node id="OR2_4">
+      <data key="d0">a</data>
+      <data key="d1">or</data>
+      <data key="d2">UC_8VZVOR1NF,C1VCO2,UC_8</data>
+    </node>
+    <node id="NOT_22">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">TCOMBVNQC,C3_Q2</data>
+    </node>
+    <node id="NOT_12">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_12,UC_8</data>
+    </node>
+    <node id="NOT_38">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">YLW2,OUTBUFVBUFY2VIIR1</data>
+    </node>
+    <node id="NAND2_6">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">TCOMBVNODE16,TCOMBVNODE19,TCOMBVNODE16VOR1NF</data>
+    </node>
+    <node id="NOT_54">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">FEN,TCOMB_FE</data>
+    </node>
+    <node id="NOR2_8">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">Y1C,Y1CVAD2NF,Y1CVAD1NF</data>
+    </node>
+    <node id="NAND2_5">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">TCOMBVNODE14,TCOMBVNODE15,TCOMBVNQA</data>
+    </node>
+    <node id="DFF_0">
+      <data key="d0">a</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,TESTL,TESTLVIINLATCHVCDAD</data>
+    </node>
+    <node id="NOT_16">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">FMBVIIR1,FM</data>
+    </node>
+    <node id="NOT_30">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">FMB,FMBVIIR1</data>
+    </node>
+    <node id="DFF_14">
+      <data key="d0">a</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,UC_17,UC_17VD</data>
+    </node>
+    <node id="NOT_53">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">II84,TCOMB_FE</data>
+    </node>
+    <node id="OR3_0">
+      <data key="d0">a</data>
+      <data key="d1">or</data>
+      <data key="d2">TCOMB_RA1VOR2NF,C3_Q2,C3_Q3,OLATCH_FEL</data>
+    </node>
+    <node id="NOT_27">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">TCOMBVNFEL,OLATCH_FEL</data>
+    </node>
+    <node id="AND3_0">
+      <data key="d0">a</data>
+      <data key="d1">and</data>
+      <data key="d2">TCOMB_GA2VAD2NF,C3_Q0,C3_Q1,TCOMBVNCLR</data>
+    </node>
+    <node id="NAND2_19">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">C3_Q2VUC_0,C3VCO1,C3_Q2</data>
+    </node>
+    <node id="NOT_20">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">TCOMBVNQA,C3_Q0</data>
+    </node>
+    <node id="NOR2_9">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">R2C,R2CVAD2NF,R2CVAD1NF</data>
+    </node>
+    <node id="NAND2_11">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">TCOMB_FE,TCOMBVNODE16,TCOMBVNODE14</data>
+    </node>
+    <node id="NOR3_15">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">UC_19VD,CLRB,UC_19VZ,C2_CO</data>
+    </node>
+    <node id="NOT_14">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_14,UC_10</data>
+    </node>
+    <node id="AND2_1">
+      <data key="d0">a</data>
+      <data key="d1">and</data>
+      <data key="d2">TCOMB_GA2VAD4NF,OLATCH_FEL,TCOMBVNCLR</data>
+    </node>
+    <node id="NOT_56">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">C3VIINHN,CO2</data>
+    </node>
+    <node id="DFF_8">
+      <data key="d0">a</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,OLATCH_FEL,TCOMB_FE_BF</data>
+    </node>
+    <node id="NAND2_18">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">UC_19VZ,UC_19VZVOR1NF,UC_19VUC_0</data>
+    </node>
+    <node id="AND2_7">
+      <data key="d0">a</data>
+      <data key="d1">and</data>
+      <data key="d2">Y1CVAD2NF,FEN,TCOMB_YA1</data>
+    </node>
+    <node id="OR2_7">
+      <data key="d0">a</data>
+      <data key="d1">or</data>
+      <data key="d2">FMLVIINMUXVOR2NF,FMLVIINMUXVIIR1,FMLVIINLATCHN</data>
+    </node>
+    <node id="AND2_4">
+      <data key="d0">a</data>
+      <data key="d1">and</data>
+      <data key="d2">FMLVIINLATCHVCDAD,FMLVIINLATCHVCDN,FMLVIINMUX</data>
+    </node>
+    <node id="NOT_0">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">TESTLVIINLATCHN,TESTL</data>
+    </node>
+    <node id="NOR3_14">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">UC_18VD,CLRB,UC_18VZ,C2_CO</data>
+    </node>
+    <node id="NOR4_3">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">C3VCO2,CO2,UC_24,UC_25,UC_26</data>
+    </node>
+    <node id="DFF_18">
+      <data key="d0">a</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,UC_9,UC_9VD</data>
+    </node>
+    <node id="OR2_10">
+      <data key="d0">a</data>
+      <data key="d1">or</data>
+      <data key="d2">UC_17VZVOR1NF,C2VCO1,UC_17</data>
+    </node>
+    <node id="NOR2_3">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">CTST,C1_CO,TESTL</data>
+    </node>
+    <node id="NOT_34">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">C1VCO0,UC_15</data>
+    </node>
+    <node id="NOT_58">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">C3_Q3VZ,C3_Q3VZVOR1NF</data>
+    </node>
+    <node id="NAND4_1">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">TCOMBVNODE12,TCOMBVNCLR,TCOMBVNFEL,TCOMBVNQC,C3_Q1</data>
+    </node>
+    <node id="DFF_5">
+      <data key="d0">a</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,OLATCH_R1L,TCOMB_RA1</data>
+    </node>
+    <node id="DFF_13">
+      <data key="d0">a</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,UC_16,UC_16VD</data>
+    </node>
+    <node id="NOR3_12">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">UC_16VD,CLRB,UC_16VZ,C2_CO</data>
+    </node>
+    <node id="DFF_11">
+      <data key="d0">a</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,C3_Q1,C3_Q1VD</data>
+    </node>
+    <node id="NOT_51">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">FMLVIINMUX,FMLVIINMUXVND1</data>
+    </node>
+    <node id="NOR3_9">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">UC_10VD,CLRB,UC_10VZ,C1_CO</data>
+    </node>
+    <node id="NOR3_2">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">C2VCIIA,UC_17,UC_18,UC_19</data>
+    </node>
+    <node id="NOT_39">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">OUTBUFVBUFR2VIIR1,OLATCH_R2L</data>
+    </node>
+    <node id="NOR3_0">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">C3VCIIA,C3_Q2,C3_Q1,C3_Q0</data>
+    </node>
+    <node id="DFF_2">
+      <data key="d0">a</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,OLATCH_Y2L,TCOMB_YA2</data>
+    </node>
+    <node id="DFF_16">
+      <data key="d0">a</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,UC_19,UC_19VD</data>
+    </node>
+    <node id="NAND2_1">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">UC_9VUC_0,C1VCO1,UC_9</data>
+    </node>
+    <node id="NAND2_3">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">TCOMB_RA2,TCOMB_RA2VOR3NF,TCOMB_RA2VOR1NF</data>
+    </node>
+    <node id="NOR3_7">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">UC_8VD,CLRB,UC_8VZ,C1_CO</data>
+    </node>
+    <node id="NOT_23">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">TCOMBVNQD,C3_Q3</data>
+    </node>
+    <node id="NOR2_4">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">C2VCO0,CTST,UC_22</data>
+    </node>
+    <node id="NAND2_24">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">C3_Q0VZ,C3_Q0VZVOR1NF,C3_Q0VUC_0</data>
+    </node>
+    <node id="DFF_10">
+      <data key="d0">a</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,C3_Q2,C3_Q2VD</data>
+    </node>
+    <node id="NAND2_7">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">UC_9VZ,UC_9VZVOR1NF,UC_9VUC_0</data>
+    </node>
+    <node id="NOR3_10">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">C3VCO1,CO2,UC_25,UC_26</data>
+    </node>
+    <node id="NAND2_12">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">UC_17VUC_0,C2VCO1,UC_17</data>
+    </node>
+    <node id="NOT_28">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">OUTBUFVBUFR1VIIR1,OLATCH_R1L</data>
+    </node>
+    <node id="NAND2_13">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">UC_18VUC_0,C2VCO0,UC_18</data>
+    </node>
+    <node id="OR4_2">
+      <data key="d0">a</data>
+      <data key="d1">or</data>
+      <data key="d2">TCOMBVNODE4VOR1NF,TCOMBVNQC,C3_Q3,TCOMBVNFM,CLRB</data>
+    </node>
+    <node id="NOR3_19">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">C3_Q0VD,CLRB,C3_Q0VZ,UC_27</data>
+    </node>
+    <node id="NOR4_0">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">TCOMBVNODE15,CLRB,TCOMBVNFM,TCOMBVNQC,C3_Q1</data>
+    </node>
+    <node id="NOT_32">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">TESTB,TESTBVIIR1</data>
+    </node>
+    <node id="DFF_19">
+      <data key="d0">a</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,UC_10,UC_10VD</data>
+    </node>
+    <node id="OR3_2">
+      <data key="d0">a</data>
+      <data key="d1">or</data>
+      <data key="d2">TCOMBVNODE4VOR2NF,C3_Q2,TCOMBVNQD,CLRB</data>
+    </node>
+    <node id="NOT_18">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">TCOMBVNFM,FML</data>
+    </node>
+    <node id="NOT_40">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">OUTBUFVBUFY1VIIR1,OLATCH_Y1L</data>
+    </node>
+    <node id="NOT_49">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_8VZ,UC_8VZVOR1NF</data>
+    </node>
+    <node id="NOT_42">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">TESTLVIINLATCHVCDN,CLRB</data>
+    </node>
+    <node id="NOR2_6">
+      <data key="d0">a</data>
+      <data key="d1">nor</data>
+      <data key="d2">TCOMB_GA1,TCOMBVNODE8,TCOMB_GA1VAD1NF</data>
+    </node>
+    <node id="NOT_4">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_23,C3_Q3</data>
+    </node>
+    <node id="NAND3_0">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">TCOMB_RA1,TCOMBVNCLR,TCOMB_RA1VOR2NF,TCOMB_RA1VOR1NF</data>
+    </node>
+    <node id="NAND2_14">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">UC_19VUC_0,C2VIINHN,UC_19</data>
+    </node>
+    <node id="NOT_7">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_26,C3_Q0</data>
+    </node>
+    <node id="NAND2_2">
+      <data key="d0">a</data>
+      <data key="d1">nand</data>
+      <data key="d2">UC_10VUC_0,C1VCO0,UC_10</data>
+    </node>
+    <node id="NOT_17">
+      <data key="d0">a</data>
+      <data key="d1">not</data>
+      <data key="d2">CLRBVIIR1,CLR</data>
+    </node>
+    <node id="OR2_0">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">TCOMBVNODE8VOR2NF,TCOMBVNQD,TCOMBVNFM</data>
+    </node>
+    <node id="OR2_1">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">FMLVIINMUXVOR1NF,FMB,FML</data>
+    </node>
+    <node id="NAND2_23">
+      <data key="d0">b</data>
+      <data key="d1">nand</data>
+      <data key="d2">C3_Q1VZ,C3_Q1VZVOR1NF,C3_Q1VUC_0</data>
+    </node>
+    <node id="OR2_8">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">TESTLVIINMUXVOR2NF,TESTLVIINMUXVIIR1,TESTLVIINLATCHN</data>
+    </node>
+    <node id="NOT_13">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_13,UC_9</data>
+    </node>
+    <node id="NOT_10">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_21,UC_18</data>
+    </node>
+    <node id="OR2_13">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">C3_Q3VZVOR1NF,C3VCO2,C3_Q3</data>
+    </node>
+    <node id="AND3_1">
+      <data key="d0">b</data>
+      <data key="d1">and</data>
+      <data key="d2">TCOMB_GA2VAD1NF,TCOMBVNQA,C3_Q3,TCOMBVNCLR</data>
+    </node>
+    <node id="NOT_52">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">TESTLVIINMUX,TESTLVIINMUXVND1</data>
+    </node>
+    <node id="NOT_47">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">YLW1,OUTBUFVBUFY1VIIR1</data>
+    </node>
+    <node id="OR2_2">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">TCOMB_RA2VOR3NF,TCOMBVNQC,CLRB</data>
+    </node>
+    <node id="DFF_15">
+      <data key="d0">b</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,UC_18,UC_18VD</data>
+    </node>
+    <node id="NOR3_11">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">UC_27,C3VCIIA,CO2,UC_23</data>
+    </node>
+    <node id="NOT_35">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">GRN1,OUTBUFVBUFG1VIIR1</data>
+    </node>
+    <node id="NOT_21">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">TCOMBVNQB,C3_Q1</data>
+    </node>
+    <node id="NAND2_0">
+      <data key="d0">b</data>
+      <data key="d1">nand</data>
+      <data key="d2">TCOMBVNODE18,TCOMBVNQB,C3_Q0</data>
+    </node>
+    <node id="DFF_1">
+      <data key="d0">b</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,FML,FMLVIINLATCHVCDAD</data>
+    </node>
+    <node id="OR2_12">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">UC_19VZVOR1NF,C2VIINHN,UC_19</data>
+    </node>
+    <node id="NOT_50">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">CO2,C2_CO</data>
+    </node>
+    <node id="NOR3_3">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">C1VCO2,UC_13,UC_14,UC_15</data>
+    </node>
+    <node id="AND2_5">
+      <data key="d0">b</data>
+      <data key="d1">and</data>
+      <data key="d2">Y1CVAD1NF,TCOMB_YA1,C2_QN2</data>
+    </node>
+    <node id="DFF_3">
+      <data key="d0">b</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,OLATCHVUC_6,Y1C</data>
+    </node>
+    <node id="NOR2_0">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">C1_CO,C1VCIIA,UC_12</data>
+    </node>
+    <node id="NOT_25">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">OUTBUFVBUFG1VIIR1,OLATCH_G1L</data>
+    </node>
+    <node id="NOT_24">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_11VUC_0,UC_11</data>
+    </node>
+    <node id="NAND3_1">
+      <data key="d0">b</data>
+      <data key="d1">nand</data>
+      <data key="d2">TCOMBVNODE3,TCOMBVNODE4,TCOMBVNQB,TCOMBVNQA</data>
+    </node>
+    <node id="OR2_11">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">UC_18VZVOR1NF,C2VCO0,UC_18</data>
+    </node>
+    <node id="NOT_48">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">C2VIINHN,CTST</data>
+    </node>
+    <node id="NOR3_5">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">C2VCO1,CTST,UC_21,UC_22</data>
+    </node>
+    <node id="NOT_45">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">TESTLVIINMUXVIIR1,TESTB</data>
+    </node>
+    <node id="AND2_0">
+      <data key="d0">b</data>
+      <data key="d1">and</data>
+      <data key="d2">TCOMB_GA1VAD1NF,TCOMBVNODE6,OLATCH_FEL</data>
+    </node>
+    <node id="NAND2_10">
+      <data key="d0">b</data>
+      <data key="d1">nand</data>
+      <data key="d2">TESTLVIINMUXVND1,TESTLVIINMUXVOR2NF,TESTLVIINMUXVOR1NF</data>
+    </node>
+    <node id="NOT_1">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">FMLVIINLATCHN,FML</data>
+    </node>
+    <node id="NAND2_21">
+      <data key="d0">b</data>
+      <data key="d1">nand</data>
+      <data key="d2">C3_Q0VUC_0,C3VIINHN,C3_Q0</data>
+    </node>
+    <node id="DFF_9">
+      <data key="d0">b</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,C3_Q3,C3_Q3VD</data>
+    </node>
+    <node id="NOR3_18">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">C3_Q1VD,CLRB,C3_Q1VZ,UC_27</data>
+    </node>
+    <node id="NOT_5">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_24,C3_Q2</data>
+    </node>
+    <node id="DFF_12">
+      <data key="d0">b</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,C3_Q0,C3_Q0VD</data>
+    </node>
+    <node id="NOT_57">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">TCOMB_FE_BF,II84</data>
+    </node>
+    <node id="NOR2_1">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">C1VCO1,UC_14,UC_15</data>
+    </node>
+    <node id="NOR3_4">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">UC_11VD,CLRB,UC_11VZ,C1_CO</data>
+    </node>
+    <node id="NAND2_8">
+      <data key="d0">b</data>
+      <data key="d1">nand</data>
+      <data key="d2">UC_10VZ,UC_10VZVOR1NF,UC_10VUC_0</data>
+    </node>
+    <node id="NOR3_17">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">C3_Q2VD,CLRB,C3_Q2VZ,UC_27</data>
+    </node>
+    <node id="OR2_16">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">C3_Q0VZVOR1NF,C3VIINHN,C3_Q0</data>
+    </node>
+    <node id="NOT_11">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_22,UC_19</data>
+    </node>
+    <node id="AND2_2">
+      <data key="d0">b</data>
+      <data key="d1">and</data>
+      <data key="d2">TCOMB_GA2VAD3NF,C3_Q2,TCOMBVNCLR</data>
+    </node>
+    <node id="OR2_6">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">UC_10VZVOR1NF,C1VCO0,UC_10</data>
+    </node>
+    <node id="NOT_26">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">OUTBUFVBUFG2VIIR1,OLATCH_G2L</data>
+    </node>
+    <node id="NOT_2">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">OLATCH_Y1L,OLATCHVUC_6</data>
+    </node>
+    <node id="OR2_3">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">TESTLVIINMUXVOR1NF,TESTB,TESTL</data>
+    </node>
+    <node id="OR2_15">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">C3_Q1VZVOR1NF,C3VCO0,C3_Q1</data>
+    </node>
+    <node id="NOR2_5">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">TCOMB_YA2,TCOMBVNODE12,TCOMBVNQA</data>
+    </node>
+    <node id="NOT_3">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">OLATCH_R2L,OLATCHVUC_5</data>
+    </node>
+    <node id="NOR3_1">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">C1VCIIA,UC_9,UC_10,UC_11</data>
+    </node>
+    <node id="DFF_17">
+      <data key="d0">b</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,UC_8,UC_8VD</data>
+    </node>
+    <node id="NOR2_2">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">TCOMBVNODE19,CLRB,TCOMBVNFEL</data>
+    </node>
+    <node id="NOT_43">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">FMLVIINLATCHVCDN,CLRB</data>
+    </node>
+    <node id="AND2_8">
+      <data key="d0">b</data>
+      <data key="d1">and</data>
+      <data key="d2">R2CVAD2NF,FEN,TCOMB_RA2</data>
+    </node>
+    <node id="AND2_3">
+      <data key="d0">b</data>
+      <data key="d1">and</data>
+      <data key="d2">R2CVAD1NF,TCOMB_FE,C2_QN2</data>
+    </node>
+    <node id="NOT_6">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_25,C3_Q1</data>
+    </node>
+    <node id="OR4_0">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">TCOMB_RA1VOR1NF,TCOMBVNQA,C3_Q1,C3_Q2,OLATCH_FEL</data>
+    </node>
+    <node id="DFF_7">
+      <data key="d0">b</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,OLATCH_G1L,TCOMB_GA1</data>
+    </node>
+    <node id="NOR3_8">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">UC_9VD,CLRB,UC_9VZ,C1_CO</data>
+    </node>
+    <node id="NAND4_0">
+      <data key="d0">b</data>
+      <data key="d1">nand</data>
+      <data key="d2">TCOMBVNODE6,TCOMBVNFM,TCOMBVNQD,TCOMBVNQB,C3_Q0</data>
+    </node>
+    <node id="DFF_6">
+      <data key="d0">b</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,OLATCH_G2L,TCOMB_GA2</data>
+    </node>
+    <node id="OR4_3">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">TCOMBVNODE16VOR1NF,TCOMBVNODE18,FML,C3_Q3,TCOMBVNQC</data>
+    </node>
+    <node id="NOR3_16">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">C3_Q3VD,CLRB,C3_Q3VZ,UC_27</data>
+    </node>
+    <node id="NOT_46">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">RED2,OUTBUFVBUFR2VIIR1</data>
+    </node>
+    <node id="OR2_9">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">UC_16VZVOR1NF,C2VCO2,UC_16</data>
+    </node>
+    <node id="NOT_9">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">C2_QN2,UC_17</data>
+    </node>
+    <node id="NOT_36">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">GRN2,OUTBUFVBUFG2VIIR1</data>
+    </node>
+    <node id="NOT_37">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">RED1,OUTBUFVBUFR1VIIR1</data>
+    </node>
+    <node id="NOT_31">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">CLRB,CLRBVIIR1</data>
+    </node>
+    <node id="NOT_55">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_16VZ,UC_16VZVOR1NF</data>
+    </node>
+    <node id="AND2_6">
+      <data key="d0">b</data>
+      <data key="d1">and</data>
+      <data key="d2">TESTLVIINLATCHVCDAD,TESTLVIINLATCHVCDN,TESTLVIINMUX</data>
+    </node>
+    <node id="NOT_41">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">FMLVIINMUXVIIR1,FMB</data>
+    </node>
+    <node id="NOT_33">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">UC_11VZ,UC_11VUC_0</data>
+    </node>
+    <node id="NAND2_22">
+      <data key="d0">b</data>
+      <data key="d1">nand</data>
+      <data key="d2">C3_Q2VZ,C3_Q2VZVOR1NF,C3_Q2VUC_0</data>
+    </node>
+    <node id="NAND2_9">
+      <data key="d0">b</data>
+      <data key="d1">nand</data>
+      <data key="d2">FMLVIINMUXVND1,FMLVIINMUXVOR2NF,FMLVIINMUXVOR1NF</data>
+    </node>
+    <node id="NOR2_7">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">C3VCO0,CO2,UC_26</data>
+    </node>
+    <node id="DFF_4">
+      <data key="d0">b</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,OLATCHVUC_5,R2C</data>
+    </node>
+    <node id="OR4_1">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">TCOMB_RA2VOR1NF,C3_Q0,C3_Q1,TCOMBVNQD,CLRB</data>
+    </node>
+    <node id="NAND2_16">
+      <data key="d0">b</data>
+      <data key="d1">nand</data>
+      <data key="d2">UC_17VZ,UC_17VZVOR1NF,UC_17VUC_0</data>
+    </node>
+    <node id="OR2_14">
+      <data key="d0">b</data>
+      <data key="d1">or</data>
+      <data key="d2">C3_Q2VZVOR1NF,C3VCO1,C3_Q2</data>
+    </node>
+    <node id="NOT_19">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">TESTBVIIR1,TEST</data>
+    </node>
+    <node id="NAND2_20">
+      <data key="d0">b</data>
+      <data key="d1">nand</data>
+      <data key="d2">C3_Q1VUC_0,C3VCO0,C3_Q1</data>
+    </node>
+    <node id="NOT_44">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">TCOMBVNCLR,CLRB</data>
+    </node>
+    <node id="NOR3_6">
+      <data key="d0">b</data>
+      <data key="d1">nor</data>
+      <data key="d2">C2_CO,C2VCIIA,CTST,UC_20</data>
+    </node>
+    <node id="NOT_29">
+      <data key="d0">b</data>
+      <data key="d1">not</data>
+      <data key="d2">OUTBUFVBUFY2VIIR1,OLATCH_Y2L</data>
+    </node>
+    <node id="DFF_20">
+      <data key="d0">b</data>
+      <data key="d1">dff</data>
+      <data key="d2">CK,UC_11,UC_11VD</data>
+    </node>
+    <node id="NAND2_15">
+      <data key="d0">b</data>
+      <data key="d1">nand</data>
+      <data key="d2">TCOMB_YA1,TCOMBVNODE16,TCOMBVNODE3</data>
+    </node>
+    <node id="NAND2_4">
+      <data key="d0">b</data>
+      <data key="d1">nand</data>
+      <data key="d2">TCOMBVNODE4,TCOMBVNODE4VOR2NF,TCOMBVNODE4VOR1NF</data>
+    </node>
+    <edge source="DFF_5" target="DFF_10" />
+    <edge source="DFF_5" target="DFF_4" />
+    <edge source="DFF_5" target="DFF_17" />
+    <edge source="DFF_5" target="DFF_13" />
+    <edge source="DFF_5" target="DFF_19" />
+    <edge source="DFF_5" target="DFF_9" />
+    <edge source="DFF_5" target="DFF_11" />
+    <edge source="DFF_5" target="DFF_7" />
+    <edge source="DFF_5" target="DFF_6" />
+    <edge source="DFF_5" target="DFF_15" />
+    <edge source="DFF_5" target="DFF_0" />
+    <edge source="DFF_5" target="DFF_8" />
+    <edge source="DFF_5" target="DFF_2" />
+    <edge source="DFF_5" target="DFF_16" />
+    <edge source="DFF_5" target="DFF_12" />
+    <edge source="DFF_5" target="DFF_1" />
+    <edge source="DFF_5" target="DFF_3" />
+    <edge source="DFF_5" target="DFF_20" />
+    <edge source="DFF_5" target="DFF_14" />
+    <edge source="DFF_5" target="DFF_18" />
+    <edge source="DFF_10" target="DFF_4" />
+    <edge source="DFF_10" target="DFF_17" />
+    <edge source="DFF_10" target="DFF_13" />
+    <edge source="DFF_10" target="DFF_19" />
+    <edge source="DFF_10" target="DFF_9" />
+    <edge source="DFF_10" target="DFF_11" />
+    <edge source="DFF_10" target="DFF_7" />
+    <edge source="DFF_10" target="DFF_6" />
+    <edge source="DFF_10" target="DFF_15" />
+    <edge source="DFF_10" target="DFF_0" />
+    <edge source="DFF_10" target="DFF_8" />
+    <edge source="DFF_10" target="DFF_2" />
+    <edge source="DFF_10" target="DFF_16" />
+    <edge source="DFF_10" target="DFF_12" />
+    <edge source="DFF_10" target="DFF_1" />
+    <edge source="DFF_10" target="DFF_3" />
+    <edge source="DFF_10" target="DFF_20" />
+    <edge source="DFF_10" target="DFF_14" />
+    <edge source="DFF_10" target="DFF_18" />
+    <edge source="DFF_4" target="DFF_17" />
+    <edge source="DFF_4" target="DFF_13" />
+    <edge source="DFF_4" target="DFF_19" />
+    <edge source="DFF_4" target="DFF_9" />
+    <edge source="DFF_4" target="DFF_11" />
+    <edge source="DFF_4" target="DFF_7" />
+    <edge source="DFF_4" target="DFF_6" />
+    <edge source="DFF_4" target="DFF_15" />
+    <edge source="DFF_4" target="DFF_0" />
+    <edge source="DFF_4" target="DFF_8" />
+    <edge source="DFF_4" target="DFF_2" />
+    <edge source="DFF_4" target="DFF_16" />
+    <edge source="DFF_4" target="DFF_12" />
+    <edge source="DFF_4" target="DFF_1" />
+    <edge source="DFF_4" target="DFF_3" />
+    <edge source="DFF_4" target="DFF_20" />
+    <edge source="DFF_4" target="DFF_14" />
+    <edge source="DFF_4" target="DFF_18" />
+    <edge source="DFF_17" target="DFF_13" />
+    <edge source="DFF_17" target="DFF_19" />
+    <edge source="DFF_17" target="DFF_9" />
+    <edge source="DFF_17" target="DFF_11" />
+    <edge source="DFF_17" target="DFF_7" />
+    <edge source="DFF_17" target="DFF_6" />
+    <edge source="DFF_17" target="DFF_15" />
+    <edge source="DFF_17" target="DFF_0" />
+    <edge source="DFF_17" target="DFF_8" />
+    <edge source="DFF_17" target="DFF_2" />
+    <edge source="DFF_17" target="DFF_16" />
+    <edge source="DFF_17" target="DFF_12" />
+    <edge source="DFF_17" target="DFF_1" />
+    <edge source="DFF_17" target="DFF_3" />
+    <edge source="DFF_17" target="DFF_20" />
+    <edge source="DFF_17" target="DFF_14" />
+    <edge source="DFF_17" target="DFF_18" />
+    <edge source="DFF_13" target="DFF_19" />
+    <edge source="DFF_13" target="DFF_9" />
+    <edge source="DFF_13" target="DFF_11" />
+    <edge source="DFF_13" target="DFF_7" />
+    <edge source="DFF_13" target="DFF_6" />
+    <edge source="DFF_13" target="DFF_15" />
+    <edge source="DFF_13" target="DFF_0" />
+    <edge source="DFF_13" target="DFF_8" />
+    <edge source="DFF_13" target="DFF_2" />
+    <edge source="DFF_13" target="DFF_16" />
+    <edge source="DFF_13" target="DFF_12" />
+    <edge source="DFF_13" target="DFF_1" />
+    <edge source="DFF_13" target="DFF_3" />
+    <edge source="DFF_13" target="DFF_20" />
+    <edge source="DFF_13" target="DFF_14" />
+    <edge source="DFF_13" target="DFF_18" />
+    <edge source="DFF_19" target="DFF_9" />
+    <edge source="DFF_19" target="DFF_11" />
+    <edge source="DFF_19" target="DFF_7" />
+    <edge source="DFF_19" target="DFF_6" />
+    <edge source="DFF_19" target="DFF_15" />
+    <edge source="DFF_19" target="DFF_0" />
+    <edge source="DFF_19" target="DFF_8" />
+    <edge source="DFF_19" target="DFF_2" />
+    <edge source="DFF_19" target="DFF_16" />
+    <edge source="DFF_19" target="DFF_12" />
+    <edge source="DFF_19" target="DFF_1" />
+    <edge source="DFF_19" target="DFF_3" />
+    <edge source="DFF_19" target="DFF_20" />
+    <edge source="DFF_19" target="DFF_14" />
+    <edge source="DFF_19" target="DFF_18" />
+    <edge source="DFF_9" target="DFF_11" />
+    <edge source="DFF_9" target="DFF_7" />
+    <edge source="DFF_9" target="DFF_6" />
+    <edge source="DFF_9" target="DFF_15" />
+    <edge source="DFF_9" target="DFF_0" />
+    <edge source="DFF_9" target="DFF_8" />
+    <edge source="DFF_9" target="DFF_2" />
+    <edge source="DFF_9" target="DFF_16" />
+    <edge source="DFF_9" target="DFF_12" />
+    <edge source="DFF_9" target="DFF_1" />
+    <edge source="DFF_9" target="DFF_3" />
+    <edge source="DFF_9" target="DFF_20" />
+    <edge source="DFF_9" target="DFF_14" />
+    <edge source="DFF_9" target="DFF_18" />
+    <edge source="DFF_11" target="DFF_7" />
+    <edge source="DFF_11" target="DFF_6" />
+    <edge source="DFF_11" target="DFF_15" />
+    <edge source="DFF_11" target="DFF_0" />
+    <edge source="DFF_11" target="DFF_8" />
+    <edge source="DFF_11" target="DFF_2" />
+    <edge source="DFF_11" target="DFF_16" />
+    <edge source="DFF_11" target="DFF_12" />
+    <edge source="DFF_11" target="DFF_1" />
+    <edge source="DFF_11" target="DFF_3" />
+    <edge source="DFF_11" target="DFF_20" />
+    <edge source="DFF_11" target="DFF_14" />
+    <edge source="DFF_11" target="DFF_18" />
+    <edge source="DFF_7" target="DFF_6" />
+    <edge source="DFF_7" target="DFF_15" />
+    <edge source="DFF_7" target="DFF_0" />
+    <edge source="DFF_7" target="DFF_8" />
+    <edge source="DFF_7" target="DFF_2" />
+    <edge source="DFF_7" target="DFF_16" />
+    <edge source="DFF_7" target="DFF_12" />
+    <edge source="DFF_7" target="DFF_1" />
+    <edge source="DFF_7" target="DFF_3" />
+    <edge source="DFF_7" target="DFF_20" />
+    <edge source="DFF_7" target="DFF_14" />
+    <edge source="DFF_7" target="DFF_18" />
+    <edge source="DFF_6" target="DFF_15" />
+    <edge source="DFF_6" target="DFF_0" />
+    <edge source="DFF_6" target="DFF_8" />
+    <edge source="DFF_6" target="DFF_2" />
+    <edge source="DFF_6" target="DFF_16" />
+    <edge source="DFF_6" target="DFF_12" />
+    <edge source="DFF_6" target="DFF_1" />
+    <edge source="DFF_6" target="DFF_3" />
+    <edge source="DFF_6" target="DFF_20" />
+    <edge source="DFF_6" target="DFF_14" />
+    <edge source="DFF_6" target="DFF_18" />
+    <edge source="DFF_15" target="DFF_0" />
+    <edge source="DFF_15" target="DFF_8" />
+    <edge source="DFF_15" target="DFF_2" />
+    <edge source="DFF_15" target="DFF_16" />
+    <edge source="DFF_15" target="DFF_12" />
+    <edge source="DFF_15" target="DFF_1" />
+    <edge source="DFF_15" target="DFF_3" />
+    <edge source="DFF_15" target="DFF_20" />
+    <edge source="DFF_15" target="DFF_14" />
+    <edge source="DFF_15" target="DFF_18" />
+    <edge source="DFF_0" target="DFF_8" />
+    <edge source="DFF_0" target="DFF_2" />
+    <edge source="DFF_0" target="DFF_16" />
+    <edge source="DFF_0" target="DFF_12" />
+    <edge source="DFF_0" target="DFF_1" />
+    <edge source="DFF_0" target="DFF_3" />
+    <edge source="DFF_0" target="DFF_20" />
+    <edge source="DFF_0" target="DFF_14" />
+    <edge source="DFF_0" target="DFF_18" />
+    <edge source="DFF_8" target="DFF_2" />
+    <edge source="DFF_8" target="DFF_16" />
+    <edge source="DFF_8" target="DFF_12" />
+    <edge source="DFF_8" target="DFF_1" />
+    <edge source="DFF_8" target="DFF_3" />
+    <edge source="DFF_8" target="DFF_20" />
+    <edge source="DFF_8" target="DFF_14" />
+    <edge source="DFF_8" target="DFF_18" />
+    <edge source="DFF_2" target="DFF_16" />
+    <edge source="DFF_2" target="DFF_12" />
+    <edge source="DFF_2" target="DFF_1" />
+    <edge source="DFF_2" target="DFF_3" />
+    <edge source="DFF_2" target="DFF_20" />
+    <edge source="DFF_2" target="DFF_14" />
+    <edge source="DFF_2" target="DFF_18" />
+    <edge source="DFF_16" target="DFF_12" />
+    <edge source="DFF_16" target="DFF_1" />
+    <edge source="DFF_16" target="DFF_3" />
+    <edge source="DFF_16" target="DFF_20" />
+    <edge source="DFF_16" target="DFF_14" />
+    <edge source="DFF_16" target="DFF_18" />
+    <edge source="DFF_12" target="DFF_1" />
+    <edge source="DFF_12" target="DFF_3" />
+    <edge source="DFF_12" target="DFF_20" />
+    <edge source="DFF_12" target="DFF_14" />
+    <edge source="DFF_12" target="DFF_18" />
+    <edge source="DFF_1" target="DFF_3" />
+    <edge source="DFF_1" target="DFF_20" />
+    <edge source="DFF_1" target="DFF_14" />
+    <edge source="DFF_1" target="DFF_18" />
+    <edge source="DFF_3" target="DFF_20" />
+    <edge source="DFF_3" target="DFF_14" />
+    <edge source="DFF_3" target="DFF_18" />
+    <edge source="DFF_20" target="DFF_14" />
+    <edge source="DFF_20" target="DFF_18" />
+    <edge source="DFF_14" target="DFF_18" />
+    <edge source="DFF_0" target="NOT_0" />
+    <edge source="DFF_0" target="OR2_3" />
+    <edge source="DFF_0" target="NOR2_3" />
+    <edge source="NOT_0" target="OR2_3" />
+    <edge source="NOT_0" target="NOR2_3" />
+    <edge source="OR2_3" target="NOR2_3" />
+    <edge source="DFF_0" target="AND2_6" />
+    <edge source="NOT_1" target="OR2_1" />
+    <edge source="NOT_1" target="NOT_18" />
+    <edge source="NOT_1" target="DFF_1" />
+    <edge source="NOT_1" target="OR4_3" />
+    <edge source="OR2_1" target="NOT_18" />
+    <edge source="OR2_1" target="DFF_1" />
+    <edge source="OR2_1" target="OR4_3" />
+    <edge source="NOT_18" target="DFF_1" />
+    <edge source="NOT_18" target="OR4_3" />
+    <edge source="DFF_1" target="OR4_3" />
+    <edge source="DFF_1" target="AND2_4" />
+    <edge source="NOT_29" target="DFF_2" />
+    <edge source="DFF_2" target="NOR2_5" />
+    <edge source="NOT_2" target="DFF_3" />
+    <edge source="DFF_3" target="NOR2_8" />
+    <edge source="DFF_4" target="NOT_3" />
+    <edge source="DFF_4" target="NOR2_9" />
+    <edge source="DFF_5" target="NOT_28" />
+    <edge source="NAND3_0" target="DFF_5" />
+    <edge source="DFF_6" target="NOT_26" />
+    <edge source="NOT_25" target="DFF_7" />
+    <edge source="DFF_7" target="NOR2_6" />
+    <edge source="OR3_0" target="NOT_27" />
+    <edge source="OR3_0" target="DFF_8" />
+    <edge source="OR3_0" target="OR4_0" />
+    <edge source="OR3_0" target="AND2_0" />
+    <edge source="OR3_0" target="AND2_1" />
+    <edge source="NOT_27" target="DFF_8" />
+    <edge source="NOT_27" target="OR4_0" />
+    <edge source="NOT_27" target="AND2_0" />
+    <edge source="NOT_27" target="AND2_1" />
+    <edge source="DFF_8" target="OR4_0" />
+    <edge source="DFF_8" target="AND2_0" />
+    <edge source="DFF_8" target="AND2_1" />
+    <edge source="OR4_0" target="AND2_0" />
+    <edge source="OR4_0" target="AND2_1" />
+    <edge source="AND2_0" target="AND2_1" />
+    <edge source="DFF_8" target="NOT_57" />
+    <edge source="OR3_0" target="NOT_4" />
+    <edge source="OR3_0" target="DFF_9" />
+    <edge source="OR3_0" target="OR2_13" />
+    <edge source="OR3_0" target="AND3_1" />
+    <edge source="OR3_0" target="OR4_2" />
+    <edge source="OR3_0" target="NOT_23" />
+    <edge source="OR3_0" target="OR4_3" />
+    <edge source="NOT_4" target="DFF_9" />
+    <edge source="NOT_4" target="OR2_13" />
+    <edge source="NOT_4" target="AND3_1" />
+    <edge source="NOT_4" target="OR4_2" />
+    <edge source="NOT_4" target="NOT_23" />
+    <edge source="NOT_4" target="OR4_3" />
+    <edge source="DFF_9" target="OR2_13" />
+    <edge source="DFF_9" target="AND3_1" />
+    <edge source="DFF_9" target="OR4_2" />
+    <edge source="DFF_9" target="NOT_23" />
+    <edge source="DFF_9" target="OR4_3" />
+    <edge source="OR2_13" target="AND3_1" />
+    <edge source="OR2_13" target="OR4_2" />
+    <edge source="OR2_13" target="NOT_23" />
+    <edge source="OR2_13" target="OR4_3" />
+    <edge source="AND3_1" target="OR4_2" />
+    <edge source="AND3_1" target="NOT_23" />
+    <edge source="AND3_1" target="OR4_3" />
+    <edge source="OR4_2" target="NOT_23" />
+    <edge source="OR4_2" target="OR4_3" />
+    <edge source="NOT_23" target="OR4_3" />
+    <edge source="NOR3_16" target="DFF_9" />
+    <edge source="OR2_14" target="OR3_0" />
+    <edge source="OR2_14" target="NOR3_0" />
+    <edge source="OR2_14" target="NOT_5" />
+    <edge source="OR2_14" target="DFF_10" />
+    <edge source="OR2_14" target="NOT_22" />
+    <edge source="OR2_14" target="OR3_2" />
+    <edge source="OR2_14" target="OR4_0" />
+    <edge source="OR2_14" target="AND2_2" />
+    <edge source="OR2_14" target="NAND2_19" />
+    <edge source="OR3_0" target="NOR3_0" />
+    <edge source="OR3_0" target="NOT_5" />
+    <edge source="OR3_0" target="DFF_10" />
+    <edge source="OR3_0" target="NOT_22" />
+    <edge source="OR3_0" target="OR3_2" />
+    <edge source="OR3_0" target="AND2_2" />
+    <edge source="OR3_0" target="NAND2_19" />
+    <edge source="NOR3_0" target="NOT_5" />
+    <edge source="NOR3_0" target="DFF_10" />
+    <edge source="NOR3_0" target="NOT_22" />
+    <edge source="NOR3_0" target="OR3_2" />
+    <edge source="NOR3_0" target="OR4_0" />
+    <edge source="NOR3_0" target="AND2_2" />
+    <edge source="NOR3_0" target="NAND2_19" />
+    <edge source="NOT_5" target="DFF_10" />
+    <edge source="NOT_5" target="NOT_22" />
+    <edge source="NOT_5" target="OR3_2" />
+    <edge source="NOT_5" target="OR4_0" />
+    <edge source="NOT_5" target="AND2_2" />
+    <edge source="NOT_5" target="NAND2_19" />
+    <edge source="DFF_10" target="NOT_22" />
+    <edge source="DFF_10" target="OR3_2" />
+    <edge source="DFF_10" target="OR4_0" />
+    <edge source="DFF_10" target="AND2_2" />
+    <edge source="DFF_10" target="NAND2_19" />
+    <edge source="NOT_22" target="OR3_2" />
+    <edge source="NOT_22" target="OR4_0" />
+    <edge source="NOT_22" target="AND2_2" />
+    <edge source="NOT_22" target="NAND2_19" />
+    <edge source="OR3_2" target="OR4_0" />
+    <edge source="OR3_2" target="AND2_2" />
+    <edge source="OR3_2" target="NAND2_19" />
+    <edge source="OR4_0" target="AND2_2" />
+    <edge source="OR4_0" target="NAND2_19" />
+    <edge source="AND2_2" target="NAND2_19" />
+    <edge source="DFF_10" target="NOR3_17" />
+    <edge source="OR3_1" target="NAND4_1" />
+    <edge source="OR3_1" target="NOR3_0" />
+    <edge source="OR3_1" target="NOT_6" />
+    <edge source="OR3_1" target="OR2_15" />
+    <edge source="OR3_1" target="DFF_11" />
+    <edge source="OR3_1" target="OR4_0" />
+    <edge source="OR3_1" target="AND3_0" />
+    <edge source="OR3_1" target="OR4_1" />
+    <edge source="OR3_1" target="NAND2_20" />
+    <edge source="OR3_1" target="NOT_21" />
+    <edge source="OR3_1" target="NOR4_0" />
+    <edge source="NAND4_1" target="NOR3_0" />
+    <edge source="NAND4_1" target="NOT_6" />
+    <edge source="NAND4_1" target="OR2_15" />
+    <edge source="NAND4_1" target="DFF_11" />
+    <edge source="NAND4_1" target="OR4_0" />
+    <edge source="NAND4_1" target="AND3_0" />
+    <edge source="NAND4_1" target="OR4_1" />
+    <edge source="NAND4_1" target="NAND2_20" />
+    <edge source="NAND4_1" target="NOT_21" />
+    <edge source="NAND4_1" target="NOR4_0" />
+    <edge source="NOR3_0" target="NOT_6" />
+    <edge source="NOR3_0" target="OR2_15" />
+    <edge source="NOR3_0" target="DFF_11" />
+    <edge source="NOR3_0" target="AND3_0" />
+    <edge source="NOR3_0" target="OR4_1" />
+    <edge source="NOR3_0" target="NAND2_20" />
+    <edge source="NOR3_0" target="NOT_21" />
+    <edge source="NOR3_0" target="NOR4_0" />
+    <edge source="NOT_6" target="OR2_15" />
+    <edge source="NOT_6" target="DFF_11" />
+    <edge source="NOT_6" target="OR4_0" />
+    <edge source="NOT_6" target="AND3_0" />
+    <edge source="NOT_6" target="OR4_1" />
+    <edge source="NOT_6" target="NAND2_20" />
+    <edge source="NOT_6" target="NOT_21" />
+    <edge source="NOT_6" target="NOR4_0" />
+    <edge source="OR2_15" target="DFF_11" />
+    <edge source="OR2_15" target="OR4_0" />
+    <edge source="OR2_15" target="AND3_0" />
+    <edge source="OR2_15" target="OR4_1" />
+    <edge source="OR2_15" target="NAND2_20" />
+    <edge source="OR2_15" target="NOT_21" />
+    <edge source="OR2_15" target="NOR4_0" />
+    <edge source="DFF_11" target="OR4_0" />
+    <edge source="DFF_11" target="AND3_0" />
+    <edge source="DFF_11" target="OR4_1" />
+    <edge source="DFF_11" target="NAND2_20" />
+    <edge source="DFF_11" target="NOT_21" />
+    <edge source="DFF_11" target="NOR4_0" />
+    <edge source="OR4_0" target="AND3_0" />
+    <edge source="OR4_0" target="OR4_1" />
+    <edge source="OR4_0" target="NAND2_20" />
+    <edge source="OR4_0" target="NOT_21" />
+    <edge source="OR4_0" target="NOR4_0" />
+    <edge source="AND3_0" target="OR4_1" />
+    <edge source="AND3_0" target="NAND2_20" />
+    <edge source="AND3_0" target="NOT_21" />
+    <edge source="AND3_0" target="NOR4_0" />
+    <edge source="OR4_1" target="NAND2_20" />
+    <edge source="OR4_1" target="NOT_21" />
+    <edge source="OR4_1" target="NOR4_0" />
+    <edge source="NAND2_20" target="NOT_21" />
+    <edge source="NAND2_20" target="NOR4_0" />
+    <edge source="NOT_21" target="NOR4_0" />
+    <edge source="NOR3_18" target="DFF_11" />
+    <edge source="OR3_1" target="NAND2_21" />
+    <edge source="OR3_1" target="NOT_7" />
+    <edge source="OR3_1" target="OR2_16" />
+    <edge source="OR3_1" target="NAND2_0" />
+    <edge source="OR3_1" target="NAND4_0" />
+    <edge source="OR3_1" target="DFF_12" />
+    <edge source="OR3_1" target="NOT_20" />
+    <edge source="NAND2_21" target="NOT_7" />
+    <edge source="NAND2_21" target="NOR3_0" />
+    <edge source="NAND2_21" target="OR2_16" />
+    <edge source="NAND2_21" target="NAND2_0" />
+    <edge source="NAND2_21" target="NAND4_0" />
+    <edge source="NAND2_21" target="AND3_0" />
+    <edge source="NAND2_21" target="OR4_1" />
+    <edge source="NAND2_21" target="DFF_12" />
+    <edge source="NAND2_21" target="NOT_20" />
+    <edge source="NOT_7" target="NOR3_0" />
+    <edge source="NOT_7" target="OR2_16" />
+    <edge source="NOT_7" target="NAND2_0" />
+    <edge source="NOT_7" target="NAND4_0" />
+    <edge source="NOT_7" target="AND3_0" />
+    <edge source="NOT_7" target="OR4_1" />
+    <edge source="NOT_7" target="DFF_12" />
+    <edge source="NOT_7" target="NOT_20" />
+    <edge source="NOR3_0" target="OR2_16" />
+    <edge source="NOR3_0" target="NAND2_0" />
+    <edge source="NOR3_0" target="NAND4_0" />
+    <edge source="NOR3_0" target="DFF_12" />
+    <edge source="NOR3_0" target="NOT_20" />
+    <edge source="OR2_16" target="NAND2_0" />
+    <edge source="OR2_16" target="NAND4_0" />
+    <edge source="OR2_16" target="AND3_0" />
+    <edge source="OR2_16" target="OR4_1" />
+    <edge source="OR2_16" target="DFF_12" />
+    <edge source="OR2_16" target="NOT_20" />
+    <edge source="NAND2_0" target="NAND4_0" />
+    <edge source="NAND2_0" target="AND3_0" />
+    <edge source="NAND2_0" target="OR4_1" />
+    <edge source="NAND2_0" target="DFF_12" />
+    <edge source="NAND2_0" target="NOT_20" />
+    <edge source="NAND4_0" target="AND3_0" />
+    <edge source="NAND4_0" target="OR4_1" />
+    <edge source="NAND4_0" target="DFF_12" />
+    <edge source="NAND4_0" target="NOT_20" />
+    <edge source="AND3_0" target="DFF_12" />
+    <edge source="AND3_0" target="NOT_20" />
+    <edge source="OR4_1" target="DFF_12" />
+    <edge source="OR4_1" target="NOT_20" />
+    <edge source="DFF_12" target="NOT_20" />
+    <edge source="NOR3_19" target="DFF_12" />
+    <edge source="OR2_9" target="DFF_13" />
+    <edge source="OR2_9" target="NOT_8" />
+    <edge source="DFF_13" target="NOT_8" />
+    <edge source="NOR3_12" target="DFF_13" />
+    <edge source="NOR3_2" target="NOT_9" />
+    <edge source="NOR3_2" target="NAND2_12" />
+    <edge source="NOR3_2" target="DFF_14" />
+    <edge source="NOR3_2" target="OR2_10" />
+    <edge source="NOT_9" target="NAND2_12" />
+    <edge source="NOT_9" target="DFF_14" />
+    <edge source="NOT_9" target="OR2_10" />
+    <edge source="NAND2_12" target="DFF_14" />
+    <edge source="NAND2_12" target="OR2_10" />
+    <edge source="DFF_14" target="OR2_10" />
+    <edge source="NOR3_13" target="DFF_14" />
+    <edge source="NOR3_2" target="DFF_15" />
+    <edge source="NOR3_2" target="OR2_11" />
+    <edge source="NOR3_2" target="NAND2_13" />
+    <edge source="NOR3_2" target="NOT_10" />
+    <edge source="DFF_15" target="OR2_11" />
+    <edge source="DFF_15" target="NAND2_13" />
+    <edge source="DFF_15" target="NOT_10" />
+    <edge source="OR2_11" target="NAND2_13" />
+    <edge source="OR2_11" target="NOT_10" />
+    <edge source="NAND2_13" target="NOT_10" />
+    <edge source="DFF_15" target="NOR3_14" />
+    <edge source="OR2_12" target="NOR3_2" />
+    <edge source="OR2_12" target="NAND2_14" />
+    <edge source="OR2_12" target="NOT_11" />
+    <edge source="OR2_12" target="DFF_16" />
+    <edge source="NOR3_2" target="NAND2_14" />
+    <edge source="NOR3_2" target="NOT_11" />
+    <edge source="NOR3_2" target="DFF_16" />
+    <edge source="NAND2_14" target="NOT_11" />
+    <edge source="NAND2_14" target="DFF_16" />
+    <edge source="NOT_11" target="DFF_16" />
+    <edge source="NOR3_15" target="DFF_16" />
+    <edge source="OR2_4" target="DFF_17" />
+    <edge source="OR2_4" target="NOT_12" />
+    <edge source="DFF_17" target="NOT_12" />
+    <edge source="DFF_17" target="NOR3_7" />
+    <edge source="OR2_5" target="NOR3_1" />
+    <edge source="OR2_5" target="NAND2_1" />
+    <edge source="OR2_5" target="NOT_13" />
+    <edge source="OR2_5" target="DFF_18" />
+    <edge source="NOR3_1" target="NAND2_1" />
+    <edge source="NOR3_1" target="NOT_13" />
+    <edge source="NOR3_1" target="DFF_18" />
+    <edge source="NAND2_1" target="NOT_13" />
+    <edge source="NAND2_1" target="DFF_18" />
+    <edge source="NOT_13" target="DFF_18" />
+    <edge source="NOR3_8" target="DFF_18" />
+    <edge source="DFF_19" target="NAND2_2" />
+    <edge source="DFF_19" target="NOR3_1" />
+    <edge source="DFF_19" target="OR2_6" />
+    <edge source="DFF_19" target="NOT_14" />
+    <edge source="NAND2_2" target="NOR3_1" />
+    <edge source="NAND2_2" target="OR2_6" />
+    <edge source="NAND2_2" target="NOT_14" />
+    <edge source="NOR3_1" target="OR2_6" />
+    <edge source="NOR3_1" target="NOT_14" />
+    <edge source="OR2_6" target="NOT_14" />
+    <edge source="DFF_19" target="NOR3_9" />
+    <edge source="NOT_24" target="NOR3_1" />
+    <edge source="NOT_24" target="DFF_20" />
+    <edge source="NOT_24" target="NOT_15" />
+    <edge source="NOR3_1" target="DFF_20" />
+    <edge source="NOR3_1" target="NOT_15" />
+    <edge source="DFF_20" target="NOT_15" />
+    <edge source="NOR3_4" target="DFF_20" />
+    <edge source="OR2_8" target="NOT_0" />
+    <edge source="NOT_1" target="OR2_7" />
+    <edge source="NOT_40" target="NOT_2" />
+    <edge source="NOT_39" target="NOT_3" />
+    <edge source="NOR3_11" target="NOT_4" />
+    <edge source="NOT_5" target="NOR4_3" />
+    <edge source="NOR3_10" target="NOR4_3" />
+    <edge source="NOR3_10" target="NOT_6" />
+    <edge source="NOR4_3" target="NOT_6" />
+    <edge source="NOR2_7" target="NOR4_3" />
+    <edge source="NOR2_7" target="NOR3_10" />
+    <edge source="NOR2_7" target="NOT_7" />
+    <edge source="NOR4_3" target="NOT_7" />
+    <edge source="NOR3_10" target="NOT_7" />
+    <edge source="NOT_8" target="NOR3_6" />
+    <edge source="NOT_9" target="AND2_5" />
+    <edge source="NOT_9" target="AND2_3" />
+    <edge source="NOT_9" target="NOR4_1" />
+    <edge source="AND2_5" target="AND2_3" />
+    <edge source="AND2_5" target="NOR4_1" />
+    <edge source="AND2_3" target="NOR4_1" />
+    <edge source="NOR3_5" target="NOT_10" />
+    <edge source="NOR3_5" target="NOR4_1" />
+    <edge source="NOT_10" target="NOR4_1" />
+    <edge source="NOT_11" target="NOR3_5" />
+    <edge source="NOT_11" target="NOR2_4" />
+    <edge source="NOT_11" target="NOR4_1" />
+    <edge source="NOR3_5" target="NOR2_4" />
+    <edge source="NOR2_4" target="NOR4_1" />
+    <edge source="NOR2_0" target="NOT_12" />
+    <edge source="NOT_13" target="NOR3_3" />
+    <edge source="NOR2_1" target="NOR3_3" />
+    <edge source="NOR2_1" target="NOT_14" />
+    <edge source="NOR3_3" target="NOT_14" />
+    <edge source="NOR2_1" target="NOT_34" />
+    <edge source="NOR2_1" target="NOT_15" />
+    <edge source="NOT_34" target="NOR3_3" />
+    <edge source="NOT_34" target="NOT_15" />
+    <edge source="NOR3_3" target="NOT_15" />
+    <edge source="NOT_16" target="NOT_30" />
+    <edge source="NOT_17" target="NOT_31" />
+    <edge source="OR3_1" target="OR2_0" />
+    <edge source="OR3_1" target="NOT_18" />
+    <edge source="OR3_1" target="OR4_2" />
+    <edge source="OR2_0" target="NAND4_0" />
+    <edge source="OR2_0" target="NOT_18" />
+    <edge source="OR2_0" target="OR4_2" />
+    <edge source="OR2_0" target="NOR4_0" />
+    <edge source="NAND4_0" target="NOT_18" />
+    <edge source="NAND4_0" target="OR4_2" />
+    <edge source="NAND4_0" target="NOR4_0" />
+    <edge source="NOT_18" target="OR4_2" />
+    <edge source="NOT_18" target="NOR4_0" />
+    <edge source="OR4_2" target="NOR4_0" />
+    <edge source="NOT_32" target="NOT_19" />
+    <edge source="NOR2_5" target="NAND2_5" />
+    <edge source="NOR2_5" target="NAND3_1" />
+    <edge source="NOR2_5" target="OR4_0" />
+    <edge source="NOR2_5" target="AND3_1" />
+    <edge source="NOR2_5" target="NOT_20" />
+    <edge source="NAND2_5" target="NAND3_1" />
+    <edge source="NAND2_5" target="OR4_0" />
+    <edge source="NAND2_5" target="AND3_1" />
+    <edge source="NAND2_5" target="NOT_20" />
+    <edge source="NAND3_1" target="OR4_0" />
+    <edge source="NAND3_1" target="AND3_1" />
+    <edge source="NAND3_1" target="NOT_20" />
+    <edge source="OR4_0" target="AND3_1" />
+    <edge source="OR4_0" target="NOT_20" />
+    <edge source="AND3_1" target="NOT_20" />
+    <edge source="NOT_21" target="NAND4_0" />
+    <edge source="NOT_21" target="NAND2_0" />
+    <edge source="NOT_21" target="NAND3_1" />
+    <edge source="NAND4_0" target="NAND3_1" />
+    <edge source="NAND2_0" target="NAND3_1" />
+    <edge source="OR2_2" target="NAND4_1" />
+    <edge source="OR2_2" target="NOT_22" />
+    <edge source="OR2_2" target="OR4_2" />
+    <edge source="OR2_2" target="NOR4_0" />
+    <edge source="OR2_2" target="OR4_3" />
+    <edge source="NAND4_1" target="NOT_22" />
+    <edge source="NAND4_1" target="OR4_2" />
+    <edge source="NAND4_1" target="OR4_3" />
+    <edge source="NOT_22" target="OR4_2" />
+    <edge source="NOT_22" target="NOR4_0" />
+    <edge source="NOT_22" target="OR4_3" />
+    <edge source="NOR4_0" target="OR4_3" />
+    <edge source="OR2_0" target="OR3_2" />
+    <edge source="OR2_0" target="OR4_1" />
+    <edge source="OR2_0" target="NOT_23" />
+    <edge source="OR3_2" target="NAND4_0" />
+    <edge source="OR3_2" target="OR4_1" />
+    <edge source="OR3_2" target="NOT_23" />
+    <edge source="NAND4_0" target="NOT_23" />
+    <edge source="OR4_1" target="NOT_23" />
+    <edge source="NOT_33" target="NOT_24" />
+    <edge source="NOT_25" target="NOT_35" />
+    <edge source="NOT_26" target="NOT_36" />
+    <edge source="NAND4_1" target="NOT_27" />
+    <edge source="NAND4_1" target="NOR2_2" />
+    <edge source="NOT_27" target="NOR2_2" />
+    <edge source="NOT_37" target="NOT_28" />
+    <edge source="NOT_29" target="NOT_38" />
+    <edge source="NOT_30" target="OR2_1" />
+    <edge source="NOT_30" target="NOT_41" />
+    <edge source="OR2_1" target="NOT_41" />
+    <edge source="NOR3_13" target="OR4_1" />
+    <edge source="NOR3_13" target="OR4_2" />
+    <edge source="NOR3_13" target="NOR3_19" />
+    <edge source="NOR3_13" target="NOR2_2" />
+    <edge source="NOR3_13" target="NOR4_0" />
+    <edge source="NOR3_13" target="NOT_43" />
+    <edge source="NOR3_13" target="NOR3_12" />
+    <edge source="NOR3_13" target="OR3_2" />
+    <edge source="NOR3_13" target="NOR3_8" />
+    <edge source="NOR3_13" target="NOR3_18" />
+    <edge source="NOR3_13" target="NOR3_15" />
+    <edge source="NOR3_13" target="NOT_42" />
+    <edge source="NOR3_13" target="NOR3_16" />
+    <edge source="NOR3_13" target="NOR3_9" />
+    <edge source="NOR3_13" target="OR2_2" />
+    <edge source="NOR3_13" target="NOT_44" />
+    <edge source="NOR3_13" target="NOT_31" />
+    <edge source="NOR3_13" target="NOR3_4" />
+    <edge source="NOR3_13" target="NOR3_17" />
+    <edge source="NOR3_13" target="NOR3_7" />
+    <edge source="NOR3_13" target="NOR3_14" />
+    <edge source="OR4_1" target="OR4_2" />
+    <edge source="OR4_1" target="NOR3_19" />
+    <edge source="OR4_1" target="NOR2_2" />
+    <edge source="OR4_1" target="NOT_43" />
+    <edge source="OR4_1" target="NOR3_12" />
+    <edge source="OR4_1" target="NOR3_8" />
+    <edge source="OR4_1" target="NOR3_18" />
+    <edge source="OR4_1" target="NOR3_15" />
+    <edge source="OR4_1" target="NOT_42" />
+    <edge source="OR4_1" target="NOR3_16" />
+    <edge source="OR4_1" target="NOR3_9" />
+    <edge source="OR4_1" target="OR2_2" />
+    <edge source="OR4_1" target="NOT_44" />
+    <edge source="OR4_1" target="NOT_31" />
+    <edge source="OR4_1" target="NOR3_4" />
+    <edge source="OR4_1" target="NOR3_17" />
+    <edge source="OR4_1" target="NOR3_7" />
+    <edge source="OR4_1" target="NOR3_14" />
+    <edge source="OR4_2" target="NOR3_19" />
+    <edge source="OR4_2" target="NOR2_2" />
+    <edge source="OR4_2" target="NOT_43" />
+    <edge source="OR4_2" target="NOR3_12" />
+    <edge source="OR4_2" target="OR3_2" />
+    <edge source="OR4_2" target="NOR3_8" />
+    <edge source="OR4_2" target="NOR3_18" />
+    <edge source="OR4_2" target="NOR3_15" />
+    <edge source="OR4_2" target="NOT_42" />
+    <edge source="OR4_2" target="NOR3_16" />
+    <edge source="OR4_2" target="NOR3_9" />
+    <edge source="OR4_2" target="NOT_44" />
+    <edge source="OR4_2" target="NOT_31" />
+    <edge source="OR4_2" target="NOR3_4" />
+    <edge source="OR4_2" target="NOR3_17" />
+    <edge source="OR4_2" target="NOR3_7" />
+    <edge source="OR4_2" target="NOR3_14" />
+    <edge source="NOR3_19" target="NOR2_2" />
+    <edge source="NOR3_19" target="NOR4_0" />
+    <edge source="NOR3_19" target="NOT_43" />
+    <edge source="NOR3_19" target="NOR3_12" />
+    <edge source="NOR3_19" target="OR3_2" />
+    <edge source="NOR3_19" target="NOR3_8" />
+    <edge source="NOR3_19" target="NOR3_18" />
+    <edge source="NOR3_19" target="NOR3_15" />
+    <edge source="NOR3_19" target="NOT_42" />
+    <edge source="NOR3_19" target="NOR3_16" />
+    <edge source="NOR3_19" target="NOR3_9" />
+    <edge source="NOR3_19" target="OR2_2" />
+    <edge source="NOR3_19" target="NOT_44" />
+    <edge source="NOR3_19" target="NOT_31" />
+    <edge source="NOR3_19" target="NOR3_4" />
+    <edge source="NOR3_19" target="NOR3_17" />
+    <edge source="NOR3_19" target="NOR3_7" />
+    <edge source="NOR3_19" target="NOR3_14" />
+    <edge source="NOR2_2" target="NOR4_0" />
+    <edge source="NOR2_2" target="NOT_43" />
+    <edge source="NOR2_2" target="NOR3_12" />
+    <edge source="NOR2_2" target="OR3_2" />
+    <edge source="NOR2_2" target="NOR3_8" />
+    <edge source="NOR2_2" target="NOR3_18" />
+    <edge source="NOR2_2" target="NOR3_15" />
+    <edge source="NOR2_2" target="NOT_42" />
+    <edge source="NOR2_2" target="NOR3_16" />
+    <edge source="NOR2_2" target="NOR3_9" />
+    <edge source="NOR2_2" target="OR2_2" />
+    <edge source="NOR2_2" target="NOT_44" />
+    <edge source="NOR2_2" target="NOT_31" />
+    <edge source="NOR2_2" target="NOR3_4" />
+    <edge source="NOR2_2" target="NOR3_17" />
+    <edge source="NOR2_2" target="NOR3_7" />
+    <edge source="NOR2_2" target="NOR3_14" />
+    <edge source="NOR4_0" target="NOT_43" />
+    <edge source="NOR4_0" target="NOR3_12" />
+    <edge source="NOR4_0" target="OR3_2" />
+    <edge source="NOR4_0" target="NOR3_8" />
+    <edge source="NOR4_0" target="NOR3_18" />
+    <edge source="NOR4_0" target="NOR3_15" />
+    <edge source="NOR4_0" target="NOT_42" />
+    <edge source="NOR4_0" target="NOR3_16" />
+    <edge source="NOR4_0" target="NOR3_9" />
+    <edge source="NOR4_0" target="NOT_44" />
+    <edge source="NOR4_0" target="NOT_31" />
+    <edge source="NOR4_0" target="NOR3_4" />
+    <edge source="NOR4_0" target="NOR3_17" />
+    <edge source="NOR4_0" target="NOR3_7" />
+    <edge source="NOR4_0" target="NOR3_14" />
+    <edge source="NOT_43" target="NOR3_12" />
+    <edge source="NOT_43" target="OR3_2" />
+    <edge source="NOT_43" target="NOR3_8" />
+    <edge source="NOT_43" target="NOR3_18" />
+    <edge source="NOT_43" target="NOR3_15" />
+    <edge source="NOT_43" target="NOT_42" />
+    <edge source="NOT_43" target="NOR3_16" />
+    <edge source="NOT_43" target="NOR3_9" />
+    <edge source="NOT_43" target="OR2_2" />
+    <edge source="NOT_43" target="NOT_44" />
+    <edge source="NOT_43" target="NOT_31" />
+    <edge source="NOT_43" target="NOR3_4" />
+    <edge source="NOT_43" target="NOR3_17" />
+    <edge source="NOT_43" target="NOR3_7" />
+    <edge source="NOT_43" target="NOR3_14" />
+    <edge source="NOR3_12" target="OR3_2" />
+    <edge source="NOR3_12" target="NOR3_8" />
+    <edge source="NOR3_12" target="NOR3_18" />
+    <edge source="NOR3_12" target="NOR3_15" />
+    <edge source="NOR3_12" target="NOT_42" />
+    <edge source="NOR3_12" target="NOR3_16" />
+    <edge source="NOR3_12" target="NOR3_9" />
+    <edge source="NOR3_12" target="OR2_2" />
+    <edge source="NOR3_12" target="NOT_44" />
+    <edge source="NOR3_12" target="NOT_31" />
+    <edge source="NOR3_12" target="NOR3_4" />
+    <edge source="NOR3_12" target="NOR3_17" />
+    <edge source="NOR3_12" target="NOR3_7" />
+    <edge source="NOR3_12" target="NOR3_14" />
+    <edge source="OR3_2" target="NOR3_8" />
+    <edge source="OR3_2" target="NOR3_18" />
+    <edge source="OR3_2" target="NOR3_15" />
+    <edge source="OR3_2" target="NOT_42" />
+    <edge source="OR3_2" target="NOR3_16" />
+    <edge source="OR3_2" target="NOR3_9" />
+    <edge source="OR3_2" target="OR2_2" />
+    <edge source="OR3_2" target="NOT_44" />
+    <edge source="OR3_2" target="NOT_31" />
+    <edge source="OR3_2" target="NOR3_4" />
+    <edge source="OR3_2" target="NOR3_17" />
+    <edge source="OR3_2" target="NOR3_7" />
+    <edge source="OR3_2" target="NOR3_14" />
+    <edge source="NOR3_8" target="NOR3_18" />
+    <edge source="NOR3_8" target="NOR3_15" />
+    <edge source="NOR3_8" target="NOT_42" />
+    <edge source="NOR3_8" target="NOR3_16" />
+    <edge source="NOR3_8" target="NOR3_9" />
+    <edge source="NOR3_8" target="OR2_2" />
+    <edge source="NOR3_8" target="NOT_44" />
+    <edge source="NOR3_8" target="NOT_31" />
+    <edge source="NOR3_8" target="NOR3_4" />
+    <edge source="NOR3_8" target="NOR3_17" />
+    <edge source="NOR3_8" target="NOR3_7" />
+    <edge source="NOR3_8" target="NOR3_14" />
+    <edge source="NOR3_18" target="NOR3_15" />
+    <edge source="NOR3_18" target="NOT_42" />
+    <edge source="NOR3_18" target="NOR3_16" />
+    <edge source="NOR3_18" target="NOR3_9" />
+    <edge source="NOR3_18" target="OR2_2" />
+    <edge source="NOR3_18" target="NOT_44" />
+    <edge source="NOR3_18" target="NOT_31" />
+    <edge source="NOR3_18" target="NOR3_4" />
+    <edge source="NOR3_18" target="NOR3_17" />
+    <edge source="NOR3_18" target="NOR3_7" />
+    <edge source="NOR3_18" target="NOR3_14" />
+    <edge source="NOR3_15" target="NOT_42" />
+    <edge source="NOR3_15" target="NOR3_16" />
+    <edge source="NOR3_15" target="NOR3_9" />
+    <edge source="NOR3_15" target="OR2_2" />
+    <edge source="NOR3_15" target="NOT_44" />
+    <edge source="NOR3_15" target="NOT_31" />
+    <edge source="NOR3_15" target="NOR3_4" />
+    <edge source="NOR3_15" target="NOR3_17" />
+    <edge source="NOR3_15" target="NOR3_7" />
+    <edge source="NOR3_15" target="NOR3_14" />
+    <edge source="NOT_42" target="NOR3_16" />
+    <edge source="NOT_42" target="NOR3_9" />
+    <edge source="NOT_42" target="OR2_2" />
+    <edge source="NOT_42" target="NOT_44" />
+    <edge source="NOT_42" target="NOT_31" />
+    <edge source="NOT_42" target="NOR3_4" />
+    <edge source="NOT_42" target="NOR3_17" />
+    <edge source="NOT_42" target="NOR3_7" />
+    <edge source="NOT_42" target="NOR3_14" />
+    <edge source="NOR3_16" target="NOR3_9" />
+    <edge source="NOR3_16" target="OR2_2" />
+    <edge source="NOR3_16" target="NOT_44" />
+    <edge source="NOR3_16" target="NOT_31" />
+    <edge source="NOR3_16" target="NOR3_4" />
+    <edge source="NOR3_16" target="NOR3_17" />
+    <edge source="NOR3_16" target="NOR3_7" />
+    <edge source="NOR3_16" target="NOR3_14" />
+    <edge source="NOR3_9" target="OR2_2" />
+    <edge source="NOR3_9" target="NOT_44" />
+    <edge source="NOR3_9" target="NOT_31" />
+    <edge source="NOR3_9" target="NOR3_4" />
+    <edge source="NOR3_9" target="NOR3_17" />
+    <edge source="NOR3_9" target="NOR3_7" />
+    <edge source="NOR3_9" target="NOR3_14" />
+    <edge source="OR2_2" target="NOT_44" />
+    <edge source="OR2_2" target="NOT_31" />
+    <edge source="OR2_2" target="NOR3_4" />
+    <edge source="OR2_2" target="NOR3_17" />
+    <edge source="OR2_2" target="NOR3_7" />
+    <edge source="OR2_2" target="NOR3_14" />
+    <edge source="NOT_44" target="NOT_31" />
+    <edge source="NOT_44" target="NOR3_4" />
+    <edge source="NOT_44" target="NOR3_17" />
+    <edge source="NOT_44" target="NOR3_7" />
+    <edge source="NOT_44" target="NOR3_14" />
+    <edge source="NOT_31" target="NOR3_4" />
+    <edge source="NOT_31" target="NOR3_17" />
+    <edge source="NOT_31" target="NOR3_7" />
+    <edge source="NOT_31" target="NOR3_14" />
+    <edge source="NOR3_4" target="NOR3_17" />
+    <edge source="NOR3_4" target="NOR3_7" />
+    <edge source="NOR3_4" target="NOR3_14" />
+    <edge source="NOR3_17" target="NOR3_7" />
+    <edge source="NOR3_17" target="NOR3_14" />
+    <edge source="NOR3_7" target="NOR3_14" />
+    <edge source="NOT_45" target="OR2_3" />
+    <edge source="NOT_45" target="NOT_32" />
+    <edge source="OR2_3" target="NOT_32" />
+    <edge source="NOT_33" target="NOR3_4" />
+    <edge source="NOT_34" target="OR2_6" />
+    <edge source="NOT_34" target="NAND2_2" />
+    <edge source="NOT_46" target="NOT_39" />
+    <edge source="NOT_40" target="NOT_47" />
+    <edge source="OR2_7" target="NOT_41" />
+    <edge source="NOT_42" target="AND2_6" />
+    <edge source="AND2_4" target="NOT_43" />
+    <edge source="NAND4_1" target="NAND3_0" />
+    <edge source="NAND4_1" target="NOT_44" />
+    <edge source="NAND4_1" target="AND3_1" />
+    <edge source="NAND4_1" target="AND2_2" />
+    <edge source="NAND4_1" target="AND2_1" />
+    <edge source="NAND3_0" target="NOT_44" />
+    <edge source="NAND3_0" target="AND3_0" />
+    <edge source="NAND3_0" target="AND3_1" />
+    <edge source="NAND3_0" target="AND2_2" />
+    <edge source="NAND3_0" target="AND2_1" />
+    <edge source="NOT_44" target="AND3_0" />
+    <edge source="NOT_44" target="AND3_1" />
+    <edge source="NOT_44" target="AND2_2" />
+    <edge source="NOT_44" target="AND2_1" />
+    <edge source="AND3_0" target="AND3_1" />
+    <edge source="AND3_0" target="AND2_2" />
+    <edge source="AND3_0" target="AND2_1" />
+    <edge source="AND3_1" target="AND2_2" />
+    <edge source="AND3_1" target="AND2_1" />
+    <edge source="AND2_2" target="AND2_1" />
+    <edge source="OR2_8" target="NOT_45" />
+    <edge source="OR2_12" target="NOT_48" />
+    <edge source="NAND2_14" target="NOT_48" />
+    <edge source="NOR2_4" target="NOT_48" />
+    <edge source="NOR2_4" target="NOR2_3" />
+    <edge source="NOR2_4" target="NOR3_6" />
+    <edge source="NOR4_1" target="NOT_48" />
+    <edge source="NOR4_1" target="NOR2_3" />
+    <edge source="NOR4_1" target="NOR3_6" />
+    <edge source="NOR3_5" target="NOT_48" />
+    <edge source="NOR3_5" target="NOR2_3" />
+    <edge source="NOR3_5" target="NOR3_6" />
+    <edge source="NOT_48" target="NOR2_3" />
+    <edge source="NOT_48" target="NOR3_6" />
+    <edge source="NOR2_3" target="NOR3_6" />
+    <edge source="NOT_49" target="NOR3_7" />
+    <edge source="NOT_49" target="OR2_4" />
+    <edge source="NOT_56" target="NOR3_11" />
+    <edge source="NOT_56" target="NOT_50" />
+    <edge source="NOT_56" target="NOR3_10" />
+    <edge source="NOT_56" target="NOR2_7" />
+    <edge source="NOT_56" target="NOR4_3" />
+    <edge source="NOR3_11" target="NOT_50" />
+    <edge source="NOR3_11" target="NOR3_10" />
+    <edge source="NOR3_11" target="NOR2_7" />
+    <edge source="NOR3_11" target="NOR4_3" />
+    <edge source="NOT_50" target="NOR3_10" />
+    <edge source="NOT_50" target="NOR2_7" />
+    <edge source="NOT_50" target="NOR4_3" />
+    <edge source="NOT_50" target="NOR3_12" />
+    <edge source="NOT_50" target="NOR3_13" />
+    <edge source="NOT_50" target="NOR3_15" />
+    <edge source="NOT_50" target="NOR3_14" />
+    <edge source="NOT_50" target="NOR3_6" />
+    <edge source="NOR3_12" target="NOR3_6" />
+    <edge source="NOR3_13" target="NOR3_6" />
+    <edge source="NOR3_15" target="NOR3_6" />
+    <edge source="NOR3_14" target="NOR3_6" />
+    <edge source="NOT_51" target="AND2_4" />
+    <edge source="NOT_51" target="NAND2_9" />
+    <edge source="NOT_52" target="AND2_6" />
+    <edge source="NOT_52" target="NAND2_10" />
+    <edge source="NOT_57" target="NOT_53" />
+    <edge source="NAND2_11" target="NOT_54" />
+    <edge source="NAND2_11" target="NOT_53" />
+    <edge source="NAND2_11" target="AND2_3" />
+    <edge source="NOT_54" target="NOT_53" />
+    <edge source="NOT_54" target="AND2_3" />
+    <edge source="NOT_53" target="AND2_3" />
+    <edge source="AND2_7" target="NOT_54" />
+    <edge source="AND2_7" target="AND2_8" />
+    <edge source="NOT_54" target="AND2_8" />
+    <edge source="NOR3_12" target="NOT_55" />
+    <edge source="OR2_9" target="NOT_55" />
+    <edge source="NOT_56" target="OR2_16" />
+    <edge source="NOT_56" target="NAND2_21" />
+    <edge source="NOT_58" target="NOR3_16" />
+    <edge source="OR2_13" target="NOT_58" />
+    <edge source="AND2_0" target="NOR2_6" />
+    <edge source="NAND4_0" target="AND2_0" />
+    <edge source="NOR2_9" target="AND2_3" />
+    <edge source="AND2_5" target="NOR2_8" />
+    <edge source="NAND2_15" target="AND2_5" />
+    <edge source="NAND2_15" target="AND2_7" />
+    <edge source="AND2_5" target="AND2_7" />
+    <edge source="AND2_7" target="NOR2_8" />
+    <edge source="NOR2_9" target="AND2_8" />
+    <edge source="NAND2_3" target="AND2_8" />
+    <edge source="NAND3_0" target="OR3_0" />
+    <edge source="NAND3_0" target="OR4_0" />
+    <edge source="NAND2_9" target="OR2_1" />
+    <edge source="OR2_2" target="NAND2_3" />
+    <edge source="OR4_1" target="NAND2_3" />
+    <edge source="NAND2_4" target="OR3_2" />
+    <edge source="OR4_2" target="NAND2_4" />
+    <edge source="NAND2_10" target="OR2_3" />
+    <edge source="NAND2_6" target="OR4_3" />
+    <edge source="NAND2_0" target="OR4_3" />
+    <edge source="OR2_4" target="NOR3_3" />
+    <edge source="NAND2_7" target="OR2_5" />
+    <edge source="NOR2_1" target="NAND2_1" />
+    <edge source="NOR2_1" target="OR2_5" />
+    <edge source="OR2_6" target="NAND2_8" />
+    <edge source="NAND2_9" target="OR2_7" />
+    <edge source="OR2_8" target="NAND2_10" />
+    <edge source="OR2_9" target="NOR4_1" />
+    <edge source="NAND2_16" target="OR2_10" />
+    <edge source="OR2_10" target="NOR3_5" />
+    <edge source="NAND2_12" target="NOR3_5" />
+    <edge source="NAND2_17" target="OR2_11" />
+    <edge source="OR2_11" target="NOR2_4" />
+    <edge source="NAND2_13" target="NOR2_4" />
+    <edge source="OR2_12" target="NAND2_18" />
+    <edge source="OR2_13" target="NOR4_3" />
+    <edge source="OR2_14" target="NAND2_22" />
+    <edge source="NAND2_19" target="NOR3_10" />
+    <edge source="OR2_14" target="NOR3_10" />
+    <edge source="NAND2_23" target="OR2_15" />
+    <edge source="NAND2_20" target="NOR2_7" />
+    <edge source="NOR2_7" target="OR2_15" />
+    <edge source="OR2_16" target="NAND2_24" />
+    <edge source="NAND2_7" target="NAND2_1" />
+    <edge source="NAND2_8" target="NAND2_2" />
+    <edge source="NAND2_4" target="NAND3_1" />
+    <edge source="NAND2_11" target="NAND2_5" />
+    <edge source="NOR4_0" target="NAND2_5" />
+    <edge source="NAND4_1" target="NOR2_5" />
+    <edge source="NAND2_15" target="NAND2_11" />
+    <edge source="NAND2_15" target="NAND2_6" />
+    <edge source="NAND2_11" target="NAND2_6" />
+    <edge source="NOR2_2" target="NAND2_6" />
+    <edge source="NOR3_8" target="NAND2_7" />
+    <edge source="NAND2_8" target="NOR3_9" />
+    <edge source="NAND2_15" target="NAND3_1" />
+    <edge source="NAND2_16" target="NAND2_12" />
+    <edge source="NAND2_17" target="NAND2_13" />
+    <edge source="NAND2_18" target="NAND2_14" />
+    <edge source="NOR3_13" target="NAND2_16" />
+    <edge source="NAND2_17" target="NOR3_14" />
+    <edge source="NAND2_18" target="NOR3_15" />
+    <edge source="NAND2_19" target="NAND2_22" />
+    <edge source="NAND2_20" target="NAND2_23" />
+    <edge source="NAND2_21" target="NAND2_24" />
+    <edge source="NOR3_17" target="NAND2_22" />
+    <edge source="NOR3_18" target="NAND2_23" />
+    <edge source="NOR3_19" target="NAND2_24" />
+    <edge source="NOR3_0" target="NOR3_11" />
+    <edge source="NOR2_0" target="NOR3_1" />
+    <edge source="NOR3_2" target="NOR3_6" />
+    <edge source="NOR3_4" target="NOR2_0" />
+    <edge source="NOR3_4" target="NOR2_3" />
+    <edge source="NOR2_0" target="NOR3_8" />
+    <edge source="NOR2_0" target="NOR3_7" />
+    <edge source="NOR2_0" target="NOR2_3" />
+    <edge source="NOR2_0" target="NOR3_9" />
+    <edge source="NOR3_8" target="NOR2_3" />
+    <edge source="NOR3_7" target="NOR2_3" />
+    <edge source="NOR2_3" target="NOR3_9" />
+    <edge source="NOR3_11" target="NOR3_17" />
+    <edge source="NOR3_11" target="NOR3_18" />
+    <edge source="NOR3_11" target="NOR3_19" />
+    <edge source="NOR3_11" target="NOR3_16" />
+  </graph>
+</graphml>

@@ -1,216 +1,182 @@
 m255
-K4
-z2
+K3
 13
-!s112 1.1
-!i10d 8192
-!i10e 25
-!i10f 100
 cModel Technology
-Z0 dD:/vm_share/Python_FDR_win_2
+Z0 dD:\FDR\Python_FDR_win_2
 T_opt
-!s110 1765697454
-VKdeo01zjQ4=lDOM1jUBN=3
-04 6 4 work s27_tb fast 0
-=1-88aedd9d229d-693e67ae-d4-7468
-o-quiet +acc -auto_acc_if_foreign -work work
-Z1 tCvgOpt 0
-n@_opt
-OL;O;10.7c;67
-R0
+Z1 Vj7h60D8S9dAi_n_MEGMYK0
+Z2 04 6 4 work s27_tb fast 0
+Z3 =1-106838ecf53a-6964d5d7-1ac-58b4
+Z4 o-quiet +acc -auto_acc_if_foreign -work work
+Z5 n@_opt
+Z6 OL;O;10.1c;51
+Z7 dD:\FDR\Python_FDR_win_2
 vAND2_X1
-Z2 !s110 1765697455
 !i10b 1
-!s100 L14AdkXMF2ITNZb;UW:Z=0
-IK=Q2_z8ZL@c?]H54nG3EQ1
-Z3 VDg1SIo80bB@j0V0VzS_@n1
-R0
-Z4 w1742302547
-Z5 8./circuit/stdcells.v
-Z6 F./circuit/stdcells.v
+Z8 !s100 lXGk8R2;JAakGZ?]_LemM0
+Z9 IDzjc_^9zdNenBNNjZSBm=0
+Z10 Vk>CRTmO5OQG[d=_0XRLWU0
+R7
+Z11 w1767948591
+Z12 8./circuit/stdcells.v
+Z13 F./circuit/stdcells.v
 L0 2
-Z7 OL;L;10.7c;67
+Z14 OL;L;10.1c;51
 r1
 !s85 0
 31
-Z8 !s108 1765697455.000000
-!s107 ./circuit/stdcells.v|./circuit/s27_tb.v|./circuit/s27.v|
-Z9 !s90 -f|circuit/verilog_file.f|
-!i113 0
-Z10 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R1
-n@a@n@d2_@x1
+Z15 !s108 1768216364.189000
+Z16 !s107 ./circuit/stdcells.v|./circuit/s27_tb.v|./circuit/s27.v|
+Z17 !s90 -f|circuit/verilog_file.f|
+Z18 o-L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z19 n@a@n@d2_@x1
 vDFF_X1
-R2
 !i10b 1
-!s100 <W5QDZ;IT>Yd`:1B8Yd>51
-IdY6Pb?4IaLmaNNj:=]Naa3
-R3
-R0
-R4
-R5
-R6
+Z20 !s100 52GdkIL81@:Y@>FhUance0
+Z21 IGP:RH2AZzPf?J532NNIPb3
+Z22 V05DfUGz5::N]aXcch?G411
+R7
+R11
+R12
+R13
 L0 35
-R7
+R14
 r1
 !s85 0
 31
-R8
-Z11 !s107 ./circuit/stdcells.v|./circuit/s27_tb.v|./circuit/s27.v|
-R9
-!i113 0
-R10
-R1
-n@d@f@f_@x1
+R15
+R16
+R17
+R18
+Z23 n@d@f@f_@x1
 vINV_X1
-R2
 !i10b 1
-!s100 H25aS8]j?;RF>Fm5S_<5O1
-Ie`IbK85NlXB]5;O4@=>6k3
-R3
-R0
-R4
-R5
-R6
+Z24 !s100 lBIeMS@K^<VlJVf8i3GiM1
+Z25 IP[2a;Q6XS`V41SDAcLTm52
+Z26 VS_3_OLeKOUTz0MY`A54zZ3
+R7
+R11
+R12
+R13
 L0 76
-R7
+R14
 r1
 !s85 0
 31
-R8
-R11
-R9
-!i113 0
-R10
-R1
-n@i@n@v_@x1
+R15
+R16
+R17
+R18
+Z27 n@i@n@v_@x1
 vNAND2_X1
-R2
 !i10b 1
-!s100 IibBKRNO4o6AZZj0:D:BE1
-ICmgT4zf<LEDNRQ4[2Mc_J3
-R3
-R0
-R4
-R5
-R6
+Z28 !s100 Az>QM>dJdWGHYUT3z8X182
+Z29 ICR9zn[PTnmNzi5hW_c0Em0
+Z30 V8iJWSP703JcM]eAdI3PN40
+R7
+R11
+R12
+R13
 L0 89
-R7
+R14
 r1
 !s85 0
 31
-R8
-R11
-R9
-!i113 0
-R10
-R1
-n@n@a@n@d2_@x1
+R15
+R16
+R17
+R18
+Z31 n@n@a@n@d2_@x1
 vNOR2_X1
-R2
 !i10b 1
-!s100 `HkPoC;D6jV59a:aoa]ez1
-IPCT2PSbGBU>:J=R_He5WE2
-R3
-R0
-R4
-R5
-R6
-L0 104
+Z32 !s100 ?zF3mXcnVU7[S:8KI`U4z3
+Z33 IIeFZTVLe@bKXIMY77[5;N3
+Z34 V3J>iK^zeNKVVD49oTzYRH0
 R7
+R11
+R12
+R13
+Z35 L0 104
+R14
 r1
 !s85 0
 31
-R8
-R11
-R9
-!i113 0
-R10
-R1
-n@n@o@r2_@x1
+R15
+R16
+R17
+R18
+Z36 n@n@o@r2_@x1
 vOR2_X1
-R2
 !i10b 1
-!s100 b3XNS]Yj3ORAOcajj`4P41
-Iln6:[IWEZc7W?;MQhjQnn3
-R3
-R0
-R4
-R5
-R6
-L0 119
+Z37 !s100 CzQlDlznGD?JenmM[Q8J^0
+Z38 Ik8]YG1:^bZURDWDb9LdBC0
+Z39 VdmQA1gnnLGC8EZHN9f@[l3
 R7
+R11
+R12
+R13
+Z40 L0 119
+R14
 r1
 !s85 0
 31
-R8
-R11
-R9
-!i113 0
-R10
-R1
-n@o@r2_@x1
+R15
+R16
+R17
+R18
+Z41 n@o@r2_@x1
 vs27
-R2
 !i10b 1
-!s100 U35H:KaOJJl_hB@>7>:AW2
-I1Ei3@^MdSghnJigTOgDQ`1
-R3
-R0
-w1736234276
-8./circuit/s27.v
-F./circuit/s27.v
+Z42 !s100 hUgM7OIlHb0Wm65l<RYKM3
+Z43 I:eGG;NY3]IOQmL@6:hLi;2
+Z44 VEl^H<^QgZGYVLB?XdL5^E1
+R7
+R11
+Z45 8./circuit/s27.v
+Z46 F./circuit/s27.v
 L0 7
-R7
+R14
 r1
 !s85 0
 31
-R8
-R11
-R9
-!i113 0
-R10
-R1
+R15
+R16
+R17
+R18
 vs27_tb
-R2
 !i10b 1
-!s100 <ak_bX1QUVgObIHLSc7N70
-IGINhggW^Wk8Q44e:i=@8O2
-R3
-R0
-w1754992068
-8./circuit/s27_tb.v
-F./circuit/s27_tb.v
+Z47 !s100 kIG3bZ<EDT5l=T4be;Wgm1
+Z48 Iol3f5@XYL4_;U=Dfh^0X42
+Z49 V_SkHBWZD>iGMRzPhW;MQH2
+R7
+R11
+Z50 8./circuit/s27_tb.v
+Z51 F./circuit/s27_tb.v
 L0 1
-R7
+R14
 r1
 !s85 0
 31
-R8
-R11
-R9
-!i113 0
-R10
-R1
+R15
+R16
+R17
+R18
 Useq_DFF_X1
-R2
 !i10b 1
-!s100 ZjW083F8QAgeGTP44aUWj0
-IEZG>7AeQ89HTNDGk2af2F1
-R3
-R0
-R4
-R5
-R6
-L0 16
+Z52 !s100 7iV]63m^IiKJ1]6bSfF^D1
+Z53 Ikf5]gTGC=nEHZ4<_Nd8PJ2
+Z54 Vz]]?7I3zI=Bn>:GY:elJ^3
 R7
+R11
+R12
+R13
+L0 16
+R14
 r1
 !s85 0
 31
-R8
-R11
-R9
-!i113 0
-R10
-R1
-nseq_@d@f@f_@x1
+R15
+R16
+R17
+R18
+Z55 nseq_@d@f@f_@x1

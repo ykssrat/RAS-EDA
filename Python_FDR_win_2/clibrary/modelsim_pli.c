@@ -26,7 +26,11 @@ void init_usertfs() {
 }
 
 // ModelSim/Questasim looks for this array to bootstrap PLI registration
+#ifdef _WIN32
+__declspec(dllexport) void (*vlog_startup_routines[])() = {
+#else
 void (*vlog_startup_routines[])() = {
+#endif
     init_usertfs,
     0
 };

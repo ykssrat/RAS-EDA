@@ -1,5 +1,0 @@
-{
-	"state_reg":	["s27_tb.s27_inst.DFF_0.NOTIFIER", "s27_tb.s27_inst.DFF_1.NOTIFIER", "s27_tb.s27_inst.DFF_2.NOTIFIER"],
-	"out_port":	["s27_tb.G17"],
-	"injection_reg":	["s27_tb.s27_inst.DFF_0.NOTIFIER", "s27_tb.s27_inst.DFF_1.NOTIFIER", "s27_tb.s27_inst.DFF_2.NOTIFIER"]
-}

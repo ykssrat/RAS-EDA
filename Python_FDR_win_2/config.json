@@ -7,5 +7,7 @@
     "golden_file": "./output/golden.json",
     "fault_file": "./output/fault.json",
     "path" : "./",
-    "tcl_file": "./run.tcl"
+    "tcl_file": "./run.tcl",
+    "modelsim_home": "D:/modelsim",
+    "gcc_path": "./gcc_toolchain/gcc-4.5.0-mingw64vc12/bin"
 }

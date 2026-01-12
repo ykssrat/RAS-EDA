@@ -1,7 +1,24 @@
 @echo off
-set MODELSIM_HOME=D:\questasim
+setlocal enabledelayedexpansion
+
+set SCRIPT_DIR=%~dp0
+cd /d "%SCRIPT_DIR%"
+set CONFIG_FILE=%SCRIPT_DIR%config.json
+
+for /f "usebackq tokens=* delims=" %%i in (`py -c "import json;import pathlib;cfg=json.load(open(r'%CONFIG_FILE%','r'));print(cfg.get('modelsim_home',''))"`) do set "MODELSIM_HOME=%%i"
+for /f "usebackq tokens=* delims=" %%i in (`py -c "import json;import pathlib;cfg=json.load(open(r'%CONFIG_FILE%','r'));print(cfg.get('gcc_path',''))"`) do set "GCC_PATH=%%i"
+
+if not defined MODELSIM_HOME (
+    echo [Error] modelsim_home not set in config.json
+    exit /b 1
+)
+
+if not defined GCC_PATH (
+    echo [Error] gcc_path not set in config.json
+    exit /b 1
+)
+
 set INCLUDE_PATH=%MODELSIM_HOME%\include
-set GCC_PATH=%~dp0gcc_toolchain\gcc-4.5.0-mingw64vc12\bin
 set PATH=%GCC_PATH%;%PATH%
 
 echo Compiling C code for ModelSim PLI...
@@ -21,3 +38,4 @@ if %errorlevel% neq 0 (
 
 echo Build Success! pli.dll created.
 del clibrary\*.o
+endlocal

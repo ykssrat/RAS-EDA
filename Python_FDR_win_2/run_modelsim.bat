@@ -2,6 +2,14 @@
 set SCRIPT_DIR=%~dp0
 cd /d "%SCRIPT_DIR%"
 
+set CONFIG_FILE=%SCRIPT_DIR%config.json
+for /f "usebackq tokens=* delims=" %%i in (`py -c "import json;cfg=json.load(open(r'%CONFIG_FILE%','r'));print(cfg.get('modelsim_home',''))"`) do set "MODELSIM_HOME=%%i"
+
+if not defined MODELSIM_HOME (
+    echo Error: modelsim_home not set in config.json
+    exit /b 1
+)
+
 rem 接受参数：第一个参数是 testbench 模块名
 set TB_MODULE=%1
 if "%TB_MODULE%"=="" (
@@ -11,7 +19,6 @@ if "%TB_MODULE%"=="" (
 )
 
 rem Configure Questasim installation paths
-set MODELSIM_HOME=D:\questasim
 set VSIM_BIN=%MODELSIM_HOME%\win64
 set PATH=%VSIM_BIN%;%PATH%
 

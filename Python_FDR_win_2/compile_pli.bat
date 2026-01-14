@@ -7,6 +7,7 @@ set CONFIG_FILE=%SCRIPT_DIR%config.json
 
 for /f "usebackq tokens=* delims=" %%i in (`py -c "import json;import pathlib;cfg=json.load(open(r'%CONFIG_FILE%','r'));print(cfg.get('modelsim_home',''))"`) do set "MODELSIM_HOME=%%i"
 for /f "usebackq tokens=* delims=" %%i in (`py -c "import json;import pathlib;cfg=json.load(open(r'%CONFIG_FILE%','r'));print(cfg.get('gcc_path',''))"`) do set "GCC_PATH=%%i"
+for /f "usebackq tokens=* delims=" %%i in (`py -c "import json;cfg=json.load(open(r'%CONFIG_FILE%','r'));print(cfg.get('license_file',''))"`) do set "LICENSE_FILE=%%i"
 
 if not defined MODELSIM_HOME (
     echo [Error] modelsim_home not set in config.json
@@ -16,6 +17,12 @@ if not defined MODELSIM_HOME (
 if not defined GCC_PATH (
     echo [Error] gcc_path not set in config.json
     exit /b 1
+)
+
+rem If license_file is provided, set both Mentor and LM license variables for consistency during link
+if defined LICENSE_FILE (
+    set "MGLS_LICENSE_FILE=%LICENSE_FILE%"
+    set "LM_LICENSE_FILE=%LICENSE_FILE%"
 )
 
 set INCLUDE_PATH=%MODELSIM_HOME%\include

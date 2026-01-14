@@ -269,9 +269,9 @@ class Simulator:
         self.circuit_info_file = config.circuit_info_file
         self.project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-        # Golden run script now forces simulator to exit to avoid hanging at VSIM prompt
+        # Golden run script using standard call for PLI tasks
         self.golden_tcl_content = "call {$rungolden}\nrun\nquit -f"
-        # Fault run: run to injection time, inject, then run remaining time
+        # Fault run script
         self.fault_tcl_content = "restart\n" + \
                      "call {{$runfault(\"{0}\")}}\n" + \
                      "run {1}\n" + \

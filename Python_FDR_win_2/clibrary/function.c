@@ -265,23 +265,59 @@ void recursion(handle top_h, handle var_h){
   if(var_h == null)
     var_h = top_h;
   while(signal_h = acc_next(signal_types, var_h, signal_h)){
+    int type = acc_fetch_type(signal_h);
     //module类型
-    if(acc_fetch_type(signal_h) == accModule){
-      recursion(top_h, signal_h);
+    if(type == accModule){
+      char *defname = acc_fetch_defname(signal_h);
+      int is_dff = 0;
+      // 检查是否为触发器单元 (Gate-level heurustics)
+      if (defname && (strstr(defname, "DFF") || strstr(defname, "dff") || strstr(defname, "DLY"))) {
+          // 在模块内寻找 Q 端口
+          handle port_h = acc_handle_by_name("Q", signal_h);
+          if (port_h) {
+              // 在老版本或某些优化下，acc_handle_hiconn 需作用于端口位
+              // 我们先尝试获取端口直接连接的信号
+              handle net_h = acc_handle_conn(port_h); 
+              if (!net_h) {
+                  net_h = acc_handle_hiconn(port_h);
+              }
+              
+              if (net_h) {
+                  reg_hs[reglen] = net_h;
+                  reglen += 1;
+                  io_printf("[PLI] Found DFF cell: %s -> Target net: %s\n", acc_fetch_fullname(signal_h), acc_fetch_fullname(net_h));
+                  is_dff = 1;
+              } else {
+                  // 回退策略：直接获取父模块中同名的 net (常见于扁平化后的网表)
+                  io_printf("[PLI] Warning: Could not resolve net for %s.Q, attempting sibling search.\n", acc_fetch_fullname(signal_h));
+              }
+          }
+      }
+      // 如果不是 DFF 或者没找到 Q 端口，继续递归
+      if (!is_dff) {
+          recursion(top_h, signal_h);
+      }
     }
     //reg类型
-    else if(acc_fetch_type(signal_h) == accReg &&
-            acc_handle_parent(signal_h) != top_h){
-      reg_hs[reglen] = signal_h;
-      reglen += 1;
-      io_printf("%s\n", acc_fetch_fullname(signal_h));
+    else if(type == accReg){
+      char *name = acc_fetch_name(signal_h);
+      // 过滤掉仿真模型内部的 NOTIFIER 等非逻辑寄存器
+      if (name && (strstr(name, "NOTIFIER") || strstr(name, "notifier"))) {
+          continue;
+      }
+      
+      if(acc_handle_parent(signal_h) != top_h){
+        reg_hs[reglen] = signal_h;
+        reglen += 1;
+        io_printf("[PLI] Found State Register: %s\n", acc_fetch_fullname(signal_h));
+      }
     }
     //output
-    else if(acc_fetch_type(signal_h) == accNet &&
+    else if(type == accNet &&
             acc_handle_parent(signal_h) == top_h){
       port_hs[portlen] = signal_h;
       portlen += 1;
-      io_printf("%s\n", acc_fetch_fullname(signal_h));
+      io_printf("[PLI] Found Output Port: %s\n", acc_fetch_fullname(signal_h));
     }
   }
   return;

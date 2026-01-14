@@ -9,5 +9,6 @@
     "path" : "./",
     "tcl_file": "./run.tcl",
     "modelsim_home": "D:/modelsim",
-    "gcc_path": "./gcc_toolchain/gcc-4.5.0-mingw64vc12/bin"
+    "gcc_path": "./gcc_toolchain/gcc-4.5.0-mingw64vc12/bin",
+    "license_file": "D:/modelsim/win64/LICENSE.TXT"
 }

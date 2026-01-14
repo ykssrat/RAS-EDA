@@ -15,14 +15,15 @@ s_tfcell veriusertfs[] = {
     {0} // 结束标记
 };
 
-// ModelSim 需要的初始化函数 (可选，但通常 veriusertfs 就够了)
+// ModelSim 需要的初始化函数
 void init_usertfs() {
     p_tfcell tfcellp;
     tfcellp = veriusertfs;
     while (tfcellp->type) {
-        io_printf("Registering system task: %s\n", tfcellp->tfname);
+        printf("[PLI] Registering system task: %s\n", tfcellp->tfname);
         tfcellp++;
     }
+    fflush(stdout);
 }
 
 // ModelSim/Questasim looks for this array to bootstrap PLI registration

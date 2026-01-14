@@ -1,182 +1,235 @@
 m255
-K3
+K4
+z2
+!s11f vlog 2020.4 2020.10, Oct 13 2020
 13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
 cModel Technology
-Z0 dD:\FDR\Python_FDR_win_2
+Z0 dD:/FDR/Python_FDR_win_2
 T_opt
-Z1 Vj7h60D8S9dAi_n_MEGMYK0
-Z2 04 6 4 work s27_tb fast 0
-Z3 =1-106838ecf53a-6964d5d7-1ac-58b4
-Z4 o-quiet +acc -auto_acc_if_foreign -work work
-Z5 n@_opt
-Z6 OL;O;10.1c;51
-Z7 dD:\FDR\Python_FDR_win_2
+!s110 1768291466
+Vdd0@Yea5T@lCn25mBHg1;3
+04 6 4 work s27_tb fast 0
+=1-106838ecf53a-6965fc8a-28f-6878
+o-quiet +acc -auto_acc_if_foreign -work work
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2020.4;71
+R0
 vAND2_X1
+Z2 !s110 1768291467
 !i10b 1
-Z8 !s100 lXGk8R2;JAakGZ?]_LemM0
-Z9 IDzjc_^9zdNenBNNjZSBm=0
-Z10 Vk>CRTmO5OQG[d=_0XRLWU0
-R7
-Z11 w1767948591
-Z12 8./circuit/stdcells.v
-Z13 F./circuit/stdcells.v
-L0 2
-Z14 OL;L;10.1c;51
+!s100 KZimb3klUL]ReglXH:UQS3
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IA^JXG2g6adK=<@_Hg8m7Y0
+R0
+Z4 w1767948591
+Z5 8./circuit/stdcells.v
+Z6 F./circuit/stdcells.v
+!i122 1
+L0 2 13
+Z7 VDg1SIo80bB@j0V0VzS_@n1
+Z8 OL;L;2020.4;71
 r1
 !s85 0
 31
-Z15 !s108 1768216364.189000
-Z16 !s107 ./circuit/stdcells.v|./circuit/s27_tb.v|./circuit/s27.v|
-Z17 !s90 -f|circuit/verilog_file.f|
-Z18 o-L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
-Z19 n@a@n@d2_@x1
+Z9 !s108 1768291467.000000
+!s107 ./circuit/stdcells.v|./circuit/s27_tb.v|./circuit/s27.v|
+Z10 !s90 -f|circuit/verilog_file.f|
+!i113 0
+Z11 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+n@a@n@d2_@x1
 vDFF_X1
+R2
 !i10b 1
-Z20 !s100 52GdkIL81@:Y@>FhUance0
-Z21 IGP:RH2AZzPf?J532NNIPb3
-Z22 V05DfUGz5::N]aXcch?G411
+!s100 <5oczkoO_g]YZlR7<1nTC2
+R3
+IROfb??DV40fz4Lh;7cVPL1
+R0
+R4
+R5
+R6
+!i122 1
+L0 35 40
 R7
-R11
-R12
-R13
-L0 35
-R14
+R8
 r1
 !s85 0
 31
-R15
-R16
-R17
-R18
-Z23 n@d@f@f_@x1
+R9
+Z12 !s107 ./circuit/stdcells.v|./circuit/s27_tb.v|./circuit/s27.v|
+R10
+!i113 0
+R11
+R1
+n@d@f@f_@x1
 vINV_X1
+R2
 !i10b 1
-Z24 !s100 lBIeMS@K^<VlJVf8i3GiM1
-Z25 IP[2a;Q6XS`V41SDAcLTm52
-Z26 VS_3_OLeKOUTz0MY`A54zZ3
+!s100 :7D^oYU9@c<ozX[[]:AV41
+R3
+IKJSJiJzJ:lYN7GM9[BKQS0
+R0
+R4
+R5
+R6
+!i122 1
+L0 76 11
 R7
-R11
-R12
-R13
-L0 76
-R14
+R8
 r1
 !s85 0
 31
-R15
-R16
-R17
-R18
-Z27 n@i@n@v_@x1
+R9
+R12
+R10
+!i113 0
+R11
+R1
+n@i@n@v_@x1
 vNAND2_X1
+R2
 !i10b 1
-Z28 !s100 Az>QM>dJdWGHYUT3z8X182
-Z29 ICR9zn[PTnmNzi5hW_c0Em0
-Z30 V8iJWSP703JcM]eAdI3PN40
+!s100 hKg@DbfjAZmKQRQ^KGh5@1
+R3
+IR?Q@22h^iSKW3W^c9kMXn3
+R0
+R4
+R5
+R6
+!i122 1
+L0 89 14
 R7
-R11
-R12
-R13
-L0 89
-R14
+R8
 r1
 !s85 0
 31
-R15
-R16
-R17
-R18
-Z31 n@n@a@n@d2_@x1
+R9
+R12
+R10
+!i113 0
+R11
+R1
+n@n@a@n@d2_@x1
 vNOR2_X1
+R2
 !i10b 1
-Z32 !s100 ?zF3mXcnVU7[S:8KI`U4z3
-Z33 IIeFZTVLe@bKXIMY77[5;N3
-Z34 V3J>iK^zeNKVVD49oTzYRH0
+!s100 ?f@SQfO8^MNV9SGDo9gAX1
+R3
+I651[k6cP6>C4L>lmeIPe62
+R0
+R4
+R5
+R6
+!i122 1
+L0 104 14
 R7
-R11
-R12
-R13
-Z35 L0 104
-R14
+R8
 r1
 !s85 0
 31
-R15
-R16
-R17
-R18
-Z36 n@n@o@r2_@x1
+R9
+R12
+R10
+!i113 0
+R11
+R1
+n@n@o@r2_@x1
 vOR2_X1
+R2
 !i10b 1
-Z37 !s100 CzQlDlznGD?JenmM[Q8J^0
-Z38 Ik8]YG1:^bZURDWDb9LdBC0
-Z39 VdmQA1gnnLGC8EZHN9f@[l3
+!s100 S0`^[2nIA=Hm[`^IDHDV]1
+R3
+Ik1J<lnHjVbzV`c5bDBfdb0
+R0
+R4
+R5
+R6
+!i122 1
+L0 119 13
 R7
-R11
-R12
-R13
-Z40 L0 119
-R14
+R8
 r1
 !s85 0
 31
-R15
-R16
-R17
-R18
-Z41 n@o@r2_@x1
+R9
+R12
+R10
+!i113 0
+R11
+R1
+n@o@r2_@x1
 vs27
+R2
 !i10b 1
-Z42 !s100 hUgM7OIlHb0Wm65l<RYKM3
-Z43 I:eGG;NY3]IOQmL@6:hLi;2
-Z44 VEl^H<^QgZGYVLB?XdL5^E1
+!s100 L:7EEiSN8gDFOaY?TgVAM0
+R3
+In0boRj3F8^la_Q<LAo4l@2
+R0
+w1768218540
+8./circuit/s27.v
+F./circuit/s27.v
+!i122 1
+L0 7 20
 R7
-R11
-Z45 8./circuit/s27.v
-Z46 F./circuit/s27.v
-L0 7
-R14
+R8
 r1
 !s85 0
 31
-R15
-R16
-R17
-R18
-vs27_tb
-!i10b 1
-Z47 !s100 kIG3bZ<EDT5l=T4be;Wgm1
-Z48 Iol3f5@XYL4_;U=Dfh^0X42
-Z49 V_SkHBWZD>iGMRzPhW;MQH2
-R7
-R11
-Z50 8./circuit/s27_tb.v
-Z51 F./circuit/s27_tb.v
-L0 1
-R14
-r1
-!s85 0
-31
-R15
-R16
-R17
-R18
-Useq_DFF_X1
-!i10b 1
-Z52 !s100 7iV]63m^IiKJ1]6bSfF^D1
-Z53 Ikf5]gTGC=nEHZ4<_Nd8PJ2
-Z54 Vz]]?7I3zI=Bn>:GY:elJ^3
-R7
-R11
+R9
 R12
-R13
-L0 16
-R14
+R10
+!i113 0
+R11
+R1
+vs27_tb
+R2
+!i10b 1
+!s100 >S=jg<lHAz;Hzceci^WTk1
+R3
+I0U0P1SbnLUa03FH<fYgLC2
+R0
+R4
+8./circuit/s27_tb.v
+F./circuit/s27_tb.v
+!i122 1
+L0 1 48
+R7
+R8
 r1
 !s85 0
 31
-R15
-R16
-R17
-R18
-Z55 nseq_@d@f@f_@x1
+R9
+R12
+R10
+!i113 0
+R11
+R1
+Useq_DFF_X1
+R2
+!i10b 1
+!s100 I;P09ZVBlOQ9:ORob1POJ1
+R3
+IX_XHDQ7`J6Rd[:6G[aPO31
+R0
+R4
+R5
+R6
+!i122 1
+L0 16 0
+R7
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 0
+R11
+R1
+nseq_@d@f@f_@x1

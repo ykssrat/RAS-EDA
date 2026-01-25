@@ -1,12 +1,16 @@
 .PHONY:com sim clean wave all vcd dve
 
+SHELL := /bin/bash
+
 OUTPUT 	= sim
 CSOURCE = ./clibrary/main.c
 TAB 	= ./clibrary/pli.tab
 VFILE 	= ./circuit/verilog_file.f
 UCLI    = run.tcl
 
-VCS = vcs -sverilog +v2k 	 					\
+VCS_CMD ?= vcs
+
+VCS = ${VCS_CMD} -sverilog +v2k 	 					\
       -timescale=1ns/1ns   						\
 	  -debug_all								\
 	  -o ${OUTPUT}								\

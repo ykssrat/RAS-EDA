@@ -1,0 +1,17 @@
+
+Warning-[LINX_KRNL] Unsupported Linux kernel
+  Linux kernel '6.17.0-8-generic' is not supported.
+  Supported versions are 2.4* or 2.6*.
+
+Command: vcs -sverilog +v2k -timescale=1ns/1ns -debug_all -o sim -l compile.log -full64 \
++memcbk -f ./circuit/verilog_file.f -P ./clibrary/pli.tab ./clibrary/main.c
+                         Chronologic VCS (TM)
+         Version L-2016.06_Full64 -- Sat Jan 17 21:48:58 2026
+               Copyright (c) 1991-2016 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+CPU time: .402 seconds to compile

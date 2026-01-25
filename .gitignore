@@ -10,3 +10,6 @@ Python_FDR_linux_1/py/__pycache__/
 **/work/
 **/tmp/
 
+# Ignore all JetBrains IDE config
+.idea/
+

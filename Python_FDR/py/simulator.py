@@ -15,6 +15,8 @@ class Config:
         self.fault_file = ''
         self.path = ''
         self.tcl_file = ''
+        self.vcs_command = 'vcs'
+        self.env_setup = ''
 
         self.read_config()
 
@@ -34,6 +36,8 @@ class Config:
                 base_dir = os.path.dirname(os.path.abspath(self.config_file))
                 self.path = os.path.abspath(os.path.join(base_dir, '..', self.path))
             self.tcl_file = js['tcl_file']
+            self.vcs_command = js.get('vcs_command', 'vcs')
+            self.env_setup = js.get('env_setup', '')
 
     def print_config(self):
         for attr, value in self.__dict__.items():
@@ -185,6 +189,8 @@ class Simulator:
         self.tcl_file = config.tcl_file
         self.clk_period = config.clk_period
         self.end_time = config.end_time
+        self.vcs_command = config.vcs_command
+        self.env_setup = config.env_setup
 
         self.golden_tcl_content = "call {$rungolden}\nrun"
         self.fault_tcl_content = "restart\n" + \
@@ -199,11 +205,30 @@ class Simulator:
 
     def compile(self):
         os.chdir(self.path)
-        os.system('make com')
+        cmd = f'make com VCS_CMD={self.vcs_command}'
+        if self.env_setup:
+            cmd = f'{self.env_setup} && {cmd}'
+        # 使用 bash -c 确保环境一致性，并打印执行的命令方便调试
+        full_cmd = f"bash -c '{cmd}'"
+        print(f"Executing: {full_cmd}")
+        result = os.system(full_cmd)
+        if result != 0:
+            print(f"Error: Compilation failed with exit code {result}")
+            return False
+        return True
 
     def simulate(self):
         os.chdir(self.path)
-        os.system('make sim')
+        cmd = 'make sim'
+        if self.env_setup:
+            cmd = f'{self.env_setup} && {cmd}'
+        full_cmd = f"bash -c '{cmd}'"
+        print(f"Executing: {full_cmd}")
+        result = os.system(full_cmd)
+        if result != 0:
+            print(f"Error: Simulation failed with exit code {result}")
+            return False
+        return True
 
     def clean(self):
         os.chdir(self.path)
@@ -245,15 +270,18 @@ def main():
     # golden
     sim.write_golden_tcl()
     sim.clean()
-    sim.compile()
-    sim.simulate()
+    if not sim.compile():
+        return
+    if not sim.simulate():
+        return
     circuit.get_circuit_info()
     circuit.get_golden()
     # circuit.print_circuit()
 
     # fault
     sim.write_fault_tcl(circuit.injection_reg)
-    sim.simulate()
+    if not sim.simulate():
+        return
     circuit.get_fault()
     circuit.cal_result()
     pass

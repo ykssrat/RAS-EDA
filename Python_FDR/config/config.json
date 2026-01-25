@@ -6,5 +6,7 @@
     "golden_file": "./output/golden.json",
     "fault_file": "./output/fault.json",
     "path" : ".",
-    "tcl_file": "./run.tcl"
+    "tcl_file": "./run.tcl",
+    "vcs_command": "/home/sky/synopsys/vcs2016/bin/vcs",
+    "env_setup": "export VCS_HOME=/home/sky/synopsys/vcs2016 && export PATH=$VCS_HOME/bin:$PATH && export LM_LICENSE_FILE=/home/sky/synopsys/License/scl_keygen/Synopsys.dat"
 }

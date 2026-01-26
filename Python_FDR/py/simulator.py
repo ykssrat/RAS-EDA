@@ -205,28 +205,36 @@ class Simulator:
 
     def compile(self):
         os.chdir(self.path)
-        cmd = f'make com VCS_CMD={self.vcs_command}'
+        # 确保 output 目录存在
+        log_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'output')
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir)
+        log_path = os.path.join(log_dir, 'vcs_run.log')
+        cmd = f'make com VCS_CMD={self.vcs_command} > {log_path} 2>&1'
         if self.env_setup:
             cmd = f'{self.env_setup} && {cmd}'
-        # 使用 bash -c 确保环境一致性，并打印执行的命令方便调试
         full_cmd = f"bash -c '{cmd}'"
         print(f"Executing: {full_cmd}")
         result = os.system(full_cmd)
         if result != 0:
-            print(f"Error: Compilation failed with exit code {result}")
+            print(f"Error: Compilation failed with exit code {result}. See log: {log_path}")
             return False
         return True
 
     def simulate(self):
         os.chdir(self.path)
-        cmd = 'make sim'
+        log_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'output')
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir)
+        log_path = os.path.join(log_dir, 'vcs_run.log')
+        cmd = f'make sim >> {log_path} 2>&1'
         if self.env_setup:
             cmd = f'{self.env_setup} && {cmd}'
         full_cmd = f"bash -c '{cmd}'"
         print(f"Executing: {full_cmd}")
         result = os.system(full_cmd)
         if result != 0:
-            print(f"Error: Simulation failed with exit code {result}")
+            print(f"Error: Simulation failed with exit code {result}. See log: {log_path}")
             return False
         return True
 
@@ -267,12 +275,17 @@ def main():
     config.print_config()
     sim = Simulator(config)
 
+    log_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'output', 'vcs_run.log')
+    print(f"[INFO] VCS/Make 所有输出将记录到: {log_path}")
+
     # golden
     sim.write_golden_tcl()
     sim.clean()
     if not sim.compile():
+        print(f"[ERROR] 详细日志请查阅: {log_path}")
         return
     if not sim.simulate():
+        print(f"[ERROR] 详细日志请查阅: {log_path}")
         return
     circuit.get_circuit_info()
     circuit.get_golden()
@@ -281,6 +294,7 @@ def main():
     # fault
     sim.write_fault_tcl(circuit.injection_reg)
     if not sim.simulate():
+        print(f"[ERROR] 详细日志请查阅: {log_path}")
         return
     circuit.get_fault()
     circuit.cal_result()

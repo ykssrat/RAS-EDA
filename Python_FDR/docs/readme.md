@@ -11,6 +11,7 @@ vcs+verdi是目前市面上仿真最快的方式
 
 资源：通过网盘分享的文件：Synopsys
 链接: https://pan.baidu.com/s/1pKsduApIso07RM5m3rbUpQ 提取码: dp5s
+终端使用pip install -r py/requirements.txt可以一键快速安装依赖库
 ## 目录结构
 
 ```

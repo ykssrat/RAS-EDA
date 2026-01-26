@@ -1,6 +1,6 @@
 # Python cache directories
-Python_FDR_win_2/py/__pycache__/
-Python_FDR_linux_1/py/__pycache__/
+Python_FDR/py/__pycache__/
+
 
 # Simulation output and temporary files
 **/output/*.v

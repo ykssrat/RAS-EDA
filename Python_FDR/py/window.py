@@ -86,6 +86,12 @@ def main():
     """
     主函数
     """
+
+    import importlib.util
+    import sys
+    circuit_dir = os.path.join(os.path.dirname(__file__), '..', 'circuit')
+    simulator_path = os.path.join(os.path.dirname(__file__), 'simulator.py')
+
     while True:
         print("" + "="*50)
         print("欢迎使用Python_FDR电路分割和Verilog生成工具")
@@ -93,36 +99,75 @@ def main():
         print("请选择操作:")
         print("1. 电路分割 (将Verilog文件分割为两个子电路)")
         print("2. 生成Verilog (从分割结果GraphML文件生成可综合的Verilog文件)")
-        print("3. 退出程序")
+        print("3. 运行仿真 (选择电路后调用simulator)")
+        print("4. 退出程序")
 
-        choice = input("请输入选项 (1/2/3): ").strip()
+        choice = input("请输入选项 (1/2/3/4): ").strip()
 
-        if choice == '3':
+        if choice == '4':
             print("程序已退出。")
             break
 
-        if choice not in ['1', '2']:
+        if choice not in ['1', '2', '3']:
             print("无效选项，请重新输入!")
             continue
 
-        # 获取电路名称
-        circuit_name = input("请输入电路名称 (例如: s27, s382): ").strip()
-
-        if not circuit_name:
-            print("电路名称不能为空!")
-            continue
-
-        if choice == '1':
-            # 执行电路分割
-            success = partition_circuit(circuit_name)
-            if success:
-                print(f"电路 {circuit_name} 分割完成!")
-
-        elif choice == '2':
-            # 从GraphML生成Verilog
-            success = generate_verilog_from_graphml(circuit_name)
-            if success:
-                print(f"电路 {circuit_name} 的Verilog文件生成完成!")
+        if choice in ['1', '2']:
+            # 获取电路名称
+            circuit_name = input("请输入电路名称 (例如: s27, s382): ").strip()
+            if not circuit_name:
+                print("电路名称不能为空!")
+                continue
+            if choice == '1':
+                # 执行电路分割
+                success = partition_circuit(circuit_name)
+                if success:
+                    print(f"电路 {circuit_name} 分割完成!")
+            elif choice == '2':
+                # 从GraphML生成Verilog
+                success = generate_verilog_from_graphml(circuit_name)
+                if success:
+                    print(f"电路 {circuit_name} 的Verilog文件生成完成!")
+        elif choice == '3':
+            # 读取circuit目录下所有电路文件（.v结尾）
+            circuits = [f for f in os.listdir(circuit_dir) if f.endswith('.v')]
+            if not circuits:
+                print("未找到任何电路文件！")
+                continue
+            print("可用电路列表：")
+            for idx, fname in enumerate(circuits):
+                print(f"{idx+1}. {fname}")
+            while True:
+                sel = input(f"请选择电路 (1-{len(circuits)}): ").strip()
+                if not sel.isdigit() or not (1 <= int(sel) <= len(circuits)):
+                    print("无效选择，请重新输入！")
+                    continue
+                break
+            selected_circuit = circuits[int(sel)-1]
+            # 调用simulator.py的main函数
+            print(f"即将对电路 {selected_circuit} 进行仿真...")
+            # 动态加载simulator.py模块
+            spec = importlib.util.spec_from_file_location("simulator", simulator_path)
+            simulator = importlib.util.module_from_spec(spec)
+            sys.modules["simulator"] = simulator
+            spec.loader.exec_module(simulator)
+            # 修改config.json中的circuit_info_file/golden_file/fault_file/path/tcl_file为对应电路
+            config_path = os.path.join(os.path.dirname(__file__), '..', 'config', 'config.json')
+            with open(config_path, 'r', encoding='utf-8') as f:
+                config_data = json.load(f)
+            # 只修改相关字段，假设output/下文件名规则为: s27 -> s27_circuit_info.json等
+            base = os.path.splitext(selected_circuit)[0]
+            config_data['circuit_info_file'] = f"./output/{base}_circuit_info.json"
+            config_data['golden_file'] = f"./output/{base}_golden.json"
+            config_data['fault_file'] = f"./output/{base}_fault.json"
+            config_data['path'] = '.'
+            config_data['tcl_file'] = f"./{base}_run.tcl"
+            # 保存临时config
+            with open(config_path, 'w', encoding='utf-8') as f:
+                json.dump(config_data, f, indent=4)
+            # 调用simulator主流程
+            simulator.main()
+            print("仿真流程结束。")
 
 
 if __name__ == "__main__":

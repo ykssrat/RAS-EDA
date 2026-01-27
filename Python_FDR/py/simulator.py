@@ -267,9 +267,31 @@ class Simulator:
 
 
 def main():
-    # 获取脚本所在目录，确保无论在哪启动都能找到配置文件
+
+    import sys
+    import json
+    # 支持传入电路名参数
+    if len(sys.argv) > 1:
+        circuit_name = sys.argv[1]
+    else:
+        circuit_name = None
+
     script_dir = os.path.dirname(os.path.abspath(__file__))
     config_path = os.path.join(script_dir, '..', 'config', 'config.json')
+
+    # 如果有参数，自动修改config.json相关字段
+    if circuit_name:
+        base = os.path.splitext(circuit_name)[0]
+        with open(config_path, 'r', encoding='utf-8') as f:
+            config_data = json.load(f)
+        config_data['circuit_info_file'] = f"./output/{base}_circuit_info.json"
+        config_data['golden_file'] = f"./output/{base}_golden.json"
+        config_data['fault_file'] = f"./output/{base}_fault.json"
+        config_data['path'] = '.'
+        config_data['tcl_file'] = f"./{base}_run.tcl"
+        with open(config_path, 'w', encoding='utf-8') as f:
+            json.dump(config_data, f, indent=4)
+
     config = Config(config_path)
     circuit = CircuitInfo(config)
     config.print_config()
@@ -289,7 +311,6 @@ def main():
         return
     circuit.get_circuit_info()
     circuit.get_golden()
-    # circuit.print_circuit()
 
     # fault
     sim.write_fault_tcl(circuit.injection_reg)
@@ -298,7 +319,6 @@ def main():
         return
     circuit.get_fault()
     circuit.cal_result()
-    pass
 
 
 if __name__ == '__main__':

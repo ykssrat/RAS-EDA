@@ -3,8 +3,10 @@
 根据规则文件重构版本
 """
 
+
 import sys
 import os
+import json
 
 # 添加当前目录到Python路径
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))

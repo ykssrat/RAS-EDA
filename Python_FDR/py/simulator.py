@@ -279,25 +279,33 @@ def main():
     print(f"[INFO] VCS/Make 所有输出将记录到: {log_path}")
 
     # golden
+    print("\033[91m[PROGRESS] Preparing golden simulation...\033[0m")
     sim.write_golden_tcl()
     sim.clean()
+    print("\033[91m[PROGRESS] Compiling golden simulation...\033[0m")
     if not sim.compile():
         print(f"[ERROR] 详细日志请查阅: {log_path}")
         return
+    print("\033[91m[PROGRESS] Running golden simulation...\033[0m")
     if not sim.simulate():
         print(f"[ERROR] 详细日志请查阅: {log_path}")
         return
+    print("\033[91m[PROGRESS] Loading golden data...\033[0m")
     circuit.get_circuit_info()
     circuit.get_golden()
-    # circuit.print_circuit()
 
     # fault
+    print("\033[91m[PROGRESS] Preparing fault simulation...\033[0m")
     sim.write_fault_tcl(circuit.injection_reg)
+    print("\033[91m[PROGRESS] Running fault simulation...\033[0m")
     if not sim.simulate():
         print(f"[ERROR] 详细日志请查阅: {log_path}")
         return
+    print("\033[91m[PROGRESS] Loading fault data...\033[0m")
     circuit.get_fault()
+    print("\033[91m[PROGRESS] Calculating results...\033[0m")
     circuit.cal_result()
+    print("\033[91m[PROGRESS] Simulation completed.\033[0m")
 
 
 if __name__ == '__main__':

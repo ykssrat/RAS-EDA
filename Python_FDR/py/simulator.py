@@ -192,9 +192,8 @@ class Simulator:
         self.vcs_command = config.vcs_command
         self.env_setup = config.env_setup
 
-        self.golden_tcl_content = "puts \"Starting golden simulation\"\ncall {$rungolden}\nrun"
+        self.golden_tcl_content = "call {$rungolden}\nrun"
         self.fault_tcl_content = "restart\n" + \
-                                 "puts \"Injecting fault: {0}\"\n" + \
                                  "call {{$runfault(\"{0}\")}}\n" + \
                                  "run {1}\n" + \
                                  "run 0\n" + \
@@ -228,7 +227,7 @@ class Simulator:
         if not os.path.exists(log_dir):
             os.makedirs(log_dir)
         log_path = os.path.join(log_dir, 'vcs_run.log')
-        cmd = f'make sim UCLI={os.path.basename(self.tcl_file)} 2>> {log_path}'
+        cmd = f'make sim UCLI={os.path.basename(self.tcl_file)} >> {log_path} 2>&1'
         if self.env_setup:
             cmd = f'{self.env_setup} && {cmd}'
         full_cmd = f"bash -c '{cmd}'"
@@ -280,33 +279,25 @@ def main():
     print(f"[INFO] VCS/Make 所有输出将记录到: {log_path}")
 
     # golden
-    print("\033[91m[PROGRESS] Preparing golden simulation...\033[0m")
     sim.write_golden_tcl()
     sim.clean()
-    print("\033[91m[PROGRESS] Compiling golden simulation...\033[0m")
     if not sim.compile():
         print(f"[ERROR] 详细日志请查阅: {log_path}")
         return
-    print("\033[91m[PROGRESS] Running golden simulation...\033[0m")
     if not sim.simulate():
         print(f"[ERROR] 详细日志请查阅: {log_path}")
         return
-    print("\033[91m[PROGRESS] Loading golden data...\033[0m")
     circuit.get_circuit_info()
     circuit.get_golden()
+    # circuit.print_circuit()
 
     # fault
-    print("\033[91m[PROGRESS] Preparing fault simulation...\033[0m")
     sim.write_fault_tcl(circuit.injection_reg)
-    print("\033[91m[PROGRESS] Running fault simulation...\033[0m")
     if not sim.simulate():
         print(f"[ERROR] 详细日志请查阅: {log_path}")
         return
-    print("\033[91m[PROGRESS] Loading fault data...\033[0m")
     circuit.get_fault()
-    print("\033[91m[PROGRESS] Calculating results...\033[0m")
     circuit.cal_result()
-    print("\033[91m[PROGRESS] Simulation completed.\033[0m")
 
 
 if __name__ == '__main__':

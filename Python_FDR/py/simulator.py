@@ -1,6 +1,7 @@
 import os
 import pprint
 import json
+import sys
 import timeit
 
 
@@ -15,6 +16,8 @@ class Config:
         self.fault_file = ''
         self.path = ''
         self.tcl_file = ''
+        self.vcs_command = 'vcs'
+        self.env_setup = ''
 
         self.read_config()
 
@@ -28,7 +31,14 @@ class Config:
             self.golden_file = js['golden_file']
             self.fault_file = js['fault_file']
             self.path = js['path']
+            # 将相对 path 转为基于配置文件位置的绝对路径（config.json 位于 config/）
+            if not os.path.isabs(self.path):
+                base_dir = os.path.dirname(os.path.abspath(self.config_file))
+                self.path = os.path.abspath(os.path.join(base_dir, '..', self.path))
             self.tcl_file = js['tcl_file']
+            # 可选的 VCS 命令与环境设置（向后兼容）
+            self.vcs_command = js.get('vcs_command', self.vcs_command)
+            self.env_setup = js.get('env_setup', self.env_setup)
 
     def print_config(self):
         for attr, value in self.__dict__.items():

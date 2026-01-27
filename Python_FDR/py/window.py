@@ -156,8 +156,15 @@ def main():
                     continue
                 break
             selected_circuit = circuits[int(sel)-1]
-            # 检查分割/仿真相关文件是否存在
+            # 动态修改 verilog_file.f
             base = os.path.splitext(selected_circuit)[0]
+            tb_file = f"{base}_tb.v"
+            verilog_f_path = os.path.join(circuit_dir, 'verilog_file.f')
+            with open(verilog_f_path, 'w') as f:
+                f.write(f"{tb_file}\n")
+                f.write(f"{selected_circuit}\n")
+                f.write("stdcells.v\n")
+            # 检查分割/仿真相关文件是否存在
             output_dir = os.path.join(os.path.dirname(__file__), '..', 'output')
             circuit_info_file = os.path.join(output_dir, f"{base}_circuit_info.json")
             golden_file = os.path.join(output_dir, f"{base}_golden.json")

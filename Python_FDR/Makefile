@@ -6,7 +6,7 @@ OUTPUT 	= sim
 CSOURCE = ./clibrary/main.c
 TAB 	= ./clibrary/pli.tab
 VFILE 	= ./circuit/verilog_file.f
-UCLI    = run.ucli
+UCLI    = run.tcl
 
 VCS_CMD ?= vcs
 

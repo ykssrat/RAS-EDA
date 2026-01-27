@@ -15,8 +15,6 @@ class Config:
         self.fault_file = ''
         self.path = ''
         self.tcl_file = ''
-        self.vcs_command = 'vcs'
-        self.env_setup = ''
 
         self.read_config()
 
@@ -30,14 +28,7 @@ class Config:
             self.golden_file = js['golden_file']
             self.fault_file = js['fault_file']
             self.path = js['path']
-            if not os.path.isabs(self.path):
-                # 将相对路径转换为基于配置文件所在目录的绝对路径
-                # config.json 在 config/ 文件夹下，所以其父目录是项目根目录
-                base_dir = os.path.dirname(os.path.abspath(self.config_file))
-                self.path = os.path.abspath(os.path.join(base_dir, '..', self.path))
             self.tcl_file = js['tcl_file']
-            self.vcs_command = js.get('vcs_command', 'vcs')
-            self.env_setup = js.get('env_setup', '')
 
     def print_config(self):
         for attr, value in self.__dict__.items():
@@ -205,38 +196,11 @@ class Simulator:
 
     def compile(self):
         os.chdir(self.path)
-        # 确保 output 目录存在
-        log_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'output')
-        if not os.path.exists(log_dir):
-            os.makedirs(log_dir)
-        log_path = os.path.join(log_dir, 'vcs_run.log')
-        cmd = f'make com VCS_CMD={self.vcs_command} > {log_path} 2>&1'
-        if self.env_setup:
-            cmd = f'{self.env_setup} && {cmd}'
-        full_cmd = f"bash -c '{cmd}'"
-        print(f"Executing: {full_cmd}")
-        result = os.system(full_cmd)
-        if result != 0:
-            print(f"Error: Compilation failed with exit code {result}. See log: {log_path}")
-            return False
-        return True
+        os.system('make com')
 
     def simulate(self):
         os.chdir(self.path)
-        log_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'output')
-        if not os.path.exists(log_dir):
-            os.makedirs(log_dir)
-        log_path = os.path.join(log_dir, 'vcs_run.log')
-        cmd = f'make sim UCLI={os.path.basename(self.tcl_file)} >> {log_path} 2>&1'
-        if self.env_setup:
-            cmd = f'{self.env_setup} && {cmd}'
-        full_cmd = f"bash -c '{cmd}'"
-        print(f"Executing: {full_cmd}")
-        result = os.system(full_cmd)
-        if result != 0:
-            print(f"Error: Simulation failed with exit code {result}. See log: {log_path}")
-            return False
-        return True
+        os.system('make sim')
 
     def clean(self):
         os.chdir(self.path)
@@ -266,7 +230,96 @@ class Simulator:
             tcl.write("\nfinish\n")
 
 
+class LogMonitor:
+    """非侵入性日志解析器：
+    - 通过扫描 VCS 日志中已完成的 fault 名称来估算进度（不会修改仿真流程）
+    - 提供给有真实仿真运行时的可选进度显示
+    """
+    def __init__(self, log_path):
+        self.log_path = log_path
+
+    def _read_log(self):
+        try:
+            with open(self.log_path, 'r', encoding='utf-8', errors='ignore') as f:
+                return f.read()
+        except FileNotFoundError:
+            return ''
+
+    def estimate_progress_by_faults(self, fault_names):
+        """根据 fault_names 列表在日志中出现的次数来估算完成比例。
+        返回 (completed_count, total_count, fraction)
+        """
+        if not fault_names:
+            return 0, 0, 0.0
+        txt = self._read_log()
+        completed = 0
+        for fn in fault_names:
+            if fn in txt:
+                completed += 1
+        total = len(fault_names)
+        return completed, total, float(completed) / float(total)
+
+
+def run_python_regression(circuit_name='s27'):
+    """在 Python 端使用已有的 JSON 做快速回归：
+    - 不调用 VCS/Make
+    - 加载已有的 golden/fault/circuit_info（优先使用带电路名的文件）
+    - 调用 cal_result() 并验证结果非退化（不是全部 FDR==0）
+    返回 True/False（通过/失败）
+    """
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    cfg_path = os.path.join(project_root, 'config', 'config.json')
+    cfg = Config(cfg_path)
+
+    # 优先寻找 per-circuit 输出（window.py 生成的命名规则）
+    candidate_golden = os.path.join(project_root, 'output', f"{circuit_name}_golden.json")
+    candidate_fault = os.path.join(project_root, 'output', f"{circuit_name}_fault.json")
+    candidate_info = os.path.join(project_root, 'output', f"{circuit_name}_circuit_info.json")
+
+    if os.path.exists(candidate_golden) and os.path.exists(candidate_fault):
+        cfg.golden_file = os.path.relpath(candidate_golden, cfg.path) if os.path.isabs(cfg.path) else os.path.relpath(candidate_golden, os.getcwd())
+        cfg.fault_file = os.path.relpath(candidate_fault, cfg.path) if os.path.isabs(cfg.path) else os.path.relpath(candidate_fault, os.getcwd())
+    else:
+        print(f"[REGRESS] 未找到专用的 {circuit_name} golden/fault 文件，使用配置中的默认文件：{cfg.golden_file}, {cfg.fault_file}")
+
+    if os.path.exists(candidate_info):
+        cfg.circuit_info_file = os.path.relpath(candidate_info, cfg.path) if os.path.isabs(cfg.path) else os.path.relpath(candidate_info, os.getcwd())
+
+    circ = CircuitInfo(cfg)
+    circ.get_circuit_info()
+    circ.get_golden()
+    circ.get_fault()
+    circ.cal_result()
+
+    # 判断是否退化（所有寄存器的 error == 0）
+    all_zero = True
+    for reg, stats in circ.fdr_result.items():
+        if stats.get('error', 0) > 0 or stats.get('FDR', 0.0) > 0.0:
+            all_zero = False
+            break
+
+    if all_zero:
+        print(f"[REGRESS][FAIL] {circuit_name} 回归失败：所有寄存器 FDR == 0（可能仿真/日志处理被篡改）")
+        return False
+    else:
+        print(f"[REGRESS][PASS] {circuit_name} 回归通过 — 存在非零 FDR（快速验证通过）")
+        return True
+
+
 def main():
+    # 保持向后兼容的默认行为不变；新增两个可选开关：--regress 和 --progress
+    args = sys.argv[1:]
+    do_regress = '--regress' in args
+    show_progress = '--progress' in args
+    regress_circuit = None
+    for a_i, a in enumerate(args):
+        if a == '--regress' and a_i + 1 < len(args):
+            regress_circuit = args[a_i + 1]
+
+    if do_regress:
+        circuit_name = regress_circuit or 's27'
+        ok = run_python_regression(circuit_name)
+        sys.exit(0 if ok else 2)
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     config_path = os.path.join(script_dir, '..', 'config', 'config.json')
@@ -284,9 +337,28 @@ def main():
     if not sim.compile():
         print(f"[ERROR] 详细日志请查阅: {log_path}")
         return
+
+    # 如果用户请求进度显示，则在真实仿真时监控日志（非侵入）
+    if show_progress:
+        monitor = LogMonitor(log_path)
+        print('[INFO] 进度监控已开启（通过解析 VCS 日志） — 仅用于显示，不改动仿真流程')
+
     if not sim.simulate():
         print(f"[ERROR] 详细日志请查阅: {log_path}")
         return
+
+    # 在仿真运行期间（或之后）可以查询进度（若启用）——这里只做一次示例查询
+    if show_progress:
+        # 尝试从 fault 文件或 circuit info 中收集 fault name 列表用于估算
+        try:
+            with open(os.path.join(os.path.dirname(script_dir), config.fault_file)) as f:
+                fault_js = json.load(f)
+                fault_names = list(fault_js.keys())
+        except Exception:
+            fault_names = []
+        c, t, frac = monitor.estimate_progress_by_faults(fault_names)
+        print(f"[PROGRESS] 已检测到 {c}/{t} 个故障记录在日志中（估算完成: {frac:.0%}）")
+
     circuit.get_circuit_info()
     circuit.get_golden()
     # circuit.print_circuit()
@@ -298,6 +370,27 @@ def main():
         return
     circuit.get_fault()
     circuit.cal_result()
+    pass
+    config = Config('../config.json')
+    circuit = CircuitInfo(config)
+    config.print_config()
+    sim = Simulator(config)
+
+    # golden
+    sim.write_golden_tcl()
+    sim.clean()
+    sim.compile()
+    sim.simulate()
+    circuit.get_circuit_info()
+    circuit.get_golden()
+    # circuit.print_circuit()
+
+    # fault
+    sim.write_fault_tcl(circuit.injection_reg)
+    sim.simulate()
+    circuit.get_fault()
+    circuit.cal_result()
+    pass
 
 
 if __name__ == '__main__':

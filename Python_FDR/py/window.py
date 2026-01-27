@@ -110,7 +110,11 @@ def main():
         print("3. 运行仿真 (选择电路后调用simulator)")
         print("4. 退出程序")
 
-        choice = input("请输入选项 (1/2/3/4): ").strip()
+        try:
+            choice = input("请输入选项 (1/2/3/4): ").strip()
+        except EOFError:
+            print("非交互模式，程序退出。")
+            break
 
         if choice == '4':
             print("程序已退出。")

@@ -206,15 +206,58 @@ class Simulator:
 
     def compile(self):
         os.chdir(self.path)
-        os.system('make com')
+        # 将 make 输出重定向到 output/vcs_run.log，便于后续分析
+        log_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'output')
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir)
+        log_path = os.path.join(log_dir, 'vcs_run.log')
+        cmd = f"make com > {log_path} 2>&1"
+        print(f"[SIM] 编译命令：{cmd}")
+        rc = os.system(cmd)
+        return rc == 0
 
     def simulate(self):
         os.chdir(self.path)
-        os.system('make sim')
+        log_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'output')
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir)
+        log_path = os.path.join(log_dir, 'vcs_run.log')
+        cmd = f"make sim >> {log_path} 2>&1"
+        print(f"[SIM] 仿真命令：{cmd}")
+        rc = os.system(cmd)
+        return rc == 0
 
     def clean(self):
         os.chdir(self.path)
+        # 保护用户生成的分析产物（vcs_run.log 与 ser_analysis），以防 Makefile 的 clean 非预期删除
+        root_output = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'output')
+        vcs_log = os.path.join(root_output, 'vcs_run.log')
+        sa_dir = os.path.join(root_output, 'ser_analysis')
+        tmp_backup = None
+        try:
+            if os.path.exists(vcs_log):
+                tmp_backup = vcs_log + '.bak'
+                os.replace(vcs_log, tmp_backup)
+            if os.path.exists(sa_dir):
+                tmp_sa_bak = sa_dir + '_bak'
+                if os.path.exists(tmp_sa_bak):
+                    # 保持单次备份
+                    pass
+                else:
+                    os.replace(sa_dir, tmp_sa_bak)
+        except Exception:
+            # 如果备份失败，继续执行 clean（不要阻塞）
+            tmp_backup = None
+        # 调用 make clean（Makefile 已修改为不删除 output/*）
         os.system('make clean')
+        # 尝试还原备份
+        try:
+            if tmp_backup and os.path.exists(tmp_backup):
+                os.replace(tmp_backup, vcs_log)
+            if os.path.exists(sa_dir + '_bak') and not os.path.exists(sa_dir):
+                os.replace(sa_dir + '_bak', sa_dir)
+        except Exception:
+            pass
 
     def write_golden_tcl(self):
         os.chdir(self.path)
@@ -380,27 +423,8 @@ def main():
         return
     circuit.get_fault()
     circuit.cal_result()
-    pass
-    config = Config('../config.json')
-    circuit = CircuitInfo(config)
-    config.print_config()
-    sim = Simulator(config)
-
-    # golden
-    sim.write_golden_tcl()
-    sim.clean()
-    sim.compile()
-    sim.simulate()
-    circuit.get_circuit_info()
-    circuit.get_golden()
-    # circuit.print_circuit()
-
-    # fault
-    sim.write_fault_tcl(circuit.injection_reg)
-    sim.simulate()
-    circuit.get_fault()
-    circuit.cal_result()
-    pass
+    # 成功完成仿真与结果计算后显式退出（返回码 0）——避免回到交互菜单
+    sys.exit(0)
 
 
 if __name__ == '__main__':

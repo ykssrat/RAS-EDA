@@ -48,6 +48,9 @@ clean:
 	*.vpd ${OUTPUT} DVEfiles *.vcd *.fsdb save.ucli \
 	save.FILES ./output/* ./ucli_file ./clibrary/test \
 	./*.o
-
+# 保留 output/ 下的用户分析产物；若需要一并清理使用 distclean
+.PHONY: distclean
+distclean:
+	rm -rf ./output/*
 
 

@@ -16,7 +16,7 @@ from G_to_v import GToV, generate_verilog
 import time
 
 
-def partition_circuit(circuit_name, only_generate_json=False):
+def partition_circuit(circuit_name):
     """
     对电路进行分割
     """
@@ -43,32 +43,30 @@ def partition_circuit(circuit_name, only_generate_json=False):
         with open(circuit_info_path, 'w') as f:
             json.dump(partitions['circuit_info'], f, indent=4)
 
-        if not only_generate_json:
-            print(f"分割完成，耗时: {elapsed_time:.2f} 秒")
-            print("电路分割完成，结果已保存到output目录")
-            print(f"分区A节点数: {partitions['partition_a_count']}")
-            print(f"分区B节点数: {partitions['partition_b_count']}")
-            print(f"割集大小: {partitions['cutsize']}")
+        print(f"分割完成，耗时: {elapsed_time:.2f} 秒")
+        print("电路分割完成，结果已保存到output目录")
+        print(f"分区A节点数: {partitions['partition_a_count']}")
+        print(f"分区B节点数: {partitions['partition_b_count']}")
+        print(f"割集大小: {partitions['cutsize']}")
 
-            # 检查分区端口是否符合规则
-            if 'circuit_info' in partitions and 'partition_ports' in partitions['circuit_info']:
-                partition_a_ports = partitions['circuit_info']['partition_ports']['partition_a']
-                partition_b_ports = partitions['circuit_info']['partition_ports']['partition_b']
+        # 检查分区端口是否符合规则
+        if 'circuit_info' in partitions and 'partition_ports' in partitions['circuit_info']:
+            partition_a_ports = partitions['circuit_info']['partition_ports']['partition_a']
+            partition_b_ports = partitions['circuit_info']['partition_ports']['partition_b']
 
-                # 检查A区是否包含所有输入端口
-                original_inputs = ["CK", "G0", "G1", "G2", "G3"]
-                all_inputs_in_a = all(inp in partition_a_ports['inputs'] for inp in original_inputs)
-                print(f"A区包含所有输入端口: {all_inputs_in_a}")
+            # 检查A区是否包含所有输入端口
+            original_inputs = ["CK", "G0", "G1", "G2", "G3"]
+            all_inputs_in_a = all(inp in partition_a_ports['inputs'] for inp in original_inputs)
+            print(f"A区包含所有输入端口: {all_inputs_in_a}")
 
-                # 检查B区是否包含输出端口
-                original_outputs = ["G17"]
-                all_outputs_in_b = all(out in partition_b_ports['outputs'] for out in original_outputs)
-                print(f"B区包含所有输出端口: {all_outputs_in_b}")
+            # 检查B区是否包含输出端口
+            original_outputs = ["G17"]
+            all_outputs_in_b = all(out in partition_b_ports['outputs'] for out in original_outputs)
+            print(f"B区包含所有输出端口: {all_outputs_in_b}")
 
         return True
     else:
-        if not only_generate_json:
-            print("电路分割失败")
+        print("电路分割失败")
         return False
 
 
@@ -168,18 +166,12 @@ def main():
                 print("警告：以下仿真/分割相关文件不存在：")
                 for f in missing:
                     print(f"  - {f}")
+                if any('circuit_info' in f for f in missing):
+                    print("circuit_info.json 不存在，请先进行电路分割（选项1）生成。")
                 print("你可以先进行电路分割（选项1），也可以直接仿真原始电路。")
                 goon = input("是否继续仿真？(y/n): ").strip().lower()
                 if goon != 'y':
                     print("已取消仿真。"); continue
-            # 如果 circuit_info.json 不存在，自动生成
-            if not os.path.exists(circuit_info_file):
-                print("circuit_info.json 不存在，正在自动生成...")
-                success = partition_circuit(selected_circuit, only_generate_json=True)
-                if not success:
-                    print("自动生成 circuit_info.json 失败，取消仿真。")
-                    continue
-                print("circuit_info.json 已生成。")
             # 调用simulator.py的main函数
             print(f"即将对电路 {selected_circuit} 进行仿真...")
             # 动态加载simulator.py模块

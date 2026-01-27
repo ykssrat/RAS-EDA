@@ -192,8 +192,9 @@ class Simulator:
         self.vcs_command = config.vcs_command
         self.env_setup = config.env_setup
 
-        self.golden_tcl_content = "call {$rungolden}\nrun"
+        self.golden_tcl_content = "puts \"Starting golden simulation\"\ncall {$rungolden}\nrun"
         self.fault_tcl_content = "restart\n" + \
+                                 "puts \"Injecting fault: {0}\"\n" + \
                                  "call {{$runfault(\"{0}\")}}\n" + \
                                  "run {1}\n" + \
                                  "run 0\n" + \
@@ -227,7 +228,7 @@ class Simulator:
         if not os.path.exists(log_dir):
             os.makedirs(log_dir)
         log_path = os.path.join(log_dir, 'vcs_run.log')
-        cmd = f'make sim UCLI={os.path.basename(self.tcl_file)} >> {log_path} 2>&1'
+        cmd = f'make sim UCLI={os.path.basename(self.tcl_file)} 2>> {log_path}'
         if self.env_setup:
             cmd = f'{self.env_setup} && {cmd}'
         full_cmd = f"bash -c '{cmd}'"

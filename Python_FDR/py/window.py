@@ -146,6 +146,24 @@ def main():
                     continue
                 break
             selected_circuit = circuits[int(sel)-1]
+            # 检查分割/仿真相关文件是否存在
+            base = os.path.splitext(selected_circuit)[0]
+            output_dir = os.path.join(os.path.dirname(__file__), '..', 'output')
+            circuit_info_file = os.path.join(output_dir, f"{base}_circuit_info.json")
+            golden_file = os.path.join(output_dir, f"{base}_golden.json")
+            fault_file = os.path.join(output_dir, f"{base}_fault.json")
+            missing = []
+            for f in [circuit_info_file, golden_file, fault_file]:
+                if not os.path.exists(f):
+                    missing.append(os.path.basename(f))
+            if missing:
+                print("警告：以下仿真/分割相关文件不存在：")
+                for f in missing:
+                    print(f"  - {f}")
+                print("你可以先进行电路分割（选项1），也可以直接仿真原始电路。")
+                goon = input("是否继续仿真？(y/n): ").strip().lower()
+                if goon != 'y':
+                    print("已取消仿真。"); continue
             # 调用simulator.py的main函数
             print(f"即将对电路 {selected_circuit} 进行仿真...")
             # 动态加载simulator.py模块
@@ -157,17 +175,13 @@ def main():
             config_path = os.path.join(os.path.dirname(__file__), '..', 'config', 'config.json')
             with open(config_path, 'r', encoding='utf-8') as f:
                 config_data = json.load(f)
-            # 只修改相关字段，假设output/下文件名规则为: s27 -> s27_circuit_info.json等
-            base = os.path.splitext(selected_circuit)[0]
             config_data['circuit_info_file'] = f"./output/{base}_circuit_info.json"
             config_data['golden_file'] = f"./output/{base}_golden.json"
             config_data['fault_file'] = f"./output/{base}_fault.json"
             config_data['path'] = '.'
             config_data['tcl_file'] = f"./{base}_run.tcl"
-            # 保存临时config
             with open(config_path, 'w', encoding='utf-8') as f:
                 json.dump(config_data, f, indent=4)
-            # 调用simulator主流程
             simulator.main()
             print("仿真流程结束。")
 

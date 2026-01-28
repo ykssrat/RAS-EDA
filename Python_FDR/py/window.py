@@ -75,19 +75,18 @@ def partition_circuit(circuit_name):
         return False
 
 
-def generate_verilog_from_graphml(circuit_name):
+def generate_verilog_from_graphml(circuit_name, circuit_dir):
     """
-    从GraphML文件生成Verilog文件
+    从GraphML文件生成Verilog文件，并把生成的 .v 放到 `circuit` 目录
     """
-    success = generate_verilog(circuit_name)
+    # 将生成的 Verilog 写到 circuit_dir
+    success = generate_verilog(circuit_name, target_dir=circuit_dir)
 
     if success:
-        # 显示生成的文件信息
-        output_dir = os.path.join(os.path.dirname(__file__), '..', 'output')
-        partition_a_file = os.path.join(output_dir, f"{circuit_name}_a.v")
-        partition_b_file = os.path.join(output_dir, f"{circuit_name}_b.v")
+        partition_a_file = os.path.join(circuit_dir, f"{circuit_name}_a.v")
+        partition_b_file = os.path.join(circuit_dir, f"{circuit_name}_b.v")
 
-        print("Verilog文件生成完成:")
+        print("Verilog文件生成完成，已放入 circuit 目录:")
         print(f"  - {partition_a_file}")
         print(f"  - {partition_b_file}")
         return True
@@ -111,7 +110,7 @@ def main():
         print("="*50)
         print("请选择操作:")
         print("1. 电路分割 (将Verilog文件分割为两个子电路)")
-        print("2. 生成Verilog (从分割结果GraphML文件生成可综合的Verilog文件)")
+        print("2. 生成Verilog (从分割结果GraphML文件生成可综合的Verilog文件，生成文件放入 circuit 目录)")
         print("3. 运行仿真 (选择电路后调用simulator)")
         print("4. 退出程序")
 
@@ -157,10 +156,10 @@ def main():
                 if success:
                     print(f"电路 {circuit_name} 分割完成!")
             elif choice == '2':
-                # 从GraphML生成Verilog
-                success = generate_verilog_from_graphml(circuit_name)
+                # 从GraphML生成Verilog（写入 circuit 目录）
+                success = generate_verilog_from_graphml(circuit_name, circuit_dir)
                 if success:
-                    print(f"电路 {circuit_name} 的Verilog文件生成完成!")
+                    print(f"电路 {circuit_name} 的Verilog文件生成完成并放入 circuit 目录!")
         elif choice == '3':
             # 读取circuit目录下所有电路文件（.v结尾）
             circuits = [f for f in os.listdir(circuit_dir) if f.endswith('.v')]

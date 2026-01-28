@@ -192,6 +192,9 @@ class Simulator:
         self.end_time = config.end_time
         self.vcs_command = config.vcs_command
         self.env_setup = config.env_setup
+        # 可选的额外 flags（可用于启用 -debug_access+all 等），以及专用的 debug flags（仅在需要时使用）
+        self.vcs_extra_flags = getattr(config, 'vcs_extra_flags', '')
+        self.vcs_debug_flags = getattr(config, 'vcs_debug_flags', '')
 
         self.golden_tcl_content = "call {$rungolden}\nrun"
         self.fault_tcl_content = "restart\n" + \
@@ -211,9 +214,31 @@ class Simulator:
         if not os.path.exists(log_dir):
             os.makedirs(log_dir)
         log_path = os.path.join(log_dir, 'vcs_run.log')
-        cmd = f"make com > {log_path} 2>&1"
+        extra = self.vcs_extra_flags or ''
+        if extra:
+            cmd = f"make com VCS_EXTRA_FLAGS='{extra}' > {log_path} 2>&1"
+        else:
+            cmd = f"make com > {log_path} 2>&1"
         print(f"[SIM] 编译命令：{cmd}")
         rc = os.system(cmd)
+        return rc == 0
+
+    def rebuild_with_debug(self, extra_flags=None):
+        """Recompile with debug-capable flags so that `force` works.
+        This does NOT change config; it runs a one-off make with VCS_EXTRA_FLAGS.
+        """
+        debug_flags = extra_flags or self.vcs_debug_flags or '-debug_access+all'
+        log_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'output')
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir)
+        log_path = os.path.join(log_dir, 'vcs_run.log')
+        cmd = f"make com VCS_EXTRA_FLAGS='{debug_flags}' >> {log_path} 2>&1"
+        print(f"[SIM] 以 debug 标志重编译：{debug_flags}")
+        rc = os.system(cmd)
+        if rc == 0:
+            print('[SIM] debug 重编译成功')
+        else:
+            print(f'[SIM] debug 重编译失败，查看日志: {log_path}')
         return rc == 0
 
     def simulate(self):
@@ -360,10 +385,11 @@ def run_python_regression(circuit_name='s27'):
 
 
 def main():
-    # 保持向后兼容的默认行为不变；新增两个可选开关：--regress 和 --progress
+    # 保持向后兼容的默认行为不变；新增可选开关：--regress, --progress, --rebuild-debug
     args = sys.argv[1:]
     do_regress = '--regress' in args
     show_progress = '--progress' in args
+    rebuild_debug = ('--rebuild-debug' in args) or ('--with-debug' in args)
     regress_circuit = None
     for a_i, a in enumerate(args):
         if a == '--regress' and a_i + 1 < len(args):
@@ -412,6 +438,31 @@ def main():
         c, t, frac = monitor.estimate_progress_by_faults(fault_names)
         print(f"[PROGRESS] 已检测到 {c}/{t} 个故障记录在日志中（估算完成: {frac:.0%}）")
 
+    # 检测仿真日志中可能的 force-debug 错误，提供可执行修复或自动重编译（如果用户请求）
+    try:
+        with open(log_path, 'r', encoding='utf-8', errors='ignore') as _l:
+            log_txt = _l.read()
+    except Exception:
+        log_txt = ''
+
+    force_err_patterns = ['Unable to force object', 'FORCE-NODBG', 'not compiled with the required debug capability']
+    force_error_detected = any(p in log_txt for p in force_err_patterns)
+    if force_error_detected:
+        print('\n[SIM][WARN] 在仿真日志中检测到 force/DEBUG 相关错误，可能需要带 debug 选项重新编译以支持 force。')
+        print('建议：')
+        print("  1) 在配置文件中设置 'vcs_debug_flags' 或临时使用 CLI 参数 '--rebuild-debug'；")
+        print("  2) 或者手动用： make com VCS_EXTRA_FLAGS='-debug_access+all' 然后重跑仿真。\n")
+        if rebuild_debug:
+            print('[SIM] 检测到 --rebuild-debug，尝试使用 debug 标志重编译并重跑仿真（一次）')
+            if sim.rebuild_with_debug():
+                print('[SIM] 重新运行仿真（debug 编译）')
+                if not sim.simulate():
+                    print(f"[ERROR] debug 模式下仿真仍失败，详见: {log_path}")
+                    return
+            else:
+                print(f"[ERROR] 无法用 debug 标志重编译，详见: {log_path}")
+                return
+
     circuit.get_circuit_info()
     circuit.get_golden()
     # circuit.print_circuit()
@@ -421,6 +472,21 @@ def main():
     if not sim.simulate():
         print(f"[ERROR] 详细日志请查阅: {log_path}")
         return
+
+    # 检查 fault 仿真后是否出现 force/debug 相关错误（并给出修复建议）
+    try:
+        with open(log_path, 'r', encoding='utf-8', errors='ignore') as _lf:
+            _log_txt = _lf.read()
+    except Exception:
+        _log_txt = ''
+    if any(p in _log_txt for p in ['Unable to force object', 'FORCE-NODBG', 'not compiled with the required debug capability']):
+        print('\n[SIM][ERROR] 在 fault 注入阶段检测到 force/DEBUG 错误 — 这会阻止故障注入生效。')
+        print('可选修复步骤:')
+        print("  - 临时重编译并启用 debug： python py/simulator.py --rebuild-debug && 再次运行仿真")
+        print("  - 或在 config/config.json 中设置 'vcs_debug_flags'，然后重编译")
+        # 不自动继续以避免产生误导性（只有在用户明确要求时才自动重试）
+        return
+
     circuit.get_fault()
     circuit.cal_result()
     # 成功完成仿真与结果计算后显式退出（返回码 0）——避免回到交互菜单

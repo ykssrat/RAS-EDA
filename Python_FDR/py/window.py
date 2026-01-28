@@ -41,13 +41,18 @@ def partition_circuit(circuit_name):
         base = os.path.splitext(circuit_name)[0]
         circuit_info_path = os.path.join(output_dir, f"{base}_circuit_info.json")
         with open(circuit_info_path, 'w') as f:
-            json.dump(partitions['circuit_info'], f, indent=4)
+            if 'circuit_info' in partitions:
+                json.dump(partitions['circuit_info'], f, indent=4)
+            else:
+                # 兼容性：如果没有 circuit_info，保存整个分割字典以便排查
+                json.dump(partitions, f, indent=4)
+                print("警告：分割结果中缺少 'circuit_info'，已保存整个分割字典。")
 
         print(f"分割完成，耗时: {elapsed_time:.2f} 秒")
         print("电路分割完成，结果已保存到output目录")
-        print(f"分区A节点数: {partitions['partition_a_count']}")
-        print(f"分区B节点数: {partitions['partition_b_count']}")
-        print(f"割集大小: {partitions['cutsize']}")
+        print(f"分区A节点数: {partitions.get('partition_a_count')}")
+        print(f"分区B节点数: {partitions.get('partition_b_count')}")
+        print(f"割集大小: {partitions.get('cutsize')}")
 
         # 检查分区端口是否符合规则
         if 'circuit_info' in partitions and 'partition_ports' in partitions['circuit_info']:
@@ -125,11 +130,27 @@ def main():
             continue
 
         if choice in ['1', '2']:
-            # 获取电路名称
-            circuit_name = input("请输入电路名称 (例如: s27, s382): ").strip()
-            if not circuit_name:
-                print("电路名称不能为空!")
-                continue
+            # 列出 circuit 目录下的 .v 文件，允许通过序号选择或输入名称
+            circuits = [f for f in os.listdir(circuit_dir) if f.endswith('.v')]
+            circuit_name = ''
+            if circuits:
+                print("可用电路列表：")
+                for idx, fname in enumerate(circuits):
+                    print(f"{idx+1}. {fname}")
+                sel = input(f"请选择电路 (1-{len(circuits)}) 或直接输入电路名称 (例如: s27): ").strip()
+                if not sel:
+                    print("电路名称不能为空!")
+                    continue
+                if sel.isdigit() and 1 <= int(sel) <= len(circuits):
+                    circuit_name = os.path.splitext(circuits[int(sel)-1])[0]
+                else:
+                    circuit_name = sel
+            else:
+                circuit_name = input("请输入电路名称 (例如: s27, s382): ").strip()
+                if not circuit_name:
+                    print("电路名称不能为空!")
+                    continue
+
             if choice == '1':
                 # 执行电路分割
                 success = partition_circuit(circuit_name)

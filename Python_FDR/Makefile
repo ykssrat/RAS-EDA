@@ -10,7 +10,7 @@ UCLI    = run.tcl
 
 VCS_CMD ?= vcs
 
-VCS = ${VCS_CMD} -sverilog +v2k 	 					\
+VCS = ${VCS_CMD} ${VCS_EXTRA_FLAGS} -sverilog +v2k 	 					\
       -timescale=1ns/1ns   						\
 	  -debug_all								\
 	  -o ${OUTPUT}								\
@@ -19,8 +19,9 @@ VCS = ${VCS_CMD} -sverilog +v2k 	 					\
       +memcbk									\
 	  #-use_vpiobj vpi_user.c +vpi
 
-SIM = ./${OUTPUT} 			\
-	  -ucli -i ${UCLI}	 	\
+SIM = ./${OUTPUT} \
+	  ${SIM_EXTRA_FLAGS} \
+	  -ucli -i ${UCLI} \
 	  -ucli2Proc            \
 	  #-l run.log
 

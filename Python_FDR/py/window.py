@@ -129,26 +129,23 @@ def main():
             continue
 
         if choice in ['1', '2']:
-            # 列出 circuit 目录下的 .v 文件，允许通过序号选择或输入名称
-            circuits = [f for f in os.listdir(circuit_dir) if f.endswith('.v')]
-            circuit_name = ''
-            if circuits:
-                print("可用电路列表：")
-                for idx, fname in enumerate(circuits):
-                    print(f"{idx+1}. {fname}")
-                sel = input(f"请选择电路 (1-{len(circuits)}) 或直接输入电路名称 (例如: s27): ").strip()
-                if not sel:
-                    print("电路名称不能为空!")
-                    continue
-                if sel.isdigit() and 1 <= int(sel) <= len(circuits):
-                    circuit_name = os.path.splitext(circuits[int(sel)-1])[0]
-                else:
-                    circuit_name = sel
-            else:
-                circuit_name = input("请输入电路名称 (例如: s27, s382): ").strip()
-                if not circuit_name:
-                    print("电路名称不能为空!")
-                    continue
+            # 列出 circuit 目录下的可供选择的原始电路（仅数字选择）
+            # 排除 *_a.v / *_b.v / *_tb.v / stdcells.v / test.v
+            circuits = [f for f in os.listdir(circuit_dir) if f.endswith('.v') and not f.endswith('_a.v') and not f.endswith('_b.v') and not f.endswith('_tb.v') and f not in ['stdcells.v','tb.v','test.v']]
+            if not circuits:
+                print("未找到可供选择的原始电路！")
+                continue
+
+            print("可用电路列表：")
+            for idx, fname in enumerate(circuits):
+                print(f"{idx+1}. {fname}")
+
+            sel = input(f"请选择电路 (1-{len(circuits)}): ").strip()
+            if not sel.isdigit() or not (1 <= int(sel) <= len(circuits)):
+                print("无效选择，请使用列表序号！")
+                continue
+
+            circuit_name = os.path.splitext(circuits[int(sel)-1])[0]
 
             if choice == '1':
                 # 执行电路分割
@@ -176,33 +173,143 @@ def main():
                     continue
                 break
             selected_circuit = circuits[int(sel)-1]
-            # 动态修改 verilog_file.f
             base = os.path.splitext(selected_circuit)[0]
-            tb_file = f"{base}_tb.v"
+            # 动态修改 verilog_file.f
             verilog_f_path = os.path.join(circuit_dir, 'verilog_file.f')
+
+            # 如果选择的是分区文件（如 s27_a.v 或 s27_b.v），使用原始 tb（s27_tb.v）并同时包含两个分区文件
+            files_to_write = []
+            use_tb_output_path = None
+            if base.endswith('_a') or base.endswith('_b'):
+                orig_base = base.rsplit('_', 1)[0]
+                tb_file = f"{orig_base}_tb.v"
+                files_to_write = [f"./circuit/{tb_file}", f"./circuit/{orig_base}_a.v", f"./circuit/{orig_base}_b.v", "./circuit/stdcells.v"]
+
+                # 如果 partition 的 tb 文件在 circuit 下不存在，尝试从原始 tb（放在 circuit 下）生成到 output 并改写引用
+                parent_tb_path = os.path.join(circuit_dir, tb_file)
+                out_tb_path = os.path.join(os.path.dirname(__file__), '..', 'output', f"{base}_tb.v")
+                if not os.path.exists(parent_tb_path):
+                    print(f"警告：未找到父 testbench {parent_tb_path}，无法基于其构造分区 tb。")
+                else:
+                    # 如果分区 tb 在 output 下不存在，则生成
+                    if not os.path.exists(out_tb_path):
+                        try:
+                            import re
+                            with open(parent_tb_path, 'r', encoding='utf-8') as pf:
+                                tb_text = pf.read()
+                            # 修改模块名： module {orig_base}_tb -> module {base}_tb
+                            tb_text = re.sub(rf"module\s+{re.escape(orig_base)}_tb\b", f"module {base}_tb", tb_text)
+                            # 修改 DUT 实例： 第一个以 orig_base 开头的实例名，替换模块名为 base，并给实例名添加后缀
+                            inst_pat = re.compile(rf"(^\s*){re.escape(orig_base)}\s+(\w+)\s*\(", re.MULTILINE)
+                            m = inst_pat.search(tb_text)
+                            if m:
+                                old_inst = m.group(2)
+                                new_inst = f"{old_inst}_{base.split('_')[-1]}"
+                                tb_text = inst_pat.sub(lambda mo: f"{mo.group(1)}{base} {new_inst}(", tb_text, count=1)
+                                # 替换实例名的其他引用
+                                tb_text = re.sub(rf"\b{re.escape(old_inst)}\b", new_inst, tb_text)
+                            # 写入 output 目录（遵守不修改 circuit/* 的规则）
+                            os.makedirs(os.path.dirname(out_tb_path), exist_ok=True)
+                            with open(out_tb_path, 'w', encoding='utf-8') as outf:
+                                outf.write(tb_text)
+                            # 将 files_to_write 中的 ./circuit/{tb_file} 替换为 ./output/{base}_tb.v
+                            files_to_write[0] = f"./output/{base}_tb.v"
+                        except Exception as e:
+                            print(f"生成分区 testbench 失败: {e}")
+            else:
+                tb_file = f"{base}_tb.v"
+                files_to_write = [f"./circuit/{tb_file}", f"./circuit/{selected_circuit}", "./circuit/stdcells.v"]
+
+            # 写入 verilog_file.f
             with open(verilog_f_path, 'w') as f:
-                f.write(f"./circuit/{tb_file}\n")
-                f.write(f"./circuit/{selected_circuit}\n")
-                f.write("./circuit/stdcells.v\n")
-            # 检查分割/仿真相关文件是否存在
+                for p in files_to_write:
+                    f.write(p + "\n")
+
+            # 检查分割/仿真相关文件是否存在（使用 base 的原名作为参考）
             output_dir = os.path.join(os.path.dirname(__file__), '..', 'output')
-            circuit_info_file = os.path.join(output_dir, f"{base}_circuit_info.json")
-            golden_file = os.path.join(output_dir, f"{base}_golden.json")
-            fault_file = os.path.join(output_dir, f"{base}_fault.json")
+            # 针对分区情况，circuit_info 等文件名应基于 orig_base
+            ref_base = orig_base if (base.endswith('_a') or base.endswith('_b')) else base
+            circuit_info_file = os.path.join(output_dir, f"{ref_base}_circuit_info.json")
+            golden_file = os.path.join(output_dir, f"{ref_base}_golden.json")
+            fault_file = os.path.join(output_dir, f"{ref_base}_fault.json")
             missing = []
-            for f in [circuit_info_file, golden_file, fault_file]:
-                if not os.path.exists(f):
-                    missing.append(os.path.basename(f))
+            for fpath in [circuit_info_file, golden_file, fault_file]:
+                if not os.path.exists(fpath):
+                    missing.append(os.path.basename(fpath))
             if missing:
                 print("警告：以下仿真/分割相关文件不存在：")
                 for f in missing:
                     print(f"  - {f}")
                 if any('circuit_info' in f for f in missing):
-                    print("circuit_info.json 不存在，请先进行电路分割（选项1）生成。")
-                print("你可以先进行电路分割（选项1），也可以直接仿真原始电路。")
-                goon = input("是否继续仿真？(y/n): ").strip().lower()
-                if goon != 'y':
-                    print("已取消仿真。"); continue
+                    print("circuit_info.json 不存在，程序将尝试从父电路的输出文件生成缺失的 per-partition 文件（若可能）。")
+                print("将继续仿真流程（不会再次询问）。")
+
+                # 如果选择的是分区文件（如 s27_a / s27_b），尝试从父电路生成缺失的文件（放到 output 目录）
+                base = os.path.splitext(selected_circuit)[0]
+                out_dir = os.path.join(os.path.dirname(__file__), '..', 'output')
+                parent_base = None
+                if base.endswith('_a') or base.endswith('_b'):
+                    parent_base = base.rsplit('_', 1)[0]
+                    parent_info = os.path.join(out_dir, f"{parent_base}_circuit_info.json")
+                    parent_fault = os.path.join(out_dir, f"{parent_base}_fault.json")
+                    parent_golden = os.path.join(out_dir, f"{parent_base}_golden.json")
+
+                    # 生成缺失的 circuit_info / fault / golden
+                    try:
+                        if not os.path.exists(os.path.join(out_dir, f"{base}_circuit_info.json")) and os.path.exists(parent_info):
+                            import copy
+                            with open(parent_info, 'r', encoding='utf-8') as pf:
+                                parent_js = json.load(pf)
+                            # 分割 injection_reg（若存在）为两部分，保证总数一致
+                            inj_regs = parent_js.get('injection_reg', [])
+                            half = (len(inj_regs) + 1) // 2
+                            if base.endswith('_a'):
+                                subset = inj_regs[:half]
+                            else:
+                                subset = inj_regs[half:]
+                            child_js = copy.deepcopy(parent_js)
+                            child_js['injection_reg'] = subset
+                            with open(os.path.join(out_dir, f"{base}_circuit_info.json"), 'w', encoding='utf-8') as cf:
+                                json.dump(child_js, cf, indent=4)
+
+                        if not os.path.exists(os.path.join(out_dir, f"{base}_fault.json")) and os.path.exists(parent_fault):
+                            with open(parent_fault, 'r', encoding='utf-8') as pf:
+                                parent_fault_js = json.load(pf)
+                            keys = sorted(list(parent_fault_js.keys()))
+                            half = (len(keys) + 1) // 2
+                            if base.endswith('_a'):
+                                chosen = keys[:half]
+                            else:
+                                chosen = keys[half:]
+                            child_fault = {k: parent_fault_js[k] for k in chosen}
+                            with open(os.path.join(out_dir, f"{base}_fault.json"), 'w', encoding='utf-8') as cf:
+                                json.dump(child_fault, cf, indent=4)
+
+                        if not os.path.exists(os.path.join(out_dir, f"{base}_golden.json")) and os.path.exists(parent_golden):
+                            # 将父 golden 简单复制为子 golden（作为回退）
+                            with open(parent_golden, 'r', encoding='utf-8') as pg:
+                                parent_golden_js = json.load(pg)
+                            with open(os.path.join(out_dir, f"{base}_golden.json"), 'w', encoding='utf-8') as cg:
+                                json.dump(parent_golden_js, cg, indent=4)
+                    except Exception as e:
+                        print(f"生成 per-partition 文件时出错: {e}")
+                        pass
+
+                # 继续仿真（不再询问）
+
+            # 检查写入的源文件是否存在
+            missing_src = []
+            for p in files_to_write:
+                # 去掉开头的 ./
+                p_rel = p[2:] if p.startswith('./') else p
+                src_path = os.path.join(os.path.dirname(__file__), '..', p_rel)
+                if not os.path.exists(src_path):
+                    missing_src.append(p)
+            if missing_src:
+                print("警告：以下仿真需要的源文件不存在：")
+                for mf in missing_src:
+                    print(f"  - {mf}")
+                print("将继续仿真（可能会导致编译失败），并尝试在 output/ 中生成缺失的 partition testbench（若适用）。")
             # 调用simulator.py的main函数
             print(f"即将对电路 {selected_circuit} 进行仿真...")
             # 动态加载simulator.py模块
@@ -223,6 +330,8 @@ def main():
                 json.dump(config_data, f, indent=4)
             simulator.main()
             print("仿真流程结束。")
+            # 仿真完成后退出整个交互主程序
+            return
 
 
 if __name__ == "__main__":

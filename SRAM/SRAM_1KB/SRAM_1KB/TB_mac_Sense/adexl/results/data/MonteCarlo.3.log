@@ -1,0 +1,52 @@
+Starting Monte Carlo Sampling...
+
+Current time: Sun Nov 27 10:22:57 2022 
+MonteCarlo.3
+Number of points completed: 100
+Number of simulation errors: 17
+MonteCarlo.3 completed. 
+Current time: Sun Nov 27 10:34:03 2022 
+Monte Carlo Sampling yield summary:
+Number of spec values are in this yield data: 1
+SRAM_1KB:TB_mac_Sense:1	C0 - 
+	offset:	Yield	83%
+		Min -0.00989997	Max 0.00990004	Mean -0.00208189	Number of errors 17
+
+SRAM_1KB:TB_mac_Sense:1
+	Overall Yield	99%	Number of points passed	99	Total number of points	100
+
+Estimated yield = 99% (99/100), 17 errors
+Estimated yield (No opregions) = 99% (99/100)
+Monte Carlo Sampling yield summary:
+Number of spec values are in this yield data: 1
+SRAM_1KB:TB_mac_Sense:1	C0 - 
+	offset:	Yield	83%
+		Min -0.00989997	Max 0.00990004	Mean -0.00208189	Number of errors 17
+
+SRAM_1KB:TB_mac_Sense:1
+	Overall Yield	99%	Number of points passed	99	Total number of points	100
+
+Estimated yield = 99% (99/100), 17 errors
+Estimated yield (No opregions) = 99% (99/100)
+Monte Carlo Sampling yield summary:
+Number of spec values are in this yield data: 1
+SRAM_1KB:TB_mac_Sense:1	C0 - 
+	offset:	Yield	0%
+		Min 0	Max 0	Mean 0	Number of errors 0
+
+SRAM_1KB:TB_mac_Sense:1
+	Overall Yield	0%	Number of points passed	0	Total number of points	0
+
+Estimated yield = 0% (0/0), 0 errors
+Estimated yield (No opregions) = 0% (0/0)
+Monte Carlo Sampling yield summary:
+Number of spec values are in this yield data: 1
+SRAM_1KB:TB_mac_Sense:1	C0 - 
+	offset:	Yield	0%
+		Min 0	Max 0	Mean 0	Number of errors 0
+
+SRAM_1KB:TB_mac_Sense:1
+	Overall Yield	0%	Number of points passed	0	Total number of points	0
+
+Estimated yield = 0% (0/0), 0 errors
+Estimated yield (No opregions) = 0% (0/0)

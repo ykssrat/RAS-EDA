@@ -1217,9 +1217,11 @@ def process_circuit(circuit_name):
 
     # 确保output目录存在
     output_dir = os.path.join(os.path.dirname(__file__), '..', 'output')
-    partitioner.save_partitions(partitions, output_dir)
+    # 生成包含原始电路信息（circuit_info）的增强分割结果并保存
+    enhanced_partitions = partitioner._add_circuit_info(partitions)
+    partitioner.save_partitions(enhanced_partitions, output_dir)
 
-    return partitions
+    return enhanced_partitions
 
 
 if __name__ == "__main__":

@@ -5,8 +5,10 @@
     "circuit_info_file": "./output/circuit_info.json",
     "golden_file": "./output/golden.json",
     "fault_file": "./output/fault.json",
-    "path" : ".",
+    "path": ".",
     "tcl_file": "./run.tcl",
-    "vcs_command": "/home/sky/synopsys/vcs2016/bin/vcs",
-    "env_setup": "export VCS_HOME=/home/sky/synopsys/vcs2016 && export PATH=$VCS_HOME/bin:$PATH && export LM_LICENSE_FILE=/home/sky/synopsys/License/scl_keygen/Synopsys.dat"
+    "vcs_extra_flags": "",
+    "vcs_debug_flags": "-debug_access+all -debug_region+cell+encrypt",
+    "vcs_command": "/home/synopsys/vcs/O-2018.09-SP2/bin/vcs",
+    "env_setup": "export VCS_HOME=/home/synopsys/vcs/O-2018.09-SP2 && export PATH=$VCS_HOME/bin:$PATH && export LM_LICENSE_FILE=/home/synopsys/vcs/O-2018.09-SP2/admin/license/Synopsys.dat"
 }

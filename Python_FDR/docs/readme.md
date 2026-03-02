@@ -8,9 +8,10 @@ vcs+verdi是目前市面上仿真最快的方式
 虚拟机：推荐使用vmware
 仿真器：VCS2016
 下载教程：https://blog.csdn.net/qiumingT/article/details/131700570
-
 资源：通过网盘分享的文件：Synopsys
 链接: https://pan.baidu.com/s/1pKsduApIso07RM5m3rbUpQ 提取码: dp5s
+第一次使用：
+建议使用git工具在github上来完成代码改进以及更新
 终端使用pip install -r py/requirements.txt可以一键快速安装依赖库
 ## 目录结构
 

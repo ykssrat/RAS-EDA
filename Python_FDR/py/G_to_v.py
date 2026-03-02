@@ -391,12 +391,16 @@ class GToV:
         
         return "\n".join(lines)
 
-    def generate_verilog(self) -> bool:
-        """生成所有分区的Verilog文件"""
+    def generate_verilog(self, target_dir: str = None) -> bool:
+        """生成所有分区的Verilog文件
+
+        如果指定了 target_dir，则把生成的 Verilog 放到该目录（通常为 circuit 目录），否则放在 GraphML 同目录下。
+        """
         if not self.load_data():
             return False
-            
-        output_dir = os.path.dirname(self.graphml_file)
+
+        output_dir = target_dir if target_dir is not None else os.path.dirname(self.graphml_file)
+        os.makedirs(output_dir, exist_ok=True)
         
         # 生成 A 区
         content_a = self._generate_partition_module('a')
@@ -414,12 +418,13 @@ class GToV:
         
         return True
 
-def generate_verilog(circuit_name):
-    """对外接口函数"""
-    # 假设文件在 output 目录下
-    # 尝试查找文件
+def generate_verilog(circuit_name, target_dir: str = None):
+    """对外接口函数
+
+    target_dir: 可选，生成的 v 文件放置目录（通常为 circuit 目录）。
+    """
+    # 假设 GraphML 文件在 output 目录下
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    # 更新为读取 _cut.graphml 文件
     graphml_path = os.path.join(base_dir, 'output', f'{circuit_name}_cut.graphml')
     
     if not os.path.exists(graphml_path):
@@ -432,7 +437,7 @@ def generate_verilog(circuit_name):
             graphml_path = f'{circuit_name}_cut.graphml'
     
     converter = GToV(graphml_path)
-    return converter.generate_verilog()
+    return converter.generate_verilog(target_dir=target_dir)
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:

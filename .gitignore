@@ -7,7 +7,9 @@ Python_FDR/py/__pycache__/
 **/output/*.graphml
 **/output/*.json
 **/output/ser_analysis/
+**/sim.daidir/
 **/work/
+**/csrc/
 **/tmp/
 
 # Ignore all JetBrains IDE config

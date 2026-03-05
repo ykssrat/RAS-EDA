@@ -1,9 +1,12 @@
-import os
-import pprint
-import json
 import sys
+import time
 import timeit
-
+import threading
+import json
+import os
+import re
+import pprint
+from tqdm import tqdm
 
 class Config:
     def __init__(self, config_file):
@@ -340,33 +343,51 @@ class Simulator:
 
 class LogMonitor:
     """非侵入性日志解析器：
-    - 通过扫描 VCS 日志中已完成的 fault 名称来估算进度（不会修改仿真流程）
-    - 提供给有真实仿真运行时的可选进度显示
+    - 通过扫描 VCS 日志中已完成的 fault 名称来估算进度
     """
-    def __init__(self, log_path):
+    def __init__(self, log_path, total_expected):
         self.log_path = log_path
+        self.total_expected = total_expected
+        self.pbar = None
+        self.stop_event = threading.Event()
 
-    def _read_log(self):
+    def _get_completed_count(self):
+        if not os.path.exists(self.log_path):
+            return 0
         try:
-            with open(self.log_path, 'r', encoding='utf-8', errors='ignore') as f:
-                return f.read()
-        except FileNotFoundError:
-            return ''
+            # 使用 shell 命令快速计数日志中的 "ucli%" 出现次数，这代表了一个命令周期的结束
+            # 或者统计 "V C S   S i m u l a t i o n   R e p o r t" 出现的次数
+            import subprocess
+            cmd = f"grep -c 'V C S   S i m u l a t i o n   R e p o r t' {self.log_path}"
+            result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+            count = int(result.stdout.strip()) if result.stdout.strip().isdigit() else 0
+            return count
+        except Exception:
+            return 0
 
-    def estimate_progress_by_faults(self, fault_names):
-        """根据 fault_names 列表在日志中出现的次数来估算完成比例。
-        返回 (completed_count, total_count, fraction)
-        """
-        if not fault_names:
-            return 0, 0, 0.0
-        txt = self._read_log()
-        completed = 0
-        for fn in fault_names:
-            if fn in txt:
-                completed += 1
-        total = len(fault_names)
-        return completed, total, float(completed) / float(total)
+    def start_monitoring(self):
+        self.pbar = tqdm(total=self.total_expected, desc="仿真进度", unit="fault")
+        def update_loop():
+            last_count = 0
+            while not self.stop_event.is_set():
+                curr_count = self._get_completed_count()
+                if curr_count > last_count:
+                    self.pbar.update(curr_count - last_count)
+                    last_count = curr_count
+                time.sleep(1)
+        
+        self.thread = threading.Thread(target=update_loop, daemon=True)
+        self.thread.start()
 
+    def stop_monitoring(self):
+        self.stop_event.set()
+        if hasattr(self, 'thread'):
+            self.thread.join(timeout=2)
+        if self.pbar:
+            # 确保最后进度条填满（如果是由于 finish 正常结束）
+            self.pbar.n = self.total_expected
+            self.pbar.refresh()
+            self.pbar.close()
 
 def run_python_regression(circuit_name='s27'):
     """在 Python 端使用已有的 JSON 做快速回归：
@@ -460,15 +481,32 @@ def main():
     # fault
     print(f"[INFO] 正在生成故障注入指令，目标寄存器数量: {len(circuit.injection_reg)}")
     sim.write_fault_tcl(circuit.injection_reg)
+    # 计算总故障点数量：每个寄存器 * 每个时序点
+    total_faults = 0
+    for reg in circuit.injection_reg:
+        for i in range(config.end_time):
+            t = config.clk_period / 2 + i * config.clk_period
+            if t >= config.end_time - config.clk_period:
+                break
+            total_faults += 1
+    
+    # 启用进度监控线程
+    monitor = LogMonitor(log_path, total_faults)
+    monitor.start_monitoring()
+
     # 强制同步文件到磁盘
     import time
     time.sleep(1) 
     
-    print(f"[INFO] 开始故障注入仿真 (预计运行 {len(circuit.injection_reg) * config.end_time / 10:.0f} 个故障周期)...")
+    print(f"[INFO] 开始故障注入仿真 (预计运行 {total_faults} 个故障周期)...")
     if not sim.simulate():
+        monitor.stop_monitoring()
         print(f"[ERROR] 故障仿真失败，详细日志请查阅: {log_path}")
         return
-
+    
+    # 停止监控
+    monitor.stop_monitoring()
+    
     # 检查 fault 仿真后是否出现 force/debug 相关错误（并给出修复建议）
     try:
         with open(log_path, 'r', encoding='utf-8', errors='ignore') as _lf:

@@ -13,6 +13,8 @@ vcs+verdi是目前市面上仿真最快的方式
 第一次使用：
 建议使用git工具在github上来完成代码改进以及更新
 终端使用pip install -r py/requirements.txt可以一键快速安装依赖库
+ISCAS'89 (International Symposium on Circuits and Systems 1989) 是一套经典的同步时序电路基准测试集。
+电路下载网站：https://github.com/bluesceada/iscas89_hl_verilog
 ## 目录结构
 
 ```

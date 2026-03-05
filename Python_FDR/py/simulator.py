@@ -127,10 +127,12 @@ class CircuitInfo:
                 # 产生故障
                 else:
                     self.fdr_log[reg_name].append(1)
-        # pprint.pprint(self.fdr_log)
         self.fdr_result = {}
         for reg, values in self.fdr_log.items():
             total = len(values)
+            if total == 0:
+                print(f"[WARN] 寄存器 {reg} 没有收集到任何故障仿真数据，跳过 FDR 计算。")
+                continue
             error = 0
             correct = 0
             hide = 0
@@ -143,6 +145,13 @@ class CircuitInfo:
                     hide += 1
             fdr = float(error) / float(total)
             self.fdr_result[reg] = {'error': error, 'correct': correct, 'hide': hide, 'FDR': fdr}
+        
+        if not self.fdr_result:
+            print("[ERROR] 所有寄存器均无仿真数据。请检查：")
+            print("  1. VCS 仿真是否正常结束？(查看 output/vcs_run.log)")
+            print("  2. PLI 插件是否正确加载并写入了数据？")
+            return
+            
         pprint.pprint(self.fdr_result)
         self.save_report(self.fdr_result)
 

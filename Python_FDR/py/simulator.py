@@ -320,8 +320,9 @@ class Simulator:
     def write_fault_tcl(self, injection_reg_list):
         # 必须先写入 call {$runfault(...)} 才能激活 PLI 的故障记录逻辑
         with open(self.tcl_file, 'w') as tcl:
-            # 注意：这里需要双大括号来转义
-            tcl.write(f"call {{$runfault(\"{os.path.basename(self.config_file)}\")}}\n")
+            # 修正属性访问：从传入的 config 路径获取文件名
+            config_base = os.path.basename(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "config.json"))
+            tcl.write(f"call {{$runfault(\"{config_base}\")}}\n")
         
         for reg in injection_reg_list:
             for i in range(self.end_time):

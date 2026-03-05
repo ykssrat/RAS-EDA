@@ -437,63 +437,29 @@ def main():
     sim.write_golden_tcl()
     sim.clean()
     if not sim.compile():
-        print(f"[ERROR] 详细日志请查阅: {log_path}")
+        print(f"[ERROR] 编译失败，详细日志请查阅: {log_path}")
         return
 
-    # 如果用户请求进度显示，则在真实仿真时监控日志（非侵入）
-    if show_progress:
-        monitor = LogMonitor(log_path)
-        print('[INFO] 进度监控已开启（通过解析 VCS 日志） — 仅用于显示，不改动仿真流程')
-
+    print("[INFO] 开始黄金 (Golden) 仿真以提取电路信号...")
     if not sim.simulate():
-        print(f"[ERROR] 详细日志请查阅: {log_path}")
+        print(f"[ERROR] 黄金仿真失败，详细日志请查阅: {log_path}")
         return
 
-    # 在仿真运行期间（或之后）可以查询进度（若启用）——这里只做一次示例查询
-    if show_progress:
-        # 尝试从 fault 文件或 circuit info 中收集 fault name 列表用于估算
-        try:
-            with open(os.path.join(os.path.dirname(script_dir), config.fault_file)) as f:
-                fault_js = json.load(f)
-                fault_names = list(fault_js.keys())
-        except Exception:
-            fault_names = []
-        c, t, frac = monitor.estimate_progress_by_faults(fault_names)
-        print(f"[PROGRESS] 已检测到 {c}/{t} 个故障记录在日志中（估算完成: {frac:.0%}）")
-
-    # 检测仿真日志中可能的 force-debug 错误，提供可执行修复或自动重编译（如果用户请求）
-    try:
-        with open(log_path, 'r', encoding='utf-8', errors='ignore') as _l:
-            log_txt = _l.read()
-    except Exception:
-        log_txt = ''
-
-    force_err_patterns = ['Unable to force object', 'FORCE-NODBG', 'not compiled with the required debug capability']
-    force_error_detected = any(p in log_txt for p in force_err_patterns)
-    if force_error_detected:
-        print('\n[SIM][WARN] 在仿真日志中检测到 force/DEBUG 相关错误，可能需要带 debug 选项重新编译以支持 force。')
-        print('建议：')
-        print("  1) 在配置文件中设置 'vcs_debug_flags' 或临时使用 CLI 参数 '--rebuild-debug'；")
-        print("  2) 或者手动用： make com VCS_EXTRA_FLAGS='-debug_access+all' 然后重跑仿真。\n")
-        if rebuild_debug:
-            print('[SIM] 检测到 --rebuild-debug，尝试使用 debug 标志重编译并重跑仿真（一次）')
-            if sim.rebuild_with_debug():
-                print('[SIM] 重新运行仿真（debug 编译）')
-                if not sim.simulate():
-                    print(f"[ERROR] debug 模式下仿真仍失败，详见: {log_path}")
-                    return
-            else:
-                print(f"[ERROR] 无法用 debug 标志重编译，详见: {log_path}")
-                return
-
+    # 黄金仿真结束后，读取并打印发现的信号
     circuit.get_circuit_info()
     circuit.get_golden()
-    # circuit.print_circuit()
+    print(f"[INFO] 黄金仿真提取完成。探测到 {len(circuit.injection_reg)} 个可注入位，{len(circuit.out_port)} 个输出端口。")
 
     # fault
+    print(f"[INFO] 正在生成故障注入指令，目标寄存器数量: {len(circuit.injection_reg)}")
     sim.write_fault_tcl(circuit.injection_reg)
+    # 强制同步文件到磁盘
+    import time
+    time.sleep(1) 
+    
+    print(f"[INFO] 开始故障注入仿真 (预计运行 {len(circuit.injection_reg) * config.end_time / 10:.0f} 个故障周期)...")
     if not sim.simulate():
-        print(f"[ERROR] 详细日志请查阅: {log_path}")
+        print(f"[ERROR] 故障仿真失败，详细日志请查阅: {log_path}")
         return
 
     # 检查 fault 仿真后是否出现 force/debug 相关错误（并给出修复建议）
@@ -504,12 +470,10 @@ def main():
         _log_txt = ''
     if any(p in _log_txt for p in ['Unable to force object', 'FORCE-NODBG', 'not compiled with the required debug capability']):
         print('\n[SIM][ERROR] 在 fault 注入阶段检测到 force/DEBUG 错误 — 这会阻止故障注入生效。')
-        print('可选修复步骤:')
-        print("  - 临时重编译并启用 debug： python py/simulator.py --rebuild-debug && 再次运行仿真")
-        print("  - 或在 config/config.json 中设置 'vcs_debug_flags'，然后重编译")
-        # 不自动继续以避免产生误导性（只有在用户明确要求时才自动重试）
+        print('建议：在 config/config.json 中设置 vcs_debug_flags 并重新编译。')
         return
 
+    print("[INFO] 仿真全部完成，正在分析结果...")
     circuit.get_fault()
     circuit.cal_result()
     # 成功完成仿真与结果计算后显式退出（返回码 0）——避免回到交互菜单

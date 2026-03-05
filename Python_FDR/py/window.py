@@ -175,16 +175,13 @@ def main():
             selected_circuit = circuits[int(sel)-1]
             base = os.path.splitext(selected_circuit)[0]
 
-            # 检查并生成缺失的故障仿真配置文件
+            # 创建基础输出文件以通过初始检查，具体内容由仿真时的 PLI 自动提取写入
             output_dir = os.path.join(os.path.dirname(__file__), '..', 'output')
-            circuit_info_file = os.path.join(output_dir, f"{base}_circuit_info.json")
-            if not os.path.exists(circuit_info_file):
-                print(f"检测到缺失配置文件，正在为电路 {base} 生成默认配置以支持直接仿真...")
-                try:
-                    import gen_default_json
-                    gen_default_json.generate_default_files(base)
-                except Exception as e:
-                    print(f"生成默认配置文件失败: {e}")
+            for suffix in ['_circuit_info.json', '_golden.json', '_fault.json']:
+                fpath = os.path.join(output_dir, f"{base}{suffix}")
+                if not os.path.exists(fpath):
+                    with open(fpath, 'w') as f:
+                        json.dump({}, f)
 
             # 动态修改 verilog_file.f
             verilog_f_path = os.path.join(circuit_dir, 'verilog_file.f')

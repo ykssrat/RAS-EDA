@@ -192,6 +192,18 @@ void init_golden_file(char* filename){
 
 //得到电路内部信息,故障注入reg，输出端口
 void get_circuit_info(char* filename){
+  // 检查文件是否已存在且非空
+  FILE* check_file = fopen(filename, "r");
+  if (check_file != NULL) {
+    fseek(check_file, 0, SEEK_END);
+    long size = ftell(check_file);
+    fclose(check_file);
+    if (size > 10) { // 如果文件已经有实质内容（不仅仅是空对象），则不覆盖
+      io_printf("[PLI] %s already exists and has content, skipping overwrite to preserve Python info.\n", filename);
+      return;
+    }
+  }
+
   int i, j;
   int obj_size, msb, lsb;
   char new_name[200];

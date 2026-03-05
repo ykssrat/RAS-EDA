@@ -79,12 +79,20 @@ class CircuitInfo:
 
     def get_golden(self):
         os.chdir(self.path)
+        if not os.path.exists(self.golden_file):
+            print(f"警告: {self.golden_file} 不存在，已初始化为空字典。")
+            self.golden_dic = {}
+            return
         with open(self.golden_file) as golden_file:
             js = json.load(golden_file)
             self.golden_dic = js
 
     def get_fault(self):
         os.chdir(self.path)
+        if not os.path.exists(self.fault_file):
+            print(f"警告: {self.fault_file} 不存在，已初始化为空字典。")
+            self.fault_dic = {}
+            return
         with open(self.fault_file) as fault_file:
             js = json.load(fault_file)
             self.fault_dic = js

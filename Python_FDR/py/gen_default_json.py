@@ -2,6 +2,7 @@
 import json
 import os
 import sys
+import re
 
 # 将当前目录添加到路径以便导入项目模块
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))

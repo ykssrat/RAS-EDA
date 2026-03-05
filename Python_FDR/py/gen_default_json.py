@@ -34,6 +34,22 @@ def generate_default_files(circuit_name):
     main_module_name = list(modules.keys())[0]
     module_data = modules[main_module_name]
 
+    # 尝试寻找对应的 Testbench 以确定层次路径
+    tb_filename = f"{circuit_name}_tb.v"
+    tb_file = os.path.join(circuit_dir, tb_filename)
+    path_prefix = ""
+    if os.path.exists(tb_file):
+        with open(tb_file, 'r') as f:
+            tb_content = f.read()
+            # 匹配例化名：Division uut ( ... );
+            inst_match = re.search(rf"{circuit_name}\s+(\w+)\s*\(", tb_content)
+            if inst_match:
+                inst_name = inst_match.group(1)
+                # 假设 TB 模块名是 {circuit_name}_tb 或 {circuit_name}_tb_v
+                tb_mod_match = re.search(r"module\s+(\w+)", tb_content)
+                if tb_mod_match:
+                    path_prefix = f"{tb_mod_match.group(1)}.{inst_name}."
+
     # 提取输入、输出和寄存器（DFF）
     inputs = module_data.get('inputs', [])
     outputs = module_data.get('outputs', [])
@@ -42,13 +58,16 @@ def generate_default_files(circuit_name):
     state_regs = []
     for inst_type, inst_name, _ in module_data.get('instances', []):
         if 'DFF' in inst_type.upper():
-            state_regs.append(inst_name)
+            state_regs.append(f"{path_prefix}{inst_name}")
+
+    # 包装输出端口名
+    full_outputs = [f"{path_prefix}{out}" if out not in inputs else out for out in outputs]
 
     # 构造 circuit_info.json 内容
     circuit_info = {
         "injection_reg": state_regs,
         "state_reg": state_regs,
-        "out_port": outputs,
+        "out_port": full_outputs,
         "modules": modules
     }
 

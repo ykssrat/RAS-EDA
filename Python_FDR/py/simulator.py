@@ -27,16 +27,22 @@ class Config:
             self.clk_name = js['clk_name']
             self.clk_period = js['clk_period']
             self.end_time = js['end_time']
-            self.circuit_info_file = js['circuit_info_file']
-            self.golden_file = js['golden_file']
-            self.fault_file = js['fault_file']
-            self.path = js['path']
-            # 将相对 path 转为基于配置文件位置的绝对路径（config.json 位于 config/）
-            if not os.path.isabs(self.path):
-                base_dir = os.path.dirname(os.path.abspath(self.config_file))
-                self.path = os.path.abspath(os.path.join(base_dir, '..', self.path))
-            self.tcl_file = js['tcl_file']
-            # 可选的 VCS 命令与环境设置（向后兼容）
+            
+            # 统一处理路径：确保不论从哪里启动，都能找到正确的文件
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            
+            def fix_path(p):
+                if not p: return ''
+                if os.path.isabs(p): return p
+                # 如果是 ./ 开头的相对路径，相对于项目根目录
+                return os.path.normpath(os.path.join(base_dir, p.lstrip('./')))
+
+            self.circuit_info_file = fix_path(js['circuit_info_file'])
+            self.golden_file = fix_path(js['golden_file'])
+            self.fault_file = fix_path(js['fault_file'])
+            self.path = fix_path(js.get('path', '.'))
+            self.tcl_file = fix_path(js['tcl_file'])
+            
             self.vcs_command = js.get('vcs_command', self.vcs_command)
             self.env_setup = js.get('env_setup', self.env_setup)
 

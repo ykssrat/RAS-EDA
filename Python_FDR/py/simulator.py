@@ -318,8 +318,11 @@ class Simulator:
             tcl.write(self.fault_tcl_content.format(fault_name, time, reg, self.end_time))
 
     def write_fault_tcl(self, injection_reg_list):
+        # 必须先写入 call {$runfault(...)} 才能激活 PLI 的故障记录逻辑
         with open(self.tcl_file, 'w') as tcl:
-            pass
+            # 注意：这里需要双大括号来转义
+            tcl.write(f"call {{$runfault(\"{os.path.basename(self.config_file)}\")}}\n")
+        
         for reg in injection_reg_list:
             for i in range(self.end_time):
                 t = self.clk_period / 2 + i * self.clk_period

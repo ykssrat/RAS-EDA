@@ -192,28 +192,36 @@ void init_golden_file(char* filename){
 
 //得到电路内部信息,故障注入reg，输出端口
 void get_circuit_info(char* filename){
-  // 检查文件是否已存在且非空
-  FILE* check_file = fopen(filename, "r");
-  if (check_file != NULL) {
-    fseek(check_file, 0, SEEK_END);
-    long size = ftell(check_file);
-    fclose(check_file);
-    if (size > 10) { // 如果文件已经有实质内容（不仅仅是空对象），则不覆盖
-      io_printf("[PLI] %s already exists and has content, skipping overwrite to preserve Python info.\n", filename);
-      return;
-    }
-  }
-
   int i, j;
   int obj_size, msb, lsb;
   char new_name[200];
+  
+  // 尝试读取现有内容，合并 Python 端的 injection_reg
+  cJSON* existing_root = NULL;
+  FILE* rf = fopen(filename, "r");
+  if (rf) {
+    fseek(rf, 0, SEEK_END);
+    long fsize = ftell(rf);
+    fseek(rf, 0, SEEK_SET);
+    if (fsize > 2) {
+      char* buf = malloc(fsize + 1);
+      fread(buf, 1, fsize, rf);
+      buf[fsize] = '\0';
+      existing_root = cJSON_Parse(buf);
+      free(buf);
+    }
+    fclose(rf);
+  }
+
   //根节点字典
   cJSON* root = cJSON_CreateObject();
   //子列表
   cJSON* reg_list = cJSON_CreateArray();
   cJSON* port_list = cJSON_CreateArray();
-  cJSON* injt_reg_list = cJSON_CreateArray();
-  //加入列表元素
+  cJSON* injt_reg_list = (existing_root) ? cJSON_DetachItemFromObject(existing_root, "injection_reg") : cJSON_CreateArray();
+  
+  if (existing_root) cJSON_Delete(existing_root);
+
   //reg
   for(i=0; i<reglen; i++)
   {

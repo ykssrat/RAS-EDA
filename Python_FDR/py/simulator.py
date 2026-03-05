@@ -270,7 +270,10 @@ class Simulator:
         if not os.path.exists(log_dir):
             os.makedirs(log_dir)
         log_path = os.path.join(log_dir, 'vcs_run.log')
-        cmd = f"make sim >> {log_path} 2>&1"
+        
+        # 核心修复：强制使用配置中指定的 TCL 文件 (例如 Division_run.ucli)，而不是静态的 run.tcl
+        tcl_filename = os.path.basename(self.tcl_file)
+        cmd = f"./sim -ucli -i {tcl_filename} -ucli2Proc >> {log_path} 2>&1"
         print(f"[SIM] 仿真命令：{cmd}")
         rc = os.system(cmd)
         return rc == 0

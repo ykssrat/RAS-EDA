@@ -16,6 +16,28 @@ from G_to_v import GToV, generate_verilog
 import time
 
 
+def is_testbench_file(filename):
+    """判断是否为testbench或辅助库文件。"""
+    lower = filename.lower()
+    if lower in ['tb.v', 'test.v', 'stdcells.v']:
+        return True
+    return lower.endswith('_tb.v') or lower.endswith('_bench_tb.v')
+
+
+def list_selectable_circuits(circuit_dir, include_partitions=True):
+    """列出可供选择的电路文件（过滤testbench和库文件）。"""
+    circuits = []
+    for f in os.listdir(circuit_dir):
+        if not f.endswith('.v'):
+            continue
+        if is_testbench_file(f):
+            continue
+        if not include_partitions and (f.endswith('_a.v') or f.endswith('_b.v')):
+            continue
+        circuits.append(f)
+    return sorted(circuits)
+
+
 def partition_circuit(circuit_name):
     """
     对电路进行分割
@@ -130,8 +152,8 @@ def main():
 
         if choice in ['1', '2']:
             # 列出 circuit 目录下的可供选择的原始电路（仅数字选择）
-            # 排除 *_a.v / *_b.v / *_tb.v / stdcells.v / test.v
-            circuits = [f for f in os.listdir(circuit_dir) if f.endswith('.v') and not f.endswith('_a.v') and not f.endswith('_b.v') and not f.endswith('_tb.v') and f not in ['stdcells.v','tb.v','test.v']]
+            # 排除 *_a.v / *_b.v / *_tb.v / *_bench_tb.v / stdcells.v / test.v / tb.v
+            circuits = list_selectable_circuits(circuit_dir, include_partitions=False)
             if not circuits:
                 print("未找到可供选择的原始电路！")
                 continue
@@ -158,8 +180,8 @@ def main():
                 if success:
                     print(f"电路 {circuit_name} 的Verilog文件生成完成并放入 circuit 目录!")
         elif choice == '3':
-            # 读取circuit目录下所有电路文件（.v结尾）
-            circuits = [f for f in os.listdir(circuit_dir) if f.endswith('.v')]
+            # 读取可仿真的电路文件（不显示testbench和库文件）
+            circuits = list_selectable_circuits(circuit_dir, include_partitions=True)
             if not circuits:
                 print("未找到任何电路文件！")
                 continue

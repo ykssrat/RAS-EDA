@@ -14,3 +14,6 @@ Python_FDR/py/__pycache__/
 
 # Ignore all JetBrains IDE config
 .idea/
+
+# Ignore results directory
+/results
